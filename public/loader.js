@@ -74,6 +74,9 @@
     const remoteCss = (forceFallback || forceOffline) ? [] : [CDN.revealCss];
     if (!forceFallback) await firstSuccessful(loadStyle, [local.revealCss, ...remoteCss]);
 
+    const contentCssLoaded = await loadStyle('content-2026.css', 2500);
+    if (!contentCssLoaded) console.warn('Content refinement styles did not load; base styles will be used.');
+
     const revealSources = forceOffline ? [local.revealJs] : [local.revealJs, CDN.revealJs];
     const revealReady = !forceFallback
       && await firstSuccessful(loadScript, revealSources)
@@ -94,6 +97,9 @@
         throw new Error('Unable to load reveal.js or fallback controller.');
       }
     }
+
+    const contentLoaded = await loadScript('content-2026.js', 3000);
+    if (!contentLoaded) console.warn('Content refinements did not load; the original slide structure will be used.');
 
     const scenesLoaded = await loadScript('three-scenes.js', 3000);
     if (!scenesLoaded) console.warn('Three.js scene manager did not load; static diagrams will remain visible.');
