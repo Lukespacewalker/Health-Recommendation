@@ -1,41 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="th">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <meta content="#07111f" name="theme-color"/>
-<meta content="Interactive health-check slides by Suttisak Denduangchai: diabetes, lipids, kidney, cardiovascular risk and tumor markers" name="description"/>
-<title>อ่านผลตรวจสุขภาพให้เข้าใจ | Suttisak Denduangchai</title>
+<meta content="คู่มือ HTML สำหรับทำความเข้าใจผลตรวจสุขภาพ ว่าค่าแต่ละชนิดหมายถึงอะไร ควรติดตามอย่างไร และเมื่อใดควรพบแพทย์ จัดทำโดย Suttisak Denduangchai" name="description"/>
+<title>อ่านผลตรวจสุขภาพ | Suttisak Denduangchai</title>
 <link href="theme.css" rel="stylesheet"/>
 </head>
 <body>
-<div aria-live="polite" id="boot-screen" role="status"><div class="boot-orbit"><i></i><i></i><i></i></div><strong>กำลังเตรียมสไลด์</strong><span>Reveal.js + navigation + selective Three.js</span></div>
+<div aria-live="polite" id="boot-screen" role="status"><div class="boot-orbit"><i></i><i></i><i></i></div><strong>กำลังเตรียมสไลด์</strong><span>กำลังเปิดคู่มือและเครื่องมือคำนวณ</span></div>
 <header aria-label="ตัวควบคุมสไลด์" class="deck-chrome">
 <button aria-expanded="false" id="menu-toggle" title="เปิดสารบัญ (M)" type="button"><span>☰</span> สารบัญ</button>
 <nav aria-label="หมวดหลัก" id="chapter-tabs"><button data-target-group="home">หน้าแรก</button><button data-target-group="diabetes">1 เบาหวาน</button><button data-target-group="lipids">2 ไขมัน</button><button data-target-group="kidney">3 ไต</button><button data-target-group="cvd">4 หัวใจ</button><button data-target-group="cancer">5 มะเร็ง</button><button data-target-group="other">อื่น ๆ</button></nav>
-<div class="chrome-right"><div id="author-chip">Suttisak Denduangchai</div><div id="section-chip">HOME</div><button id="effects-toggle" title="เปิด/ปิดเอฟเฟกต์ (E)" type="button">Effects</button></div>
+<div class="chrome-right"><div id="author-chip">Suttisak Denduangchai</div><div id="section-chip">หน้าแรก</div><button id="effects-toggle" title="เปิด/ปิดเอฟเฟกต์ (E)" type="button">เอฟเฟกต์</button></div>
 </header>
 <div aria-hidden="true" id="chapter-progress"><i></i></div>
 <div id="nav-backdrop"></div>
 <aside aria-hidden="true" aria-label="สารบัญสไลด์" id="nav-drawer">
-<div class="drawer-head"><div><strong>Health Check</strong><span>Clinical Modules</span></div><button aria-label="ปิดสารบัญ" id="menu-close" type="button">×</button></div>
+<div class="drawer-head"><div><strong>อ่านผลตรวจสุขภาพ</strong><span>คู่มือแบบแบ่งหมวด</span></div><button aria-label="ปิดสารบัญ" id="menu-close" type="button">×</button></div>
 <div id="drawer-current"></div>
 <div id="drawer-list"></div>
-<div class="drawer-help"><kbd>M</kbd> menu · <kbd>O</kbd> overview · <kbd>S</kbd> speaker view</div>
+<div class="drawer-help"><kbd>M</kbd> สารบัญ · <kbd>O</kbd> ภาพรวม · <kbd>S</kbd> มุมผู้บรรยาย</div>
 </aside>
 <div class="reveal"><div class="slides"><section class="slide slide-cover" data-group="home" data-menu-title="หน้าแรก" data-section="HEALTH CHECK" data-transition="zoom" id="home">
 <div class="cover-grid">
 <div class="cover-copy">
-<div class="eyebrow">HEALTH CHECK • INTERACTIVE CLINICAL MODULES • AUG 2026</div>
-<h1>อ่านผลตรวจสุขภาพ<br/><span>แบบเห็นความเชื่อมโยง</span></h1>
-<p class="cover-subtitle">เบาหวาน • ไขมัน • ไต • ความเสี่ยงหลอดเลือดหัวใจ • Tumor markers</p>
-<div class="cover-pills"><span class="fragment fade-up">Grouped navigation</span><span class="fragment fade-up">Interactive calculators</span><span class="fragment fade-up">Mechanism animation</span><span class="fragment fade-up">Clickable references</span></div>
+<div class="eyebrow">HEALTH CHECK • UNDERSTAND YOUR RESULTS • AUG 2026</div>
+<h1>อ่านผลตรวจสุขภาพ<br/><span>เพื่อรู้ว่าควรทำอะไรต่อ</span></h1>
+<p class="cover-subtitle">เข้าใจความหมาย • แยกผลที่ควรติดตาม • เตรียมคำถามก่อนพบแพทย์</p>
+<div class="cover-pills"><span class="fragment fade-up">รู้ว่าค่าไหนบอกอะไร</span><span class="fragment fade-up">เห็นผลที่ควรตรวจซ้ำ</span><span class="fragment fade-up">ลองคำนวณเพื่อทำความเข้าใจ</span><span class="fragment fade-up">เปิดหลักฐานต้นทางได้</span></div>
 <div class="cover-actions fragment fade-up">
 <button class="primary-action" data-jump="map" type="button">เปิดสารบัญ</button>
 <span>กด <kbd>M</kbd> เปิดเมนูได้ทุกหน้า</span>
 </div>
-<div class="cover-author">จัดทำโดย <strong>Suttisak Denduangchai</strong></div><div class="cover-note">Medical education deck • ไม่ใช้แทนการวินิจฉัยหรือแผนรักษาเฉพาะบุคคล</div>
+<div class="cover-author">จัดทำโดย <strong>Suttisak Denduangchai</strong></div><div class="cover-note">คู่มือประกอบการอ่านผลตรวจสุขภาพ • ไม่ใช้แทนการวินิจฉัยหรือแผนรักษารายบุคคล</div>
 </div>
 <div class="three-stage cover-stage" data-three-host="">
 <canvas aria-label="เครือข่ายข้อมูลสุขภาพแบบสามมิติ" data-three-scene="cover"></canvas>
@@ -46,34 +46,31 @@
 </div>
 </div>
 </div>
-<aside class="notes">เปิดด้วยแนวคิดว่าแต่ละค่าตอบคนละคำถาม และควรอ่านร่วมกันเป็นภาพรวม</aside>
-</section><section class="slide" data-group="home" data-menu-title="สารบัญแบบกลุ่ม" data-section="NAVIGATION" data-transition="convex" id="map">
-<div class="slide-kicker">NAVIGATION</div>
-<h2>เลือกหมวดที่ต้องการดู <small>คลิกการ์ดหรือใช้ chapter tabs ด้านบน</small></h2>
-<p class="lead">ทุกหมวดมีลำดับเนื้อหา, navigation ย่อย, reference links และ animation เฉพาะจุดที่ช่วยให้เข้าใจกลไก</p>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง MedlinePlus: อ่านผลแล็บ ในแท็บใหม่" href="https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/" rel="noopener noreferrer" target="_blank">MedlinePlus: อ่านผลแล็บ</a><a aria-label="เปิดแหล่งอ้างอิง ADA 2026 ในแท็บใหม่" href="https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes" rel="noopener noreferrer" target="_blank">ADA 2026</a><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026 Lipids ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia" rel="noopener noreferrer" target="_blank">AHA/ACC 2026 Lipids</a><a aria-label="เปิดแหล่งอ้างอิง KDIGO 2024 ในแท็บใหม่" href="https://kdigo.org/guidelines/ckd-evaluation-and-management/" rel="noopener noreferrer" target="_blank">KDIGO 2024</a></div></section><section class="slide" data-group="home" data-menu-title="สารบัญแบบกลุ่ม" data-section="NAVIGATION" data-transition="convex" id="map">
+<div class="slide-kicker">สารบัญ</div>
+<h2>เริ่มจากค่าที่ผิดปกติในรายงานของคุณ <small>หรือเลือกหมวดที่ต้องการทบทวน</small></h2>
+<p class="lead">แต่ละหมวดตอบ 3 คำถาม: ค่านี้คืออะไร • ผลสูงหรือต่ำหมายถึงอะไร • ควรทำอะไรต่อ</p>
 <div class="module-map module-map-six">
-<button class="module-card diabetes" data-jump="diabetes-start" data-readable-card=""><b>01</b><h3>เบาหวาน</h3><p>HbA1c • GI/GL • ตารางอาหาร • กราฟน้ำตาล</p><span data-count-group="diabetes">6 slides</span></button>
-<button class="module-card lipids" data-jump="lipids-start" data-readable-card=""><b>02</b><h3>ไขมันในเลือด</h3><p>Cholesterol/TG • VLDL/IDL/LDL/HDL • ApoB • Lp(a) • Ratios</p><span data-count-group="lipids">13 slides</span></button>
-<button class="module-card kidney" data-jump="kidney-start" data-readable-card=""><b>03</b><h3>ไต</h3><p>eGFR • uACR • Interactive calculator • Kidney stone</p><span data-count-group="kidney">4 slides</span></button>
-<button class="module-card cvd" data-jump="cvd-start" data-readable-card=""><b>04</b><h3>ความเสี่ยงหัวใจและหลอดเลือด</h3><p>Risk score • CAC • EST • Echo</p><span data-count-group="cvd">8 slides</span></button>
-<button class="module-card cancer" data-jump="cancer-start" data-readable-card=""><b>05</b><h3>มะเร็งและ Tumor markers</h3><p>Body map • marker ที่พบบ่อย • false positive • การใช้ที่ถูกต้อง</p><span data-count-group="cancer">6 slides</span></button>
-<button class="module-card other" data-jump="other-start" data-readable-card=""><b>+</b><h3>ผลตรวจอื่น</h3><p>เลือด • ความดัน • ตา • หู • หลอดเลือดส่วนปลาย</p><span data-count-group="other">11 slides</span></button>
+<button class="module-card diabetes" data-jump="diabetes-start" data-readable-card=""><b>01</b><h3>เบาหวาน</h3><p>HbA1c • GI/GL • อาหารและระดับน้ำตาลหลังมื้อ</p><span data-count-group="diabetes">6 หัวข้อ</span></button>
+<button class="module-card lipids" data-jump="lipids-start" data-readable-card=""><b>02</b><h3>ไขมันในเลือด</h3><p>TC/LDL-C/HDL-C/TG • ApoB • Lp(a) • สาเหตุและการควบคุม</p><span data-count-group="lipids">13 หัวข้อ</span></button>
+<button class="module-card kidney" data-jump="kidney-start" data-readable-card=""><b>03</b><h3>ไต</h3><p>eGFR • uACR • เครื่องคำนวณ • นิ่วในไต</p><span data-count-group="kidney">4 หัวข้อ</span></button>
+<button class="module-card cvd" data-jump="cvd-start" data-readable-card=""><b>04</b><h3>ความเสี่ยงหัวใจและหลอดเลือด</h3><p>Risk score • CAC • EST • Echo และข้อบ่งชี้</p><span data-count-group="cvd">8 หัวข้อ</span></button>
+<button class="module-card cancer" data-jump="cancer-start" data-readable-card=""><b>05</b><h3>มะเร็งและ Tumor markers</h3><p>Tumor markers • body map • ผลหลอก • การคัดกรองที่เหมาะสม</p><span data-count-group="cancer">6 หัวข้อ</span></button>
+<button class="module-card other" data-jump="other-start" data-readable-card=""><b>+</b><h3>ผลตรวจอื่น</h3><p>เลือด • ความดัน • ตา • หู • หลอดเลือดส่วนปลาย</p><span data-count-group="other">11 หัวข้อ</span></button>
 </div>
-<div class="navigation-help"><kbd>← →</kbd> เปลี่ยนหน้า · <kbd>O</kbd> overview · <kbd>S</kbd> speaker view · <kbd>M</kbd> menu · <kbd>F</kbd> fullscreen</div>
-<aside class="notes">ใช้หน้านี้เป็น dashboard คลิกเลือกหมวด หรือใช้เมนูด้านบนได้ทุกหน้า</aside>
-</section><section class="slide chapter-slide chapter-diabetes" data-group="diabetes" data-menu-title="เบาหวานและระดับน้ำตาล" data-section="เบาหวานและระดับน้ำตาล" data-transition="zoom" id="diabetes-start">
+<div class="navigation-help"><kbd>← →</kbd> เปลี่ยนหน้า · <kbd>O</kbd> ภาพรวม · <kbd>S</kbd> มุมผู้บรรยาย · <kbd>M</kbd> สารบัญ · <kbd>F</kbd> เต็มจอ</div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง MedlinePlus: อ่านผลแล็บ ในแท็บใหม่" href="https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/" rel="noopener noreferrer" target="_blank">MedlinePlus: อ่านผลแล็บ</a><a aria-label="เปิดแหล่งอ้างอิง NCI: Cancer Screening ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/screening/screening-tests" rel="noopener noreferrer" target="_blank">NCI: Cancer Screening</a><a aria-label="เปิดแหล่งอ้างอิง AHA PREVENT ในแท็บใหม่" href="https://professional.heart.org/en/guidelines-and-statements/about-prevent-calculator" rel="noopener noreferrer" target="_blank">AHA PREVENT</a></div></section><section class="slide chapter-slide chapter-diabetes" data-group="diabetes" data-menu-title="เบาหวานและระดับน้ำตาล" data-section="เบาหวานและระดับน้ำตาล" data-transition="zoom" id="diabetes-start">
 <div class="chapter-number">01</div>
 <div class="chapter-copy">
 <div class="slide-kicker">CHAPTER 01</div>
 <h2>เบาหวานและระดับน้ำตาล</h2>
-<p class="lead">จากค่าเฉลี่ยสามเดือน ไปจนถึงผลของอาหารหนึ่งมื้อ</p>
+<p class="lead">ช่วยแยกค่าเฉลี่ยระยะ 2–3 เดือนออกจากผลของอาหารแต่ละมื้อ และรู้ว่าเมื่อใดต้องยืนยันผล</p>
 </div>
-<div class="chapter-outline"><button class="chapter-outline-card fragment fade-up" data-jump="hba1c-mechanism" data-readable-card="" type="button"><b>1.1</b><span>HbA1c คืออะไร</span><small>น้ำตาลเกาะฮีโมโกลบินอย่างไร</small></button><button class="chapter-outline-card fragment fade-up" data-jump="hba1c-interpretation" data-readable-card="" type="button"><b>1.2</b><span>แปลผล HbA1c</span><small>cutoff และข้อจำกัด</small></button><button class="chapter-outline-card fragment fade-up" data-jump="gi-gl" data-readable-card="" type="button"><b>1.3</b><span>GI &amp; GL</span><small>ความเร็วกับปริมาณ</small></button><button class="chapter-outline-card fragment fade-up" data-jump="glucose-animation" data-readable-card="" type="button"><b>1.4</b><span>อาหารและกราฟน้ำตาล</span><small>ตารางตัวอย่าง + animation</small></button></div>
-<aside class="notes">หน้าคั่นหมวด ใช้คลิกการ์ดเพื่อกระโดดไปหัวข้อย่อยได้โดยตรง</aside>
-</section><section class="slide" data-group="diabetes" data-menu-title="HbA1c คืออะไร" data-section="DIABETES" data-transition="fade" id="hba1c-mechanism">
+<div class="chapter-outline"><button class="chapter-outline-card fragment fade-up" data-jump="hba1c-mechanism" data-readable-card="" type="button"><b>1.1</b><span>HbA1c คืออะไร</span><small>น้ำตาลเกาะฮีโมโกลบินอย่างไร</small></button><button class="chapter-outline-card fragment fade-up" data-jump="hba1c-interpretation" data-readable-card="" type="button"><b>1.2</b><span>แปลผล HbA1c</span><small>เกณฑ์วินิจฉัย ข้อจำกัด และขั้นถัดไป</small></button><button class="chapter-outline-card fragment fade-up" data-jump="gi-gl" data-readable-card="" type="button"><b>1.3</b><span>GI &amp; GL</span><small>ความเร็วกับปริมาณ</small></button><button class="chapter-outline-card fragment fade-up" data-jump="glucose-animation" data-readable-card="" type="button"><b>1.4</b><span>อาหารและกราฟน้ำตาล</span><small>ตารางอาหาร + กราฟจำลอง</small></button></div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง ADA 2026 ในแท็บใหม่" href="https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes" rel="noopener noreferrer" target="_blank">ADA 2026</a><a aria-label="เปิดแหล่งอ้างอิง NIDDK: A1C ในแท็บใหม่" href="https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test" rel="noopener noreferrer" target="_blank">NIDDK: A1C</a></div></section><section class="slide" data-group="diabetes" data-menu-title="HbA1c คืออะไร" data-section="DIABETES" data-transition="fade" id="hba1c-mechanism">
 <div class="slide-kicker">DIABETES • 1.1</div>
 <h2>HbA1c คืออะไร <small>น้ำตาลทิ้ง “รอยเวลา” บนเม็ดเลือดแดง</small></h2>
-<p class="lead">กลูโคสจับกับ hemoglobin แบบไม่ใช้เอนไซม์ ยิ่งระดับน้ำตาลสูงและอยู่นาน สัดส่วน glycated hemoglobin ยิ่งสูง</p>
+<p class="lead">HbA1c คือสัดส่วน hemoglobin ที่ถูก glucose จับ จึงช่วยมองภาพเฉลี่ยหลายสัปดาห์ ไม่ใช่ค่าน้ำตาล ณ เวลาที่เจาะเลือด</p>
 <div class="hba1c-layout">
 <div class="three-stage hba1c-stage panel" data-three-host="">
 <canvas aria-label="เม็ดเลือดแดงและกลูโคสเกาะฮีโมโกลบิน" data-three-scene="hba1c"></canvas>
@@ -88,15 +85,13 @@
 <div class="mechanism-row fragment fade-left"><b>2</b><span>กลูโคสสัมผัส hemoglobin ตลอดเวลาที่ไหลเวียน</span></div>
 <div class="mechanism-row fragment fade-left"><b>3</b><span>HbA1c จึงสะท้อนค่าเฉลี่ยราว 2–3 เดือน โดยช่วงล่าสุดมีน้ำหนักมากกว่า</span></div>
 </div>
-<div class="callout fragment fade-up"><strong>ภาพจำ:</strong> finger-stick คือภาพถ่ายหนึ่งเฟรม ส่วน HbA1c คือค่าเฉลี่ยของภาพยนตร์หลายสัปดาห์</div>
+<div class="callout fragment fade-up"><strong>เมื่อผลไม่สอดคล้องกัน:</strong> หาก HbA1c สูงหรือต่ำสวนทางกับน้ำตาลปลายนิ้ว อาการ หรือประวัติโรคเลือด ควรทบทวนด้วย plasma glucose และวิธีตรวจอื่น</div>
 </div>
 </div>
-<div class="source-line">NIDDK • The A1C Test &amp; Diabetes • <a href="https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">อย่าเรียก HbA1c ว่าเป็นน้ำตาลสะสมในเลือดโดยตรง แต่เป็นสัดส่วน hemoglobin ที่ถูก glycation</aside>
-</section><section class="slide" data-group="diabetes" data-menu-title="แปลผล HbA1c" data-section="DIABETES" data-transition="fade" id="hba1c-interpretation">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง NIDDK: A1C ในแท็บใหม่" href="https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test" rel="noopener noreferrer" target="_blank">NIDDK: A1C</a><a aria-label="เปิดแหล่งอ้างอิง ADA 2026 ในแท็บใหม่" href="https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes" rel="noopener noreferrer" target="_blank">ADA 2026</a></div></section><section class="slide" data-group="diabetes" data-menu-title="แปลผล HbA1c" data-section="DIABETES" data-transition="fade" id="hba1c-interpretation">
 <div class="slide-kicker">DIABETES • 1.2</div>
 <h2>แปลผล HbA1c <small>ใช้ทั้งคัดกรอง วินิจฉัย และติดตาม</small></h2>
-<p class="lead">ค่าตัดต่อไปนี้ใช้สำหรับการวินิจฉัยในผู้ใหญ่ทั่วไป และต้องยืนยันซ้ำเมื่อไม่มีอาการชัดเจน</p>
+<p class="lead">เกณฑ์ด้านล่างใช้วินิจฉัยในผู้ใหญ่ทั่วไป หากไม่มีอาการน้ำตาลสูงชัดเจน ผลที่เข้าเกณฑ์เบาหวานควรได้รับการยืนยันอีกครั้ง</p>
 <div class="a1c-ranges">
 <div class="a1c-range normal fragment fade-up"><b>&lt;5.7%</b><span>ปกติ</span><small>ไม่ได้แปลว่าไม่มีความเสี่ยงในอนาคต</small></div>
 <div class="a1c-range pre fragment fade-up"><b>5.7–6.4%</b><span>Prediabetes</span><small>ยิ่งใกล้ 6.5% ความเสี่ยงยิ่งสูงขึ้น</small></div>
@@ -105,14 +100,12 @@
 <div class="hba1c-limit-grid">
 <article class="panel fragment fade-right"><h3>ค่าเฉลี่ยซ่อนยอดขึ้นลงได้</h3><p>คนสองคนอาจมี HbA1c เท่ากัน แต่คนหนึ่งแกว่งสูง–ต่ำมากกว่า จึงควรดู SMBG/CGM เมื่อมีข้อบ่งชี้</p></article>
 <article class="panel fragment fade-left"><h3>เม็ดเลือดแดงเปลี่ยน → ค่าอาจหลอก</h3><p>เสียเลือด, hemolysis, transfusion, ไตวาย, iron deficiency และ hemoglobin variants บางชนิดทำให้ผลคลาดเคลื่อนได้</p></article>
-<article class="panel fragment fade-up"><h3>สำคัญในประเทศไทย</h3><p>Thalassemia หรือ hemoglobinopathy อาจทำให้ HbA1c ไม่สอดคล้องกับ glucose จึงต้องดูวิธีตรวจและพิจารณา plasma glucose/CGM</p></article>
+<article class="panel fragment fade-up"><h3>ถ้าผลสูงครั้งแรกหรือไม่ตรงกับ glucose</h3><p>นัดทบทวนผลและยืนยันตามแพทย์แนะนำ โดยเฉพาะเมื่อมี thalassemia, hemoglobinopathy, เสียเลือด, transfusion หรือโรคไตที่อาจทำให้ HbA1c คลาดเคลื่อน</p></article>
 </div>
-<div class="source-line">ADA Standards of Care 2026 • NIDDK • <a href="https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">เป้าหมาย HbA1c สำหรับผู้ที่เป็นเบาหวานต้อง individualized ไม่ควรใช้ cutoff วินิจฉัยเป็นเป้าหมายรักษาโดยอัตโนมัติ</aside>
-</section><section class="slide" data-group="diabetes" data-menu-title="Glycemic Index และ Glycemic Load" data-section="DIABETES" data-transition="convex" id="gi-gl">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง ADA 2026 ในแท็บใหม่" href="https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes" rel="noopener noreferrer" target="_blank">ADA 2026</a><a aria-label="เปิดแหล่งอ้างอิง NIDDK: A1C ในแท็บใหม่" href="https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test" rel="noopener noreferrer" target="_blank">NIDDK: A1C</a></div></section><section class="slide" data-group="diabetes" data-menu-title="Glycemic Index และ Glycemic Load" data-section="DIABETES" data-transition="convex" id="gi-gl">
 <div class="slide-kicker">DIABETES • 1.3</div>
 <h2>Glycemic Index vs Glycemic Load <small>ความเร็ว ≠ ผลกระทบทั้งมื้อ</small></h2>
-<p class="lead">GI เปรียบความเร็วที่คาร์โบไฮเดรตทำให้น้ำตาลสูงขึ้น ส่วน GL เติม “ปริมาณ available carbohydrate ที่กินจริง” เข้าไป</p>
+<p class="lead">GI บอกความเร็วที่คาร์โบไฮเดรตทำให้น้ำตาลสูงขึ้น ส่วน GL เติมปริมาณคาร์โบไฮเดรตที่กินจริง จึงต้องดูทั้งชนิดอาหารและขนาดมื้อ</p>
 <div class="gi-gl-layout">
 <div class="gi-card fragment fade-right">
 <div class="metric-orb gi">GI</div><h3>ความเร็ว / คุณภาพคาร์โบไฮเดรต</h3>
@@ -127,9 +120,8 @@
 </div>
 </div>
 <div class="gi-factors fragment fade-up"><b>GI เปลี่ยนได้จาก</b><span>สายพันธุ์อาหาร</span><span>ความสุก</span><span>การบด/แปรรูป</span><span>เวลาปรุง</span><span>กรด ไขมัน โปรตีน และใยอาหารในมื้อ</span></div>
-<div class="source-line">University of Sydney Glycemic Index Research Service • <a href="https://glycemicindex.com/about-gi/" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">GI ใช้เปรียบเทียบอาหารคาร์โบไฮเดรตในหมวดใกล้เคียง ไม่ใช่คะแนนความดีของอาหารทั้งหมด</aside>
-</section><section class="slide" data-group="diabetes" data-menu-title="ตารางอาหาร GI และ GL" data-section="DIABETES" data-transition="fade" id="gi-food-table">
+<div class="bottom-banner subtle patient-guidance"><b>นำไปใช้:</b> เลือกคาร์โบไฮเดรตที่ผ่านการขัดสีน้อย เพิ่มใยอาหาร และเริ่มจากปรับ portion ก่อนตีตราว่าอาหารชนิดใด “ห้ามกิน”</div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง Sydney GI ในแท็บใหม่" href="https://glycemicindex.com/about-gi/" rel="noopener noreferrer" target="_blank">Sydney GI</a><a aria-label="เปิดแหล่งอ้างอิง Sydney GI FAQ ในแท็บใหม่" href="https://glycemicindex.com/faqs/" rel="noopener noreferrer" target="_blank">Sydney GI FAQ</a></div></section><section class="slide" data-group="diabetes" data-menu-title="ตารางอาหาร GI และ GL" data-section="DIABETES" data-transition="fade" id="gi-food-table">
 <div class="slide-kicker">DIABETES • 1.4</div>
 <h2>ตารางอาหาร <small>ตัวอย่างจากฐานข้อมูล GI ที่มี serving กำกับ</small></h2>
 <p class="lead">ค่าเปลี่ยนได้ตามผลิตภัณฑ์ สายพันธุ์ วิธีหุง และขนาดมื้อ จึงใช้เป็น “ภาพแนวโน้ม” ไม่ใช่ค่าตายตัวของอาหารทุกจาน</p>
@@ -145,13 +137,11 @@
 </tbody>
 </table>
 </div>
-<div class="bottom-banner subtle"><b>จุดสำคัญ:</b> ลด portion จาก 1 cup เหลือ ½ cup สามารถลด GL ได้เกือบครึ่ง แม้ GI ของอาหารไม่เปลี่ยน</div>
-<div class="source-line">University of Sydney GI Research Service • July 2026 • <a href="https://glycemicindex.com/2026/07/glycemic-index-glycemic-load-and-starchy-staples/" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">ตารางนี้ใช้ serving ตามแหล่งข้อมูล ไม่ควรเทียบข้ามอาหารโดยไม่ดูปริมาณและสารอาหารอื่น</aside>
-</section><section class="slide" data-group="diabetes" data-menu-title="ระดับน้ำตาลหลังอาหาร Animation" data-section="DIABETES" data-transition="fade" id="glucose-animation">
+<div class="bottom-banner subtle"><strong>นำไปใช้:</strong> การลด portion จาก 1 cup เหลือ ½ cup ลด GL ได้ใกล้ครึ่ง แม้ GI เดิมไม่เปลี่ยน และควรจัดมื้อร่วมกับผัก โปรตีน และไขมันไม่อิ่มตัว</div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง Sydney GI Database ในแท็บใหม่" href="https://glycemicindex.com/" rel="noopener noreferrer" target="_blank">Sydney GI Database</a><a aria-label="เปิดแหล่งอ้างอิง Sydney GI ในแท็บใหม่" href="https://glycemicindex.com/about-gi/" rel="noopener noreferrer" target="_blank">Sydney GI</a></div></section><section class="slide" data-group="diabetes" data-menu-title="ระดับน้ำตาลหลังอาหาร Animation" data-section="DIABETES" data-transition="fade" id="glucose-animation">
 <div class="slide-kicker">DIABETES • 1.5</div>
-<h2>ระดับน้ำตาลหลังอาหาร <small>Animation: ความเร็วและพื้นที่ใต้กราฟ</small></h2>
-<p class="lead">กราฟตัวอย่างเชิงแนวคิด ไม่ใช่ค่าที่ใช้วินิจฉัย เป้าหมายคือให้เห็นว่า GI และ portion สร้างรูปทรงคนละแบบ</p>
+<h2>ระดับน้ำตาลหลังอาหาร <small>กราฟจำลองความเร็วและภาระน้ำตาลรวม</small></h2>
+<p class="lead">กราฟนี้ใช้ทำความเข้าใจแนวโน้ม ไม่ใช่ค่ามาตรฐานหลังอาหารของแต่ละคน เพราะยา การออกกำลัง การนอน และ insulin sensitivity ทำให้รูปกราฟต่างกันได้</p>
 <div class="glucose-animation-layout">
 <div class="glucose-chart panel" data-animated-chart="">
 <svg aria-label="กราฟเปรียบเทียบระดับน้ำตาลหลังอาหาร" role="img" viewbox="0 0 980 470">
@@ -177,11 +167,9 @@
 <article class="panel fragment fade-left"><b>คนจริงไม่เหมือนกราฟเป๊ะ</b><span>ยา การออกกำลัง การนอน microbiome และ insulin sensitivity ล้วนมีผล</span></article>
 </div>
 </div>
-<div class="source-line">University of Sydney GI Research Service • Conceptual animation • <a href="https://glycemicindex.com/faqs/" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">ใช้กราฟเป็น conceptual model ไม่ควรตีความเป็นค่าหลังอาหารของผู้ป่วยรายใด</aside>
-</section><section class="slide chapter-slide chapter-lipids" data-group="lipids" data-menu-title="ไขมันในเลือด" data-section="ไขมันในเลือด" data-transition="zoom" id="lipids-start">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง Sydney GI FAQ ในแท็บใหม่" href="https://glycemicindex.com/faqs/" rel="noopener noreferrer" target="_blank">Sydney GI FAQ</a><a aria-label="เปิดแหล่งอ้างอิง Sydney GI ในแท็บใหม่" href="https://glycemicindex.com/about-gi/" rel="noopener noreferrer" target="_blank">Sydney GI</a></div></section><section class="slide chapter-slide chapter-lipids" data-group="lipids" data-menu-title="ไขมันในเลือด" data-section="ไขมันในเลือด" data-transition="zoom" id="lipids-start">
 <div class="chapter-number">02</div>
-<div class="chapter-copy"><div class="slide-kicker">CHAPTER 02</div><h2>ไขมันในเลือด</h2><p class="lead">เริ่มจากชนิดของ lipid → รถขนส่ง → จำนวนอนุภาค → การควบคุมความเสี่ยง</p></div>
+<div class="chapter-copy"><div class="slide-kicker">CHAPTER 02</div><h2>ไขมันในเลือด</h2><p class="lead">เริ่มจากค่าพื้นฐานในรายงาน แล้วค่อยถามว่าจำเป็นต้องดู non-HDL-C, ApoB หรือ Lp(a) เพิ่มหรือไม่ตามความเสี่ยงของแต่ละคน</p></div>
 <div class="chapter-outline chapter-outline-six">
 <button class="chapter-outline-card fragment fade-up" data-jump="lipid-basics" data-readable-card="" type="button"><b>2.1</b><span>Cholesterol vs TG</span><small>วัสดุก่อสร้างกับถังเก็บพลังงาน</small></button>
 <button class="chapter-outline-card fragment fade-up" data-jump="lipoprotein-family" data-readable-card="" type="button"><b>2.2</b><span>VLDL → IDL → LDL → HDL</span><small>แต่ละอนุภาคทำอะไร และ LDL ≠ LDL-C</small></button>
@@ -190,11 +178,10 @@
 <button class="chapter-outline-card fragment fade-up" data-jump="apob" data-readable-card="" type="button"><b>2.5</b><span>ApoB &amp; Lp(a)</span><small>เมื่อ standard panel มองความเสี่ยงไม่ครบ</small></button>
 <button class="chapter-outline-card fragment fade-up" data-jump="lipid-ratios" data-readable-card="" type="button"><b>2.6</b><span>Ratios &amp; Derived values</span><small>คำนวณสดและแปลผลอย่างไม่หลงตัวเลข</small></button>
 </div>
-<aside class="notes">ใช้เส้นเรื่องว่า lipid ไม่ได้มีเพียงค่า LDL-C และทุกตัวชี้วัดตอบคนละมิติ</aside>
-</section><section class="slide" data-group="lipids" data-menu-title="Cholesterol กับ Triglyceride" data-section="LIPIDS" data-transition="fade" id="lipid-basics">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026 Lipids ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia" rel="noopener noreferrer" target="_blank">AHA/ACC 2026 Lipids</a><a aria-label="เปิดแหล่งอ้างอิง AHA: LDL/HDL/TG ในแท็บใหม่" href="https://www.heart.org/en/health-topics/cholesterol/hdl-good-ldl-bad-cholesterol-and-triglycerides" rel="noopener noreferrer" target="_blank">AHA: LDL/HDL/TG</a></div></section><section class="slide" data-group="lipids" data-menu-title="Cholesterol กับ Triglyceride" data-section="LIPIDS" data-transition="fade" id="lipid-basics">
 <div class="slide-kicker">LIPIDS • 2.1</div>
 <h2>Cholesterol กับ Triglyceride <small>เป็น lipid เหมือนกัน แต่ทำงานคนละบท</small></h2>
-<p class="lead">ทั้งสองอย่างไม่ละลายในน้ำ จึงต้องบรรจุใน lipoprotein แต่หน้าที่ทางชีววิทยาและสาเหตุที่ทำให้สูงไม่เหมือนกัน</p>
+<p class="lead">Cholesterol เป็นวัสดุก่อสร้างของร่างกาย ส่วน triglyceride เป็นพลังงานสำรอง ทั้งคู่ต้องเดินทางในเลือดด้วย lipoprotein แต่สาเหตุที่สูงและวิธีลดต่างกัน</p>
 <div class="lipid-vs-grid">
 <article class="lipid-vs-card cholesterol fragment fade-right">
 <div class="molecule-icon ring-icon"><i></i><i></i><i></i><i></i></div>
@@ -208,12 +195,10 @@
 </article>
 </div>
 <div class="compare-ribbon"><b>สรุป:</b><span>Cholesterol = building material</span><i>•</i><span>Triglyceride = stored energy</span><i>•</i><span>Lipoprotein = กล่องขนส่ง</span></div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://www.heart.org/en/health-topics/cholesterol/hdl-good-ldl-bad-cholesterol-and-triglycerides" rel="noopener" target="_blank">AHA: HDL, LDL &amp; Triglycerides</a><a href="https://www.ncbi.nlm.nih.gov/books/NBK305896/" rel="noopener" target="_blank">Endotext: Lipids &amp; Lipoproteins</a></div>
-<aside class="notes">หลีกเลี่ยงการเรียก triglyceride ว่า cholesterol เพราะเป็นคนละโมเลกุลและการจัดการต่างกัน</aside>
-</section><section class="slide" data-group="lipids" data-menu-title="ทำไมต้องมี Lipoprotein" data-section="LIPIDS" data-transition="fade" id="lipoprotein-transport">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA: LDL/HDL/TG ในแท็บใหม่" href="https://www.heart.org/en/health-topics/cholesterol/hdl-good-ldl-bad-cholesterol-and-triglycerides" rel="noopener noreferrer" target="_blank">AHA: LDL/HDL/TG</a><a aria-label="เปิดแหล่งอ้างอิง Endotext: Lipoproteins ในแท็บใหม่" href="https://www.ncbi.nlm.nih.gov/books/NBK305896/" rel="noopener noreferrer" target="_blank">Endotext: Lipoproteins</a></div></section><section class="slide" data-group="lipids" data-menu-title="ทำไมต้องมี Lipoprotein" data-section="LIPIDS" data-transition="fade" id="lipoprotein-transport">
 <div class="slide-kicker">LIPIDS • 2.2</div>
 <h2>Lipoprotein <small>บรรจุ lipid ให้เดินทางในเลือดได้</small></h2>
-<p class="lead">ผิวนอกชอบน้ำและแกนกลางซ่อนไขมันไว้ ทำให้ cholesterol กับ triglyceride เดินทางใน plasma ได้</p>
+<p class="lead">ผลแล็บอาจวัด “ของที่บรรทุก” หรือ “จำนวนอนุภาค” จึงไม่ควรใช้คำว่า LDL, LDL-C และ ApoB แทนกัน</p>
 <div class="lipoprotein-layout">
 <div class="three-stage lipoprotein-stage panel" data-three-host="">
 <canvas aria-label="อนุภาค lipoprotein ในหลอดเลือด" data-three-scene="lipoprotein"></canvas>
@@ -226,12 +211,10 @@
 <div class="callout fragment fade-up">รถยิ่งมาก โอกาสที่อนุภาคจะสัมผัสและค้างในผนังหลอดเลือดยิ่งมาก แม้ cargo รวมใกล้เคียงกัน</div>
 </div>
 </div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia" rel="noopener" target="_blank">ACC/AHA 2026 Dyslipidemia</a><a href="https://www.ncbi.nlm.nih.gov/books/NBK305896/" rel="noopener" target="_blank">Endotext: Lipoprotein structure</a></div>
-<aside class="notes">เน้น distinction ระหว่าง cholesterol mass กับ particle number เพื่อปูไปสู่ ApoB</aside>
-</section><section class="slide" data-group="lipids" data-menu-title="VLDL IDL LDL HDL" data-section="LIPIDS" data-transition="convex" id="lipoprotein-family">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026 Lipids ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia" rel="noopener noreferrer" target="_blank">AHA/ACC 2026 Lipids</a><a aria-label="เปิดแหล่งอ้างอิง Endotext: Lipoproteins ในแท็บใหม่" href="https://www.ncbi.nlm.nih.gov/books/NBK305896/" rel="noopener noreferrer" target="_blank">Endotext: Lipoproteins</a></div></section><section class="slide" data-group="lipids" data-menu-title="VLDL IDL LDL HDL" data-section="LIPIDS" data-transition="convex" id="lipoprotein-family">
 <div class="slide-kicker">LIPIDS • 2.2</div>
 <h2>ตระกูล Lipoprotein <small>VLDL ค่อย ๆ เสีย TG แล้วกลายเป็น IDL และ LDL</small></h2>
-<p class="lead">ชื่อบอก “ความหนาแน่นของอนุภาค” ไม่ได้บอกว่ามี lipid เพียงชนิดเดียว ทุกอนุภาคมีส่วนผสมต่างสัดส่วนกัน</p>
+<p class="lead">VLDL จากตับสูญเสีย triglyceride แล้วค่อย ๆ เปลี่ยนเป็น IDL และ LDL ขณะที่ HDL มีบทบาทแลกเปลี่ยนและขนส่ง cholesterol แต่ HDL-C สูงไม่ลบความเสี่ยงจาก ApoB/LDL สูง</p>
 <div class="lipoprotein-family-flow">
 <article class="lp-family-card vldl fragment fade-up"><div class="lp-sphere size-xl"><b>B</b></div><h3>VLDL</h3><strong>ตับส่ง TG ไปเนื้อเยื่อ</strong><p>TG-rich • ApoB-100 • เมื่อ LPL ดึง TG ออก อนุภาคจะเล็กและหนาแน่นขึ้น</p></article>
 <div class="family-arrow fragment fade-in">TG ↓<span>→</span></div>
@@ -247,12 +230,10 @@
 <i>→</i>
 <div class="accent"><b>ApoB</b><span>ช่วยประมาณ “จำนวนรถ” เพราะหนึ่ง ApoB ต่อหนึ่ง atherogenic particle</span></div>
 </div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://www.ncbi.nlm.nih.gov/books/NBK305896/" rel="noopener" target="_blank">Endotext: VLDL→IDL→LDL</a><a href="https://www.ncbi.nlm.nih.gov/books/NBK355893/" rel="noopener" target="_blank">Endotext: LDL particle number</a><a href="https://www.heart.org/en/health-topics/cholesterol/hdl-good-ldl-bad-cholesterol-and-triglycerides" rel="noopener" target="_blank">AHA 2026 Lipids</a></div>
-<aside class="notes">เน้นว่า LDL-C เป็น cargo measurement ไม่ใช่ particle count เพื่อเชื่อมต่อ ApoB</aside>
-</section><section class="slide" data-group="lipids" data-menu-title="ภาพรวมสิ่งที่ทำให้ไขมันเปลี่ยน" data-section="LIPIDS" data-transition="convex" id="lipid-factors">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง Endotext: Lipoproteins ในแท็บใหม่" href="https://www.ncbi.nlm.nih.gov/books/NBK305896/" rel="noopener noreferrer" target="_blank">Endotext: Lipoproteins</a><a aria-label="เปิดแหล่งอ้างอิง Endotext: Advanced Lipids ในแท็บใหม่" href="https://www.ncbi.nlm.nih.gov/books/NBK355893/" rel="noopener noreferrer" target="_blank">Endotext: Advanced Lipids</a><a aria-label="เปิดแหล่งอ้างอิง AHA: LDL/HDL/TG ในแท็บใหม่" href="https://www.heart.org/en/health-topics/cholesterol/hdl-good-ldl-bad-cholesterol-and-triglycerides" rel="noopener noreferrer" target="_blank">AHA: LDL/HDL/TG</a></div></section><section class="slide" data-group="lipids" data-menu-title="ภาพรวมสิ่งที่ทำให้ไขมันเปลี่ยน" data-section="LIPIDS" data-transition="convex" id="lipid-factors">
 <div class="slide-kicker">LIPIDS • 2.3</div>
 <h2>อะไรมีผลต่อค่าไขมัน <small>ไม่ใช่อาหารอย่างเดียว</small></h2>
-<p class="lead">ค่าเดียวกันอาจเกิดจากกลไกต่างกัน จึงควรดู pattern ทั้ง panel และทบทวนสาเหตุรอง</p>
+<p class="lead">เมื่อค่าไขมันผิดปกติ ให้ดูรูปแบบทั้ง panel และทบทวนพันธุกรรม อาหาร น้ำหนัก เบาหวาน ไทรอยด์ ไต ตับ ยา การสูบบุหรี่ และแอลกอฮอล์</p>
 <div class="factor-matrix">
 <article class="factor-card fragment fade-up" data-readable-card=""><b>พันธุกรรม</b><h3>LDL-C / Lp(a)</h3><p>Familial hypercholesterolemia, polygenic risk และ Lp(a) ถูกกำหนดจากยีนมาก</p></article>
 <article class="factor-card fragment fade-up" data-readable-card=""><b>อาหารและพลังงาน</b><h3>LDL-C / TG</h3><p>Saturated fat มักดัน LDL-C; พลังงานเกิน น้ำตาล/แป้ง refined และ alcohol มักดัน TG</p></article>
@@ -261,9 +242,7 @@
 <article class="factor-card fragment fade-up" data-readable-card=""><b>ยา</b><h3>ต้องทบทวนรายการยา</h3><p>ยาบางกลุ่ม เช่น steroid, retinoid, estrogen บางรูปแบบ และยาต้านไวรัสบางชนิด อาจเปลี่ยน TG/LDL</p></article>
 <article class="factor-card fragment fade-up" data-readable-card=""><b>พฤติกรรม</b><h3>Activity / smoking / weight</h3><p>การออกกำลัง น้ำหนัก การสูบบุหรี่ และคุณภาพอาหารมีผลต่อ pattern รวม</p></article>
 </div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://www.nhlbi.nih.gov/health/blood-cholesterol/causes" rel="noopener" target="_blank">NHLBI: Causes &amp; Risk Factors</a><a href="https://www.heart.org/en/health-topics/cholesterol/causes-of-high-cholesterol" rel="noopener" target="_blank">AHA: Causes of High Cholesterol</a></div>
-<aside class="notes">อย่าโทษอาหารหนึ่งชนิดอย่างเดียวเมื่อเห็น LDL สูงมากหรือ TG สูงผิดคาด ให้คิดถึงพันธุกรรม โรค และยา</aside>
-</section><section class="slide" data-group="lipids" data-menu-title="LDL-C สูง: สาเหตุและการควบคุม" data-section="LIPIDS" data-transition="fade" id="ldl-control">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง NHLBI: สาเหตุไขมันสูง ในแท็บใหม่" href="https://www.nhlbi.nih.gov/health/blood-cholesterol/causes" rel="noopener noreferrer" target="_blank">NHLBI: สาเหตุไขมันสูง</a><a aria-label="เปิดแหล่งอ้างอิง AHA: LDL/HDL/TG ในแท็บใหม่" href="https://www.heart.org/en/health-topics/cholesterol/hdl-good-ldl-bad-cholesterol-and-triglycerides" rel="noopener noreferrer" target="_blank">AHA: LDL/HDL/TG</a></div></section><section class="slide" data-group="lipids" data-menu-title="LDL-C สูง: สาเหตุและการควบคุม" data-section="LIPIDS" data-transition="fade" id="ldl-control">
 <div class="slide-kicker">LIPIDS • 2.3</div>
 <h2>LDL-C สูงได้จากอะไร <small>และควบคุมอย่างไรให้ตรงกลไก</small></h2>
 <p class="lead">LDL-C สูงอาจมาจากการสร้างมากขึ้น การเปลี่ยน VLDL/IDL มากขึ้น หรือที่สำคัญคือการกำจัดผ่าน LDL receptor ลดลง</p>
@@ -281,13 +260,11 @@
 <article><b>4 • รักษาสาเหตุและใช้ยาเมื่อมีข้อบ่งชี้</b><p>Statin เป็นฐานหลัก; อาจเพิ่ม ezetimibe, bempedoic acid, PCSK9-directed therapy หรืออื่นตาม risk และ response</p></article>
 </div>
 </div>
-<div class="risk-note"><b>อย่ารออาการ:</b> LDL สูงมักไม่มีอาการ หากสูงมากหรือมีประวัติครอบครัวโรคหัวใจก่อนวัย ควรประเมิน familial hypercholesterolemia</div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://www.heart.org/en/health-topics/cholesterol/hdl-good-ldl-bad-cholesterol-and-triglycerides/lower-your-ldl" rel="noopener" target="_blank">AHA: Lower Your LDL</a><a href="https://www.nhlbi.nih.gov/health/blood-cholesterol/causes" rel="noopener" target="_blank">NHLBI: Causes</a><a href="https://www.nhlbi.nih.gov/health/blood-cholesterol/treatment" rel="noopener" target="_blank">NHLBI: Treatment</a><a href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener" target="_blank">ACC/AHA 2026 Guideline</a></div>
-<aside class="notes">Lifestyle สำคัญ แต่ไม่ควรทำให้คนไข้รู้สึกผิดเมื่อกลไกหลักเป็นพันธุกรรมหรือจำเป็นต้องใช้ยา</aside>
-</section><section class="slide" data-group="lipids" data-menu-title="Triglyceride สูง: สาเหตุและการควบคุม" data-section="LIPIDS" data-transition="fade" id="tg-control">
+<div class="risk-note"><b>ควรประเมินเร็ว:</b> LDL-C ≥190 mg/dL, ก้อนเอ็น/ไขมันที่ผิวหนัง หรือมีญาติสายตรงเป็นโรคหัวใจก่อนวัย ควรหารือเรื่อง familial hypercholesterolemia และการรักษา ไม่ควรรอให้มีอาการ</div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026: Key Points ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener noreferrer" target="_blank">AHA/ACC 2026: Key Points</a><a aria-label="เปิดแหล่งอ้างอิง NHLBI: สาเหตุไขมันสูง ในแท็บใหม่" href="https://www.nhlbi.nih.gov/health/blood-cholesterol/causes" rel="noopener noreferrer" target="_blank">NHLBI: สาเหตุไขมันสูง</a><a aria-label="เปิดแหล่งอ้างอิง NHLBI: การรักษา ในแท็บใหม่" href="https://www.nhlbi.nih.gov/health/blood-cholesterol/treatment" rel="noopener noreferrer" target="_blank">NHLBI: การรักษา</a></div></section><section class="slide" data-group="lipids" data-menu-title="Triglyceride สูง: สาเหตุและการควบคุม" data-section="LIPIDS" data-transition="fade" id="tg-control">
 <div class="slide-kicker">LIPIDS • 2.4</div>
 <h2>Triglyceride สูงได้จากอะไร <small>พลังงานเข้าเร็วกว่าเส้นทางเผาผลาญและเคลียร์อนุภาค</small></h2>
-<p class="lead">TG มักแกว่งตามอาหารและเมตาบอลิซึมมากกว่า LDL-C จึงควรดู fasting status, alcohol, glucose control และยาร่วมด้วย</p>
+<p class="lead">Triglyceride แกว่งตามอาหาร แอลกอฮอล์ และเมตาบอลิซึมมากกว่า LDL-C จึงต้องดูภาวะอดอาหาร การควบคุมเบาหวาน ยา และสาเหตุรองร่วมด้วย</p>
 <div class="tg-layout">
 <div class="tg-cause-wheel panel">
 <div class="wheel-core">TG<br/><small>↑</small></div>
@@ -300,13 +277,11 @@
 <article class="action-card fragment fade-left"><b>ยาตามเป้าหมาย</b><p>Statin เป็นฐานของการลด ASCVD risk; TG-lowering therapy พิจารณาตามระดับและความเสี่ยง pancreatitis</p></article>
 </div>
 </div>
-<div aria-label="ระดับ triglyceride" class="tg-scale"><span class="ok"><b>&lt;150</b>ปกติ</span><span class="warn"><b>150–199</b>borderline</span><span class="high"><b>200–499</b>สูง</span><span class="vhigh"><b>≥500</b>สูงมาก</span><span class="critical"><b>≥1000</b>เน้นป้องกัน pancreatitis</span></div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://www.heart.org/en/health-topics/cholesterol/about-cholesterol/what-your-cholesterol-levels-mean" rel="noopener" target="_blank">AHA: What Your Levels Mean</a><a href="https://medlineplus.gov/triglycerides.html" rel="noopener" target="_blank">MedlinePlus: Triglycerides</a><a href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener" target="_blank">ACC/AHA 2026 Guideline</a></div>
-<aside class="notes">ระดับ TG ≥500 ต้องคิดเรื่อง pancreatitis เพิ่มจาก ASCVD และ ≥1000 mg/dL เป็นระดับที่ guideline เน้นการป้องกัน pancreatitis อย่างจริงจัง</aside>
-</section><section class="slide" data-group="lipids" data-menu-title="non-HDL และ Remnant" data-section="LIPIDS" data-transition="fade" id="nonhdl-remnant">
+<div aria-label="ระดับ triglyceride" class="tg-scale"><span class="ok"><b>&lt;150</b>ปกติ</span><span class="warn"><b>150–199</b>เริ่มสูง</span><span class="high"><b>200–499</b>สูง</span><span class="vhigh"><b>≥500</b>สูงมาก • นัดประเมิน</span><span class="critical"><b>≥1000</b>สูงรุนแรง • ป้องกันตับอ่อนอักเสบ</span></div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026: Key Points ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener noreferrer" target="_blank">AHA/ACC 2026: Key Points</a><a aria-label="เปิดแหล่งอ้างอิง AHA: LDL/HDL/TG ในแท็บใหม่" href="https://www.heart.org/en/health-topics/cholesterol/hdl-good-ldl-bad-cholesterol-and-triglycerides" rel="noopener noreferrer" target="_blank">AHA: LDL/HDL/TG</a><a aria-label="เปิดแหล่งอ้างอิง NHLBI: การรักษา ในแท็บใหม่" href="https://www.nhlbi.nih.gov/health/blood-cholesterol/treatment" rel="noopener noreferrer" target="_blank">NHLBI: การรักษา</a></div></section><section class="slide" data-group="lipids" data-menu-title="non-HDL และ Remnant" data-section="LIPIDS" data-transition="fade" id="nonhdl-remnant">
 <div class="slide-kicker">LIPIDS • 2.5</div>
 <h2>non-HDL-C และ remnant cholesterol <small>เมื่อ LDL-C อย่างเดียวไม่พอ</small></h2>
-<p class="lead">โดยเฉพาะเมื่อ TG สูง อนุภาค VLDL/IDL remnants มีส่วนต่อความเสี่ยง แม้ LDL-C จะดูไม่สูงมาก</p>
+<p class="lead">เมื่อ triglyceride สูงหรือมี metabolic risk ค่า non-HDL-C และ ApoB อาจช่วยเห็นอนุภาคก่อหลอดเลือดที่ LDL-C อย่างเดียวมองไม่ครบ</p>
 <div class="formula-grid">
 <div class="formula-card fragment fade-right"><span>non-HDL-C</span><strong>TC − HDL-C</strong><p>ครอบคลุม cholesterol ในอนุภาค ApoB ทั้งหมด รวม LDL, IDL, VLDL remnants และ Lp(a)</p></div>
 <div class="formula-card fragment fade-left"><span>Remnant-C <small>(ค่าประมาณ)</small></span><strong>TC − HDL-C − LDL-C</strong><p>สะท้อน cholesterol ใน triglyceride-rich remnants แต่ความแม่นขึ้นกับวิธีวัด LDL-C และบริบท</p></div>
@@ -317,12 +292,10 @@
 <div class="fragment fade-up"><b>ApoB</b><span>จำนวนรถทั้งหมด</span></div>
 </div>
 <div class="bottom-banner subtle">สามค่านี้ตอบคนละมิติ ไม่ใช่คู่แข่งที่ต้องเลือกเพียงค่าเดียว</div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener" target="_blank">ACC/AHA 2026: Top Things</a><a href="https://www.heart.org/en/news/2024/01/12/monitoring-lesser-known-numbers-in-a-blood-screening-can-help-heart-health" rel="noopener" target="_blank">AHA: non-HDL overview</a></div>
-<aside class="notes">Remnant cholesterol เป็นค่าคำนวณโดยประมาณ ไม่ควรนำไปใช้เป็น diagnosis เดี่ยวโดยไม่ดูวิธีวัด LDL และ TG</aside>
-</section><section class="slide" data-group="lipids" data-menu-title="Apolipoprotein B" data-section="LIPIDS" data-transition="fade" id="apob">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026: Key Points ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener noreferrer" target="_blank">AHA/ACC 2026: Key Points</a><a aria-label="เปิดแหล่งอ้างอิง Endotext: Advanced Lipids ในแท็บใหม่" href="https://www.ncbi.nlm.nih.gov/books/NBK355893/" rel="noopener noreferrer" target="_blank">Endotext: Advanced Lipids</a></div></section><section class="slide" data-group="lipids" data-menu-title="Apolipoprotein B" data-section="LIPIDS" data-transition="fade" id="apob">
 <div class="slide-kicker">LIPIDS • 2.5</div>
 <h2>Apolipoprotein B <small>นับจำนวนอนุภาคก่อหลอดเลือด</small></h2>
-<p class="lead">LDL, IDL, VLDL remnants และ Lp(a) แต่ละอนุภาคมี ApoB หนึ่งโมเลกุล จึงใช้ ApoB เป็น proxy ของ particle number</p>
+<p class="lead">ApoB ใช้ประมาณจำนวนอนุภาคก่อหลอดเลือด จึงช่วยเมื่อ LDL-C ดูไม่สูงแต่สงสัยว่ามีอนุภาคขนาดเล็กจำนวนมาก</p>
 <div class="apob-layout">
 <div class="three-stage apob-stage panel" data-three-host="">
 <canvas aria-label="เปรียบเทียบ LDL-C เท่ากันแต่จำนวนอนุภาคต่างกัน" data-three-scene="apob"></canvas>
@@ -338,12 +311,10 @@
 </div>
 </div>
 </div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener" target="_blank">ACC/AHA 2026: ApoB</a><a href="https://www.ncbi.nlm.nih.gov/books/NBK355893/" rel="noopener" target="_blank">Endotext: Advanced lipoprotein testing</a></div>
-<aside class="notes">ApoB ไม่จำเป็นต้องสั่งทุกคน แต่มีประโยชน์เมื่อ particle number อาจไม่สอดคล้องกับ LDL-C</aside>
-</section><section class="slide" data-group="lipids" data-menu-title="Lipoprotein(a)" data-section="LIPIDS" data-transition="fade" id="lpa">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026: Key Points ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener noreferrer" target="_blank">AHA/ACC 2026: Key Points</a><a aria-label="เปิดแหล่งอ้างอิง Endotext: Advanced Lipids ในแท็บใหม่" href="https://www.ncbi.nlm.nih.gov/books/NBK355893/" rel="noopener noreferrer" target="_blank">Endotext: Advanced Lipids</a></div></section><section class="slide" data-group="lipids" data-menu-title="Lipoprotein(a)" data-section="LIPIDS" data-transition="fade" id="lpa">
 <div class="slide-kicker">LIPIDS • 2.5</div>
 <h2>Lipoprotein(a) <small>LDL-like particle ที่มี “หางพันธุกรรม”</small></h2>
-<p class="lead">Lp(a) มี ApoB และ apolipoprotein(a) เพิ่มเข้ามา ระดับถูกกำหนดจากยีนเป็นหลักและค่อนข้างคงที่</p>
+<p class="lead">Lp(a) ถูกกำหนดจากพันธุกรรมเป็นหลัก จึงมักตรวจอย่างน้อยหนึ่งครั้งในวัยผู้ใหญ่เพื่อช่วยประเมินความเสี่ยงระยะยาว</p>
 <div class="lpa-layout">
 <div class="three-stage lpa-stage panel" data-three-host="">
 <canvas aria-label="โครงสร้าง Lipoprotein(a) แบบสามมิติ" data-three-scene="lpa"></canvas>
@@ -356,9 +327,7 @@
 <div class="callout fragment fade-up">ค่า Lp(a) สูงไม่ใช่คำทำนายว่าจะเกิดโรคแน่นอน แต่เป็นเหตุผลให้คุม LDL-C, ความดัน, เบาหวาน และการสูบบุหรี่เข้มขึ้น</div>
 </div>
 </div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener" target="_blank">ACC/AHA 2026: Lp(a)</a><a href="https://www.nhlbi.nih.gov/health/blood-cholesterol/diagnosis" rel="noopener" target="_blank">NHLBI: Lp(a) testing</a></div>
-<aside class="notes">Lifestyle มีผลต่อ Lp(a) โดยตรงน้อย แต่ยังลดความเสี่ยงรวมได้มากผ่านปัจจัยอื่น</aside>
-</section><section class="slide" data-group="lipids" data-menu-title="ควรตรวจอะไรเพิ่ม" data-section="LIPIDS" data-transition="convex" id="lipid-extra-tests">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026: Key Points ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener noreferrer" target="_blank">AHA/ACC 2026: Key Points</a><a aria-label="เปิดแหล่งอ้างอิง NHLBI: สาเหตุไขมันสูง ในแท็บใหม่" href="https://www.nhlbi.nih.gov/health/blood-cholesterol/causes" rel="noopener noreferrer" target="_blank">NHLBI: สาเหตุไขมันสูง</a></div></section><section class="slide" data-group="lipids" data-menu-title="ควรตรวจอะไรเพิ่ม" data-section="LIPIDS" data-transition="convex" id="lipid-extra-tests">
 <div class="slide-kicker">LIPIDS • 2.6</div>
 <h2>ควรตรวจอะไรเพิ่ม <small>เลือกตามคำถาม ไม่ใช่สั่งแพ็กเกจยาวที่สุด</small></h2>
 <div class="test-decision-grid">
@@ -369,12 +338,10 @@
 <article class="test-decision caution fragment fade-up" data-readable-card=""><b>ยังไม่ใช่ first-line</b><h3>sdLDL, particle size, oxidized LDL</h3><p>advanced panels บางชนิดยังไม่เปลี่ยนการตัดสินใจในคนทั่วไป</p></article>
 <article class="test-decision repeat fragment fade-up" data-readable-card=""><b>ตรวจซ้ำแบบ fasting</b><h3>เมื่อ TG สูงมาก/ผลผิดคาด</h3><p>ช่วยยืนยันและวางแผนเมื่อ postprandial effect หรือ severe TG มีผล</p></article>
 </div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia" rel="noopener" target="_blank">ACC/AHA 2026 Guideline</a><a href="https://www.heart.org/en/health-topics/cholesterol/how-to-get-your-cholesterol-tested" rel="noopener" target="_blank">AHA: Advanced lipid panel</a></div>
-<aside class="notes">ตัวเลือกเพิ่มเติมควรถูกผูกกับ decision ที่จะเปลี่ยน ไม่ใช่ตรวจเพื่อให้ได้ตัวเลขเพิ่มเฉย ๆ</aside>
-</section><section class="slide interactive-slide" data-group="lipids" data-menu-title="Lipid Ratios แบบ Interactive" data-section="LIPIDS" data-transition="fade" id="lipid-ratios">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026 Lipids ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia" rel="noopener noreferrer" target="_blank">AHA/ACC 2026 Lipids</a><a aria-label="เปิดแหล่งอ้างอิง Endotext: Advanced Lipids ในแท็บใหม่" href="https://www.ncbi.nlm.nih.gov/books/NBK355893/" rel="noopener noreferrer" target="_blank">Endotext: Advanced Lipids</a></div></section><section class="slide interactive-slide" data-group="lipids" data-menu-title="Lipid Ratios แบบ Interactive" data-section="LIPIDS" data-transition="fade" id="lipid-ratios">
 <div class="slide-kicker">LIPIDS • 2.6</div>
 <h2>Lipid Ratios &amp; Derived Values <small>คำนวณสด แต่ไม่ให้ ratio กลบ absolute risk</small></h2>
-<p class="lead">ใส่ค่าจาก lipid panel แล้วดู TC/HDL-C, LDL-C/HDL-C, TG/HDL-C, non-HDL-C และ remnant-C estimate</p>
+<p class="lead">ใส่ค่าจากรายงานเพื่อดูความสัมพันธ์ระหว่างตัวเลข แต่ไม่ควรใช้ ratio เป็นเป้าหมายรักษาหลักแทน LDL-C, non-HDL-C, ApoB และความเสี่ยงรวม</p>
 <div class="ratio-calculator" data-interactive="lipid-ratios">
 <div class="ratio-inputs panel">
 <label><span>Total cholesterol</span><div><input id="ratio-tc" max="600" min="50" step="1" type="number" value="210"/><em>mg/dL</em></div></label>
@@ -392,13 +359,11 @@
 </div>
 </div>
 <div class="ratio-reference panel">
-<h3>อ่านค่าอ้างอิงอย่างตรงไปตรงมา</h3>
+<h3>ใช้ตัวเลขอย่างไรโดยไม่หลง ratio</h3>
 <div><b>TC/HDL, LDL/HDL, TG/HDL</b><span>ไม่มี cutoff สากลที่ใช้เป็นเป้าหมายรักษาหลักใน guideline ปัจจุบัน จึงใช้ประกอบ ไม่ใช้แทน LDL-C/non-HDL-C/ApoB และ risk score</span></div>
 <div><b>ค่าทั่วไปในผู้ใหญ่สุขภาพดี</b><span>TC &lt;200, LDL-C &lt;100, non-HDL-C &lt;130, TG &lt;150 mg/dL; แต่เป้าหมายต้องต่ำกว่านี้เมื่อความเสี่ยงสูง เช่น very-high-risk ASCVD: LDL-C &lt;55 และ non-HDL-C &lt;85 mg/dL</span></div>
 </div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener" target="_blank">ACC/AHA 2026: LDL &amp; non-HDL goals</a><a href="https://medlineplus.gov/cholesterollevelswhatyouneedtoknow.html" rel="noopener" target="_blank">MedlinePlus: Adult lipid levels</a><a href="https://www.ncbi.nlm.nih.gov/books/NBK355892/" rel="noopener" target="_blank">Endotext: LDL measurement limits</a></div>
-<aside class="notes">Ratio calculators ช่วยสอนความสัมพันธ์ แต่ไม่ควรสร้าง cutoff ปลอม โดยเฉพาะ TG/HDL ที่แปรตามประชากรและ fasting status</aside>
-</section><section class="slide" data-group="lipids" data-menu-title="อ่าน lipid panel เป็นลำดับ" data-section="LIPIDS" data-transition="fade" id="lipid-flow">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026: Key Points ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener noreferrer" target="_blank">AHA/ACC 2026: Key Points</a><a aria-label="เปิดแหล่งอ้างอิง MedlinePlus: อ่านผลแล็บ ในแท็บใหม่" href="https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/" rel="noopener noreferrer" target="_blank">MedlinePlus: อ่านผลแล็บ</a><a aria-label="เปิดแหล่งอ้างอิง Endotext: Advanced Lipids ในแท็บใหม่" href="https://www.ncbi.nlm.nih.gov/books/NBK355893/" rel="noopener noreferrer" target="_blank">Endotext: Advanced Lipids</a></div></section><section class="slide" data-group="lipids" data-menu-title="อ่าน lipid panel เป็นลำดับ" data-section="LIPIDS" data-transition="fade" id="lipid-flow">
 <div class="slide-kicker">LIPIDS • 2.7</div>
 <h2>อ่าน Lipid Panel แบบเป็นลำดับ <small>จากความเสี่ยง → pattern → test เพิ่ม</small></h2>
 <div class="clinical-flow">
@@ -411,22 +376,19 @@
 <article class="flow-node fragment fade-up"><b>04</b><h3>เพิ่ม ApoB / Lp(a) / CAC เมื่อจะเปลี่ยน decision</h3><p>ใช้เพื่อ refine risk ไม่ใช่สะสมผลตรวจ</p></article>
 </div>
 <div class="bottom-banner subtle">ค่าไขมันเป็น “exposure” ที่สะสมหลายปี จึงต้องดูทั้งระดับปัจจุบัน ระยะเวลาที่สูง และความเสี่ยงรวม</div>
-<div class="source-line">ACC/AHA 2026 Dyslipidemia Guideline • <a href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">สไลด์นี้ใช้เป็น summary ก่อนเปลี่ยนไปสู่ chapter ความเสี่ยงหัวใจและหลอดเลือด</aside>
-</section><section class="slide chapter-slide chapter-kidney" data-group="kidney" data-menu-title="ไต" data-section="ไต" data-transition="zoom" id="kidney-start">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026 Lipids ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia" rel="noopener noreferrer" target="_blank">AHA/ACC 2026 Lipids</a><a aria-label="เปิดแหล่งอ้างอิง AHA: LDL/HDL/TG ในแท็บใหม่" href="https://www.heart.org/en/health-topics/cholesterol/hdl-good-ldl-bad-cholesterol-and-triglycerides" rel="noopener noreferrer" target="_blank">AHA: LDL/HDL/TG</a></div></section><section class="slide chapter-slide chapter-kidney" data-group="kidney" data-menu-title="ไต" data-section="ไต" data-transition="zoom" id="kidney-start">
 <div class="chapter-number">03</div>
-<div class="chapter-copy"><div class="slide-kicker">CHAPTER 03</div><h2>ไต</h2><p class="lead">อ่านการกรอง + การรั่ว แล้วทดลองคำนวณด้วยสมการ CKD-EPI 2021</p></div>
+<div class="chapter-copy"><div class="slide-kicker">CHAPTER 03</div><h2>ไต</h2><p class="lead">ผลตรวจไตที่มีประโยชน์ต้องดูทั้ง eGFR, uACR, แนวโน้มเดิม อาการ ยา และภาวะขาดน้ำ ไม่ควรสรุป CKD จากผลครั้งเดียว</p></div>
 <div class="chapter-outline">
 <button class="chapter-outline-card fragment fade-up" data-jump="kidney-egfr-uacr" data-readable-card="" type="button"><b>3.1</b><span>eGFR &amp; uACR</span><small>กำลังกรองและความเสียหายของตัวกรอง</small></button>
 <button class="chapter-outline-card fragment fade-up" data-jump="kidney-calculator" data-readable-card="" type="button"><b>3.2</b><span>Interactive eGFR</span><small>เปลี่ยนอายุ เพศ creatinine และหน่วยได้</small></button>
 <button class="chapter-outline-card fragment fade-up" data-jump="kidney-stone" data-readable-card="" type="button"><b>3.3</b><span>Kidney Stone</span><small>กลไกก่อตัว อาการเตือน และการลดการเกิดซ้ำ</small></button>
 <button class="chapter-outline-card fragment fade-up" data-jump="references-core" data-readable-card="" type="button"><b>REF</b><span>Kidney references</span><small>KDIGO • NKF • NIDDK</small></button>
 </div>
-<aside class="notes">uACR เป็นคำย่อที่ถูกต้องของ urine albumin-to-creatinine ratio</aside>
-</section><section class="slide" data-group="kidney" data-menu-title="eGFR และ uACR" data-section="KIDNEY" data-transition="fade" id="kidney-egfr-uacr">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง KDIGO 2024 ในแท็บใหม่" href="https://kdigo.org/guidelines/ckd-evaluation-and-management/" rel="noopener noreferrer" target="_blank">KDIGO 2024</a><a aria-label="เปิดแหล่งอ้างอิง NKF eGFR Calculator ในแท็บใหม่" href="https://www.kidney.org/professionals/gfr_calculator" rel="noopener noreferrer" target="_blank">NKF eGFR Calculator</a></div></section><section class="slide" data-group="kidney" data-menu-title="eGFR และ uACR" data-section="KIDNEY" data-transition="fade" id="kidney-egfr-uacr">
 <div class="slide-kicker">KIDNEY • 3.1</div>
 <h2>eGFR + uACR <small>ต้องอ่าน “การกรอง” คู่กับ “การรั่ว”</small></h2>
-<p class="lead">eGFR ประมาณกำลังกรองของไต ส่วน <b>uACR</b> (urine albumin-to-creatinine ratio) ตรวจการรั่วของ albumin ที่อาจเกิดก่อน eGFR ลดลง</p>
+<p class="lead">eGFR ประมาณความสามารถในการกรอง ส่วน uACR ตรวจการรั่วของ albumin ความผิดปกติที่คงอยู่อย่างน้อย 3 เดือนจึงสนับสนุน CKD</p>
 <div class="kidney-dual-grid">
 <article class="kidney-measure panel fragment fade-right"><div class="kidney-badge">eGFR</div><div><h3>ไตกรองได้เร็วแค่ไหน</h3><p>หน่วย mL/min/1.73m² • คำนวณจาก creatinine, อายุ และเพศ • เป็นค่าประมาณ ไม่ใช่ measured GFR</p><div class="category-pills"><span>G1 ≥90</span><span>G2 60–89</span><span>G3a 45–59</span><span>G3b 30–44</span><span>G4 15–29</span><span>G5 &lt;15</span></div></div></article>
 <article class="kidney-measure panel fragment fade-left"><div class="kidney-badge leak">uACR</div><div><h3>ตัวกรองรั่ว albumin แค่ไหน</h3><p>รายงานเป็น mg/g หรือ mg/mmol • spot urine ใช้งานสะดวก • ควรยืนยันเมื่อผิดปกติ</p><div class="category-pills"><span>A1 &lt;30 mg/g</span><span>A2 30–300 mg/g</span><span>A3 &gt;300 mg/g</span></div></div></article>
@@ -436,12 +398,10 @@
 <article><b>CKD ต้องมีความต่อเนื่อง</b><p>eGFR &lt;60 หรือ uACR ≥30 mg/g / marker อื่น ต้องคงอยู่ ≥3 เดือน</p></article>
 <article><b>ดูแนวโน้ม ไม่ดูเฟรมเดียว</b><p>Creatinine เปลี่ยนตาม muscle mass, hydration, diet, drugs และ acute illness</p></article>
 </div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://kdigo.org/guidelines/ckd-evaluation-and-management/" rel="noopener" target="_blank">KDIGO 2024 CKD Guideline</a><a href="https://www.kidney.org/professionals/gfr_calculator" rel="noopener" target="_blank">NKF eGFR Calculator</a><a href="https://www.kidney.org/professionals/ckd-epi-creatinine-equation-2021" rel="noopener" target="_blank">NKF CKD-EPI 2021 Equation</a></div>
-<aside class="notes">ใช้คำ uACR ไม่ใช่ uARC และเน้นว่า G/A category เป็น risk classification ไม่ใช่ diagnosis จากค่าเดียว</aside>
-</section><section class="slide interactive-slide" data-group="kidney" data-menu-title="Interactive eGFR Calculator" data-section="KIDNEY" data-transition="fade" id="kidney-calculator">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง KDIGO 2024 ในแท็บใหม่" href="https://kdigo.org/guidelines/ckd-evaluation-and-management/" rel="noopener noreferrer" target="_blank">KDIGO 2024</a><a aria-label="เปิดแหล่งอ้างอิง NKF eGFR Calculator ในแท็บใหม่" href="https://www.kidney.org/professionals/gfr_calculator" rel="noopener noreferrer" target="_blank">NKF eGFR Calculator</a></div></section><section class="slide interactive-slide" data-group="kidney" data-menu-title="Interactive eGFR Calculator" data-section="KIDNEY" data-transition="fade" id="kidney-calculator">
 <div class="slide-kicker">KIDNEY • 3.2</div>
-<h2>Interactive eGFR Calculator <small>CKD-EPI Creatinine Equation 2021</small></h2>
-<p class="lead">เปลี่ยนค่าด้านล่างแล้วผลจะคำนวณใหม่ทันที พร้อมแสดง G category, A category และ risk snapshot</p>
+<h2>ลองคำนวณ eGFR <small>CKD-EPI Creatinine Equation 2021</small></h2>
+<p class="lead">ปรับอายุ เพศ creatinine และหน่วยเพื่อดูว่าสมการเปลี่ยนผลอย่างไร ค่าเป็นเพียงการประมาณและต้องอ่านร่วมกับ uACR และบริบททางคลินิก</p>
 <div class="egfr-calculator" data-interactive="egfr">
 <div class="egfr-input-panel panel">
 <label><span>อายุ</span><div><input id="egfr-age" max="110" min="18" step="1" type="number" value="50"/><em>ปี</em></div></label>
@@ -449,7 +409,7 @@
 <label><span>Serum creatinine</span><div><input id="egfr-creatinine" max="20" min="0.1" step="0.01" type="number" value="1.00"/><select id="egfr-unit"><option value="mgdl">mg/dL</option><option value="umol">µmol/L</option></select></div></label>
 <label><span>uACR</span><div><input id="egfr-uacr" max="5000" min="0" step="1" type="number" value="15"/><em>mg/g</em></div></label>
 <button id="egfr-reset" type="button">คืนค่าตัวอย่าง</button>
-<p class="calc-limitation">สำหรับผู้ใหญ่ ≥18 ปี • ไม่ใช้แทน clinical judgment ใน AKI, pregnancy, extreme muscle mass หรือ drug dosing เฉพาะทาง</p>
+<p class="calc-limitation">สำหรับผู้ใหญ่ ≥18 ปี • ไม่ใช้ใน AKI หรือเพื่อปรับยาเอง • pregnancy, extreme muscle mass และยาบางชนิดทำให้ผลคลาดเคลื่อนได้</p>
 </div>
 <div class="egfr-output-panel">
 <article class="egfr-result-card panel"><span>eGFRcr</span><b aria-live="polite" id="egfr-result">93</b><small>mL/min/1.73m²</small><strong id="egfr-g-category">G1</strong></article>
@@ -462,12 +422,10 @@
 <code>eGFR<sub>cr</sub> = 142 × min(S<sub>cr</sub>/κ,1)<sup>α</sup> × max(S<sub>cr</sub>/κ,1)<sup>−1.200</sup> × 0.9938<sup>Age</sup> × 1.012 [ถ้าเป็นหญิง]</code>
 <div class="equation-vars"><span>S<sub>cr</sub> = <b id="eq-scr">1.00</b> mg/dL</span><span>κ = <b id="eq-kappa">0.9</b></span><span>α = <b id="eq-alpha">−0.302</b></span></div>
 </div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://www.kidney.org/professionals/ckd-epi-creatinine-equation-2021" rel="noopener" target="_blank">NKF Equation Details</a><a href="https://www.kidney.org/professionals/gfr_calculator" rel="noopener" target="_blank">NKF Clinical Calculator</a><a href="https://kdigo.org/guidelines/ckd-evaluation-and-management/" rel="noopener" target="_blank">KDIGO 2024</a></div>
-<aside class="notes">ตรวจสอบสมการด้วย test values ของ NKF เช่น อายุ 18 ชาย creatinine 0.90 → eGFR ประมาณ 127</aside>
-</section><section class="slide" data-group="kidney" data-menu-title="Kidney Stone" data-section="KIDNEY" data-transition="zoom" id="kidney-stone">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง NKF: CKD-EPI 2021 ในแท็บใหม่" href="https://www.kidney.org/ckd-epi-creatinine-equation-2021" rel="noopener noreferrer" target="_blank">NKF: CKD-EPI 2021</a><a aria-label="เปิดแหล่งอ้างอิง NKF eGFR Calculator ในแท็บใหม่" href="https://www.kidney.org/professionals/gfr_calculator" rel="noopener noreferrer" target="_blank">NKF eGFR Calculator</a><a aria-label="เปิดแหล่งอ้างอิง KDIGO 2024 ในแท็บใหม่" href="https://kdigo.org/guidelines/ckd-evaluation-and-management/" rel="noopener noreferrer" target="_blank">KDIGO 2024</a></div></section><section class="slide" data-group="kidney" data-menu-title="Kidney Stone" data-section="KIDNEY" data-transition="zoom" id="kidney-stone">
 <div class="slide-kicker">KIDNEY • 3.3</div>
 <h2>Kidney Stone <small>ผลึกเกิด โต และอุดตันอย่างไร</small></h2>
-<p class="lead">เมื่อปัสสาวะเข้มข้นจนสารบางชนิดเกินจุดละลาย จะเกิด supersaturation → nucleation → crystal growth → aggregation</p>
+<p class="lead">นิ่วเกิดเมื่อปัสสาวะเข้มข้นจนสารละลายตกผลึก การป้องกันที่แม่นยำต้องดูชนิดนิ่ว ปริมาณปัสสาวะ อาหาร โรคร่วม และยา</p>
 <div class="scene-explainer stone-expanded">
 <div class="three-stage stone-stage panel" data-three-host=""><canvas aria-label="ผลึกนิ่วค่อย ๆ รวมตัว" data-three-scene="stone"></canvas><div aria-hidden="true" class="three-fallback crystal-fallback"><i></i><i></i><i></i><i></i><span>ผลึกเกาะรวมกัน</span></div></div>
 <div class="vertical-steps">
@@ -479,21 +437,18 @@
 </div>
 <div class="stone-prevention-grid"><span><b>น้ำ</b>ให้ปัสสาวะเจือจางตามคำแนะนำแพทย์</span><span><b>ลด sodium</b>ช่วยลด urinary calcium</span><span><b>อย่าตัด calcium จากอาหารเอง</b>ปริมาณเหมาะสมช่วยจับ oxalate ในลำไส้</span><span><b>ปรับตามชนิดนิ่ว</b>oxalate, animal protein, urine pH และยาแตกต่างกัน</span></div>
 <div class="red-flag stone-red"><b>ประเมินเร่งด่วน:</b> ไข้/หนาวสั่น, ปัสสาวะไม่ได้, ไตข้างเดียว, ตั้งครรภ์, ปวดควบคุมไม่ได้ หรือสงสัยติดเชื้อร่วมกับการอุดตัน</div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/symptoms-causes" rel="noopener" target="_blank">NIDDK: Symptoms &amp; Causes</a><a href="https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/eating-diet-nutrition" rel="noopener" target="_blank">NIDDK: Diet &amp; Prevention</a><a href="https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/treatment" rel="noopener" target="_blank">NIDDK: Treatment</a></div>
-<aside class="notes">หลักป้องกันต้องปรับตามชนิดนิ่ว ไม่ใช้รายการห้ามอาหารแบบเดียวกับทุกคน</aside>
-</section><section class="slide chapter-slide chapter-cvd" data-group="cvd" data-menu-title="ความเสี่ยงหัวใจและหลอดเลือด" data-section="ความเสี่ยงหัวใจและหลอดเลือด" data-transition="zoom" id="cvd-start">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง NIDDK: Kidney Stone Symptoms ในแท็บใหม่" href="https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/symptoms-causes" rel="noopener noreferrer" target="_blank">NIDDK: Kidney Stone Symptoms</a><a aria-label="เปิดแหล่งอ้างอิง NIDDK: Kidney Stone Prevention ในแท็บใหม่" href="https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/eating-diet-nutrition" rel="noopener noreferrer" target="_blank">NIDDK: Kidney Stone Prevention</a></div></section><section class="slide chapter-slide chapter-cvd" data-group="cvd" data-menu-title="ความเสี่ยงหัวใจและหลอดเลือด" data-section="ความเสี่ยงหัวใจและหลอดเลือด" data-transition="zoom" id="cvd-start">
 <div class="chapter-number">04</div>
 <div class="chapter-copy">
 <div class="slide-kicker">CHAPTER 04</div>
 <h2>ความเสี่ยงหัวใจและหลอดเลือด</h2>
-<p class="lead">แต่ละเครื่องมือมองคนละชั้น: probability, plaque, ischemia และ cardiac structure</p>
+<p class="lead">เลือกการประเมินให้ตรงคำถาม: คาดการณ์ความเสี่ยง มองคราบหินปูน ทดสอบตอนออกแรง หรือดูโครงสร้างหัวใจ</p>
 </div>
-<div class="chapter-outline"><button class="chapter-outline-card fragment fade-up" data-jump="cvd-risk-score" data-readable-card="" type="button"><b>3.1</b><span>CVD Risk Score</span><small>คำนวณโอกาสเหตุการณ์ในอนาคต</small></button><button class="chapter-outline-card fragment fade-up" data-jump="cac" data-readable-card="" type="button"><b>3.2</b><span>CT Calcium Score</span><small>มอง calcified plaque burden</small></button><button class="chapter-outline-card fragment fade-up" data-jump="est" data-readable-card="" type="button"><b>3.3</b><span>EST</span><small>ดูหัวใจเมื่อ demand เพิ่ม</small></button><button class="chapter-outline-card fragment fade-up" data-jump="echo" data-readable-card="" type="button"><b>3.4</b><span>Echo</span><small>ดูโครงสร้าง การบีบตัว และลิ้นหัวใจ</small></button></div>
-<aside class="notes">หน้าคั่นหมวด ใช้คลิกการ์ดเพื่อกระโดดไปหัวข้อย่อยได้โดยตรง</aside>
-</section><section class="slide" data-group="cvd" data-menu-title="CVD Risk Score" data-section="CARDIOVASCULAR RISK" data-transition="fade" id="cvd-risk-score">
+<div class="chapter-outline"><button class="chapter-outline-card fragment fade-up" data-jump="cvd-risk-score" data-readable-card="" type="button"><b>4.1</b><span>CVD Risk Score</span><small>คำนวณโอกาสเหตุการณ์ในอนาคต</small></button><button class="chapter-outline-card fragment fade-up" data-jump="cac" data-readable-card="" type="button"><b>4.2</b><span>CT Calcium Score</span><small>มอง calcified plaque burden</small></button><button class="chapter-outline-card fragment fade-up" data-jump="est" data-readable-card="" type="button"><b>4.3</b><span>EST</span><small>ดูหัวใจเมื่อ demand เพิ่ม</small></button><button class="chapter-outline-card fragment fade-up" data-jump="echo" data-readable-card="" type="button"><b>4.4</b><span>Echo</span><small>ดูโครงสร้าง การบีบตัว และลิ้นหัวใจ</small></button></div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA PREVENT ในแท็บใหม่" href="https://professional.heart.org/en/guidelines-and-statements/about-prevent-calculator" rel="noopener noreferrer" target="_blank">AHA PREVENT</a><a aria-label="เปิดแหล่งอ้างอิง AHA: CAC ในแท็บใหม่" href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/cac-test" rel="noopener noreferrer" target="_blank">AHA: CAC</a><a aria-label="เปิดแหล่งอ้างอิง USPSTF: ECG Screening ในแท็บใหม่" href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/cardiovascular-disease-risk-screening-with-electrocardiography" rel="noopener noreferrer" target="_blank">USPSTF: ECG Screening</a></div></section><section class="slide" data-group="cvd" data-menu-title="CVD Risk Score" data-section="CARDIOVASCULAR RISK" data-transition="fade" id="cvd-risk-score">
 <div class="slide-kicker">CARDIOVASCULAR RISK • 4.1</div>
 <h2>CVD Risk Score <small>เครื่องคำนวณความน่าจะเป็น ไม่ใช่ผลตรวจหัวใจ</small></h2>
-<p class="lead">รวมปัจจัยหลายตัวเพื่อประมาณความเสี่ยงเหตุการณ์ในอนาคต ช่วยตัดสินใจเชิงป้องกันและสื่อสารกับผู้รับการตรวจ</p>
+<p class="lead">คะแนนคำนวณโอกาสเกิดโรคในอนาคตจากหลายปัจจัย ไม่ได้บอกว่าหลอดเลือดตีบกี่เปอร์เซ็นต์ และไม่ใช้แทนการประเมินอาการเจ็บหน้าอก</p>
 <div class="risk-score-layout">
 <div class="risk-dial panel" data-risk-dial="">
 <div class="dial-ring"><i></i><div class="dial-center"><b>10-year</b><span>Risk</span></div></div>
@@ -505,9 +460,7 @@
 <div class="risk-rule fragment fade-left"><b>ต้อง personalize</b><span>ประวัติครอบครัว Lp(a) CKD inflammatory disease และผล CAC อาจเปลี่ยนการตีความ</span></div>
 </div>
 </div>
-<div class="source-line">AHA PREVENT • Thai CV Risk context • <a href="https://professional.heart.org/en/guidelines-and-statements/about-prevent-calculator" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">แยก probability model ออกจาก diagnostic test ให้ชัด ผู้ฟังมักเข้าใจผิดว่า risk 10% หมายถึงหลอดเลือดตีบ 10%</aside>
-</section><section class="slide" data-group="cvd" data-menu-title="เลือก Risk Score ให้เหมาะ" data-section="CARDIOVASCULAR RISK" data-transition="convex" id="risk-tools">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA PREVENT ในแท็บใหม่" href="https://professional.heart.org/en/guidelines-and-statements/about-prevent-calculator" rel="noopener noreferrer" target="_blank">AHA PREVENT</a><a aria-label="เปิดแหล่งอ้างอิง Thai CV Risk ในแท็บใหม่" href="https://www.rama.mahidol.ac.th/th/node/8154" rel="noopener noreferrer" target="_blank">Thai CV Risk</a></div></section><section class="slide" data-group="cvd" data-menu-title="เลือก Risk Score ให้เหมาะ" data-section="CARDIOVASCULAR RISK" data-transition="convex" id="risk-tools">
 <div class="slide-kicker">CARDIOVASCULAR RISK • 4.1</div>
 <h2>Thai CV Risk และ PREVENT <small>ใช้คนละฐานประชากร</small></h2>
 <div class="risk-tool-grid">
@@ -521,12 +474,10 @@
 <span class="high fragment fade-up"><b>≥10%</b> High</span>
 </div>
 <div class="bottom-banner subtle"><b>หลักปฏิบัติ:</b> ใช้ score ที่หน่วยงาน/แนวทางรองรับ แล้วเพิ่ม clinical judgment ไม่ควรผสม cutoff จากคนละโมเดล</div>
-<div class="source-line">AHA PREVENT 2026 • Mahidol Thai CV Risk • <a href="https://www.rama.mahidol.ac.th/th/node/8154" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">PREVENT categories ในสไลด์อิง 2026 dyslipidemia guideline ส่วน Thai CV Risk ต้องใช้เกณฑ์ของเครื่องมือและแนวทางในประเทศ</aside>
-</section><section class="slide" data-group="cvd" data-menu-title="CT Coronary Calcium Score" data-section="CARDIOVASCULAR RISK" data-transition="fade" id="cac">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA PREVENT ในแท็บใหม่" href="https://professional.heart.org/en/guidelines-and-statements/about-prevent-calculator" rel="noopener noreferrer" target="_blank">AHA PREVENT</a><a aria-label="เปิดแหล่งอ้างอิง Thai CV Risk ในแท็บใหม่" href="https://www.rama.mahidol.ac.th/th/node/8154" rel="noopener noreferrer" target="_blank">Thai CV Risk</a></div></section><section class="slide" data-group="cvd" data-menu-title="CT Coronary Calcium Score" data-section="CARDIOVASCULAR RISK" data-transition="fade" id="cac">
 <div class="slide-kicker">CARDIOVASCULAR RISK • 4.2</div>
 <h2>CT Coronary Calcium Score <small>มองภาระ calcified plaque</small></h2>
-<p class="lead">เป็น noncontrast ECG-gated CT ที่คำนวณ Agatston score เพื่อประเมินปริมาณแคลเซียมใน coronary arteries</p>
+<p class="lead">CAC เหมาะสำหรับคนไม่มีอาการบางรายที่ยังตัดสินใจเรื่องการป้องกันไม่ชัด ไม่ใช่การตรวจฉุกเฉิน และไม่แทนการประเมินอาการเจ็บหน้าอก</p>
 <div class="cac-layout">
 <div class="three-stage cac-stage panel" data-three-host="">
 <canvas aria-label="หลอดเลือดหัวใจที่มี calcified plaque" data-three-scene="cac"></canvas>
@@ -539,12 +490,10 @@
 <div class="cac-point fragment fade-left"><b>มี radiation</b><span>ขนาดต่ำ แต่ต้องมีเหตุผลในการตรวจ</span></div>
 </div>
 </div>
-<div class="source-line">AHA • Coronary Artery Calcium Test 2026 • <a href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/cac-test" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">CAC เหมาะกับ asymptomatic risk refinement ไม่ใช่ test หลักสำหรับคนมี chest pain ที่ต้องใช้ pathway อื่น</aside>
-</section><section class="slide" data-group="cvd" data-menu-title="แปลผล CAC" data-section="CARDIOVASCULAR RISK" data-transition="fade" id="cac-interpretation">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA: CAC ในแท็บใหม่" href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/cac-test" rel="noopener noreferrer" target="_blank">AHA: CAC</a><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026: Key Points ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener noreferrer" target="_blank">AHA/ACC 2026: Key Points</a></div></section><section class="slide" data-group="cvd" data-menu-title="แปลผล CAC" data-section="CARDIOVASCULAR RISK" data-transition="fade" id="cac-interpretation">
 <div class="slide-kicker">CARDIOVASCULAR RISK • 4.2</div>
 <h2>แปลผล CAC <small>ดูทั้ง absolute score และ percentile</small></h2>
-<p class="lead">คะแนนยิ่งสูง แปลว่ามี calcified plaque burden มากขึ้น แต่ความหมายต้องอ่านร่วมกับอายุ เพศ และความเสี่ยงเดิม</p>
+<p class="lead">ดูทั้งคะแนน Agatston และ percentile ตามอายุ/เพศ ค่า 0 ช่วยลดความกังวลในบางบริบท แต่ไม่รับประกันว่าไม่มี plaque หรือไม่มีเหตุการณ์ในอนาคต</p>
 <div class="cac-spectrum">
 <div class="cac-zone z0 fragment fade-up" data-readable-card=""><b>0</b><span>ไม่พบ calcified plaque</span><small>อาจลด estimated short-term risk ในบางคน แต่ไม่เท่ากับ “ไม่มี plaque ทุกชนิด”</small></div>
 <div class="cac-zone z1 fragment fade-up" data-readable-card=""><b>1–99</b><span>มี calcified plaque</span><small>ตีความกับอายุและ percentile เพราะค่าเล็กในคนอายุน้อยอาจสำคัญ</small></div>
@@ -555,12 +504,10 @@
 <article class="panel fragment fade-right"><h3>เหมาะเมื่อ</h3><p>ไม่มีอาการ แต่ borderline/intermediate risk และผลจะช่วยตัดสินใจ</p></article>
 <article class="panel fragment fade-left"><h3>ไม่ใช่ตัวเลือกแรกเมื่อ</h3><p>มี chest pain, known CAD, เคย MI/stent/CABG หรือ treatment decision ชัดอยู่แล้ว</p></article>
 </div>
-<div class="source-line">ACC/AHA 2026 Dyslipidemia Guideline • AHA CAC Test • <a href="https://www.acc.org/latest-in-cardiology/articles/2026/07/01/01/prioritizing-health" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">ใช้คำว่า calcium score ไม่ใช่ calcium percentage และอย่าบอกว่าค่า 0 รับประกันว่าไม่เกิดเหตุการณ์</aside>
-</section><section class="slide" data-group="cvd" data-menu-title="Exercise Stress Test" data-section="CARDIOVASCULAR RISK" data-transition="fade" id="est">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA: CAC ในแท็บใหม่" href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/cac-test" rel="noopener noreferrer" target="_blank">AHA: CAC</a><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026: Key Points ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia/top-things-to-know" rel="noopener noreferrer" target="_blank">AHA/ACC 2026: Key Points</a></div></section><section class="slide" data-group="cvd" data-menu-title="Exercise Stress Test" data-section="CARDIOVASCULAR RISK" data-transition="fade" id="est">
 <div class="slide-kicker">CARDIOVASCULAR RISK • 4.3</div>
 <h2>EST <small>เพิ่ม demand แล้วดูว่าหัวใจรับมืออย่างไร</small></h2>
-<p class="lead">เดินสายพานหรือปั่นจักรยาน พร้อมติดตาม ECG, heart rate, blood pressure, symptoms และ exercise capacity</p>
+<p class="lead">EST ใช้เมื่อมีคำถามว่าออกแรงแล้วเกิด ischemia, arrhythmia หรือความผิดปกติของความดันหรือไม่ ไม่แนะนำเป็นการคัดกรองประจำสำหรับคนไม่มีอาการและความเสี่ยงต่ำ</p>
 <div class="est-layout">
 <div class="est-animation panel">
 <div class="treadmill"><div class="runner"><i class="head"></i><i class="body"></i><i class="arm a1"></i><i class="arm a2"></i><i class="leg l1"></i><i class="leg l2"></i></div><div class="belt"></div></div>
@@ -573,12 +520,11 @@
 <div class="est-question fragment fade-left"><b>ข้อจำกัด</b><span>ไม่ได้เห็น plaque โดยตรง และผลปกติไม่เท่ากับไม่มี atherosclerosis</span></div>
 </div>
 </div>
-<div class="source-line">American Heart Association • Exercise Stress Test • <a href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/exercise-stress-test%2C" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">EST ไม่ควรถูกเสนอเป็น screening routine แก่คนไม่มีอาการทุกคน ต้องดู pretest probability และคุณภาพ resting ECG</aside>
-</section><section class="slide" data-group="cvd" data-menu-title="Echocardiogram" data-section="CARDIOVASCULAR RISK" data-transition="fade" id="echo">
+<div class="bottom-banner subtle patient-guidance"><b>ก่อนตรวจ:</b> แจ้งอาการเจ็บหน้าอก หน้ามืด ยาที่ใช้ และข้อจำกัดในการเดิน หากมีอาการเจ็บหน้าอกเฉียบพลันไม่ควรรอทำ EST แต่ต้องประเมินเร่งด่วน</div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA: Stress Test ในแท็บใหม่" href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/exercise-stress-test" rel="noopener noreferrer" target="_blank">AHA: Stress Test</a><a aria-label="เปิดแหล่งอ้างอิง USPSTF: ECG Screening ในแท็บใหม่" href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/cardiovascular-disease-risk-screening-with-electrocardiography" rel="noopener noreferrer" target="_blank">USPSTF: ECG Screening</a></div></section><section class="slide" data-group="cvd" data-menu-title="Echocardiogram" data-section="CARDIOVASCULAR RISK" data-transition="fade" id="echo">
 <div class="slide-kicker">CARDIOVASCULAR RISK • 4.4</div>
 <h2>Echo <small>ดูโครงสร้างและการทำงานของหัวใจด้วย ultrasound</small></h2>
-<p class="lead">Echo ตอบเรื่อง chamber, wall motion, pumping, valves, pericardium และ hemodynamics แต่ไม่ได้ใช้วัด coronary plaque โดยตรง</p>
+<p class="lead">Echo ใช้ดูห้องหัวใจ การบีบตัว ลิ้นหัวใจ และการไหลเวียน ไม่ใช่ภาพหลอดเลือดหัวใจโดยตรง และไม่จำเป็นต้องตรวจเป็น routine หากไม่มีอาการหรือข้อบ่งชี้</p>
 <div class="echo-layout">
 <div class="echo-animation panel">
 <div class="ultrasound-probe"></div><div class="ultrasound-beam"></div>
@@ -592,9 +538,8 @@
 <div class="echo-card fragment fade-left"><b>อย่าเข้าใจผิด</b><span>Echo ปกติไม่แปลว่าไม่มี coronary plaque; EF ปกติยังพบ HFpEF ได้</span></div>
 </div>
 </div>
-<div class="source-line">American Heart Association • Echocardiogram • <a href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/echocardiogram" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">อธิบายว่า echo ไม่ใช่เครื่องตรวจเส้นเลือดหัวใจโดยตรง แม้ stress echo จะประเมิน ischemia ผ่าน wall motion ได้</aside>
-</section><section class="slide" data-group="cvd" data-menu-title="เลือกการตรวจหัวใจให้ตรงคำถาม" data-section="CARDIOVASCULAR RISK" data-transition="convex" id="cardiac-test-matrix">
+<div class="bottom-banner subtle patient-guidance"><b>ผลปกติไม่ได้ตอบทุกเรื่อง:</b> Echo ปกติไม่ตัด coronary plaque และ EF ปกติยังพบภาวะหัวใจล้มเหลวบางชนิดได้ จึงต้องเลือก test ตามอาการ</div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA: Echocardiogram ในแท็บใหม่" href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/echocardiogram" rel="noopener noreferrer" target="_blank">AHA: Echocardiogram</a><a aria-label="เปิดแหล่งอ้างอิง USPSTF: ECG Screening ในแท็บใหม่" href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/cardiovascular-disease-risk-screening-with-electrocardiography" rel="noopener noreferrer" target="_blank">USPSTF: ECG Screening</a></div></section><section class="slide" data-group="cvd" data-menu-title="เลือกการตรวจหัวใจให้ตรงคำถาม" data-section="CARDIOVASCULAR RISK" data-transition="convex" id="cardiac-test-matrix">
 <div class="slide-kicker">CARDIOVASCULAR RISK • SUMMARY</div>
 <h2>แต่ละการตรวจมองคนละชั้น <small>จึงแทนกันไม่ได้</small></h2>
 <div class="comparison-table-wrap panel">
@@ -608,23 +553,20 @@
 </tbody>
 </table>
 </div>
-<div class="bottom-banner"><b>เลือก test จาก clinical question:</b> ไม่ใช่เลือกจากคำว่า “ตรวจหัวใจ” ที่กว้างเกินไป</div>
-<div class="source-line">AHA/ACC cardiovascular testing resources • <a href="https://www.acc.org/guidelines/hubs/chest-pain" rel="noopener" target="_blank">เปิดแหล่งข้อมูล</a></div>
-<aside class="notes">สไลด์นี้ควรใช้เป็น decision map ไม่ใช่ algorithm เฉพาะผู้ป่วย</aside>
-</section><section class="slide chapter-slide chapter-cancer" data-group="cancer" data-menu-title="มะเร็งและ Tumor Markers" data-section="มะเร็งและ Tumor Markers" data-transition="zoom" id="cancer-start">
+<div class="bottom-banner"><b>คำแนะนำสำหรับผู้ตรวจสุขภาพ:</b> หากไม่มีอาการ ให้เริ่มจากปัจจัยเสี่ยงและ risk score ส่วนการตรวจภาพหรือ stress test ควรมีเหตุผลทางคลินิกชัดเจน</div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA PREVENT ในแท็บใหม่" href="https://professional.heart.org/en/guidelines-and-statements/about-prevent-calculator" rel="noopener noreferrer" target="_blank">AHA PREVENT</a><a aria-label="เปิดแหล่งอ้างอิง AHA: CAC ในแท็บใหม่" href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/cac-test" rel="noopener noreferrer" target="_blank">AHA: CAC</a><a aria-label="เปิดแหล่งอ้างอิง AHA: Stress Test ในแท็บใหม่" href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/exercise-stress-test" rel="noopener noreferrer" target="_blank">AHA: Stress Test</a><a aria-label="เปิดแหล่งอ้างอิง AHA: Echocardiogram ในแท็บใหม่" href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/echocardiogram" rel="noopener noreferrer" target="_blank">AHA: Echocardiogram</a></div></section><section class="slide chapter-slide chapter-cancer" data-group="cancer" data-menu-title="มะเร็งและ Tumor Markers" data-section="มะเร็งและ Tumor Markers" data-transition="zoom" id="cancer-start">
 <div class="chapter-number">05</div>
-<div class="chapter-copy"><div class="slide-kicker">CHAPTER 05</div><h2>มะเร็งและ Tumor Markers</h2><p class="lead">ดูตำแหน่งที่สัมพันธ์ การใช้งานที่เหมาะสม และเหตุผลที่ผลบวกไม่เท่ากับมะเร็ง</p></div>
+<div class="chapter-copy"><div class="slide-kicker">CHAPTER 05</div><h2>มะเร็งและ Tumor Markers</h2><p class="lead">ในคนไม่มีอาการ การคัดกรองที่มีหลักฐาน เช่น ปากมดลูก เต้านม ลำไส้ใหญ่ หรือปอดในกลุ่มเสี่ยง มีบทบาทชัดกว่าการสั่ง tumor-marker panel กว้าง ๆ</p></div>
 <div class="chapter-outline">
 <button class="chapter-outline-card fragment fade-up" data-jump="tumor-marker" data-readable-card="" type="button"><b>5.1</b><span>Marker คืออะไร</span><small>screening, diagnosis support, prognosis, monitoring</small></button>
 <button class="chapter-outline-card fragment fade-up" data-jump="tumor-body-map" data-readable-card="" type="button"><b>5.2</b><span>Body Diagram</span><small>ตำแหน่งอวัยวะและ marker ที่สัมพันธ์</small></button>
 <button class="chapter-outline-card fragment fade-up" data-jump="tumor-marker-table" data-readable-card="" type="button"><b>5.3</b><span>Marker ที่พบบ่อย</span><small>PSA • AFP • CEA • CA-125 • CA19-9 • β-hCG</small></button>
 <button class="chapter-outline-card fragment fade-up" data-jump="tumor-false-positive" data-readable-card="" type="button"><b>5.4</b><span>False Positive</span><small>pre-test probability เปลี่ยนความหมายของผล</small></button>
 </div>
-<aside class="notes">Body map ใช้เพื่อจำ association ไม่ใช่ระบุว่า marker จำเพาะต่ออวัยวะเดียว</aside>
-</section><section class="slide" data-group="cancer" data-menu-title="Tumor marker คืออะไร" data-section="CANCER" data-transition="fade" id="tumor-marker">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง NCI: Cancer Screening ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/screening/screening-tests" rel="noopener noreferrer" target="_blank">NCI: Cancer Screening</a><a aria-label="เปิดแหล่งอ้างอิง NCI: Tumor Markers ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener noreferrer" target="_blank">NCI: Tumor Markers</a></div></section><section class="slide" data-group="cancer" data-menu-title="Tumor marker คืออะไร" data-section="CANCER" data-transition="fade" id="tumor-marker">
 <div class="slide-kicker">CANCER • 5.1</div>
 <h2>Tumor Markers <small>ไฟเตือน ไม่ใช่ตราประทับ</small></h2>
-<p class="lead">อาจเป็น protein, substance หรือ genomic change ที่เกิดจากเซลล์มะเร็ง หรือเกิดจากเซลล์ปกติที่ตอบสนองต่อโรค</p>
+<p class="lead">Tumor marker อาจมาจากเซลล์มะเร็งหรือการตอบสนองของร่างกาย แต่ส่วนใหญ่ไม่ไวและไม่จำเพาะพอสำหรับใช้ยืนยันหรือคัดกรองเดี่ยว ๆ</p>
 <div class="pipeline">
 <article class="pipeline-card fragment fade-up" data-readable-card=""><span class="step-number">01</span><h3>ตั้งคำถาม</h3><p>screening, ช่วยวินิจฉัย, staging, treatment selection, monitoring หรือ recurrence?</p></article>
 <div class="pipeline-link fragment fade-in">→</div>
@@ -632,13 +574,11 @@
 <div class="pipeline-link fragment fade-in">→</div>
 <article class="pipeline-card fragment fade-up" data-readable-card=""><span class="step-number">03</span><h3>ยืนยัน</h3><p>ตรวจซ้ำ imaging endoscopy หรือ pathology ตามคำถามและอวัยวะ</p></article>
 </div>
-<div class="bottom-banner fragment fade-up"><b>เหตุผลที่ไม่เหมาะกับ screening เดี่ยว:</b> marker บางตัวขึ้นจากโรคไม่ร้าย และมะเร็งบางรายไม่สร้าง marker สูง</div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener" target="_blank">NCI Tumor Markers</a><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-list" rel="noopener" target="_blank">NCI Marker List</a></div>
-<aside class="notes">NCI ระบุว่าตัวบ่งชี้ในเลือดส่วนใหญ่ไม่ sensitive/specific พอสำหรับ population screening เดี่ยว</aside>
-</section><section class="slide interactive-slide" data-group="cancer" data-menu-title="Tumor Marker Body Diagram" data-section="CANCER" data-transition="fade" id="tumor-body-map">
+<div class="bottom-banner fragment fade-up"><b>สำหรับผู้ตรวจสุขภาพ:</b> อย่าตีความค่าที่สูงเพียงค่าเดียวว่าเป็นมะเร็ง และอย่าใช้ผลปกติตัดมะเร็งเมื่อมีอาการ ควรทบทวนข้อบ่งชี้และขั้นยืนยัน</div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง NCI: Tumor Markers ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener noreferrer" target="_blank">NCI: Tumor Markers</a><a aria-label="เปิดแหล่งอ้างอิง NCI: Marker List ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-list" rel="noopener noreferrer" target="_blank">NCI: Marker List</a></div></section><section class="slide interactive-slide" data-group="cancer" data-menu-title="Tumor Marker Body Diagram" data-section="CANCER" data-transition="fade" id="tumor-body-map">
 <div class="slide-kicker">CANCER • 5.2</div>
 <h2>Tumor Marker Body Map <small>หนึ่ง marker เชื่อมกับหลายอวัยวะ และ benign conditions ได้</small></h2>
-<p class="lead">คลิก marker เพื่อเน้นตำแหน่งที่มักเกี่ยวข้องและดูข้อควรระวังในการตีความ</p>
+<p class="lead">เลือก marker เพื่อดูอวัยวะที่อาจสัมพันธ์และภาวะไม่ร้ายแรงที่ทำให้ค่าสูง แผนภาพนี้เป็น association map ไม่ใช่แผนที่ระบุตำแหน่งมะเร็ง</p>
 <div class="tumor-map-layout" data-interactive="tumor-map">
 <div class="marker-buttons left">
 <button class="marker-map-btn is-active" data-marker="PSA" type="button"><b>PSA</b><span>Prostate</span></button>
@@ -669,9 +609,7 @@
 <span id="marker-detail-name">PSA</span><h3 id="marker-detail-title">สัมพันธ์กับ prostate</h3><p id="marker-detail-use">ใช้ประกอบการตัดสินใจเรื่อง prostate cancer ในบริบทที่เหมาะสม และใช้ติดตามในผู้ป่วยที่วินิจฉัยแล้ว</p><small id="marker-detail-caution">อาจสูงจาก benign prostatic hyperplasia, prostatitis หรือปัจจัยรอบการตรวจได้</small>
 </div>
 </div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener" target="_blank">NCI: Tumor Markers Fact Sheet</a><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-list" rel="noopener" target="_blank">NCI: Marker Tests in Common Use</a></div>
-<aside class="notes">ให้ผู้ฟังคลิก marker ทีละตัว และย้ำว่า body map เป็น association map ไม่ใช่ specificity map</aside>
-</section><section class="slide" data-group="cancer" data-menu-title="Tumor marker ที่พบบ่อย" data-section="CANCER" data-transition="fade" id="tumor-marker-table">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง NCI: Tumor Markers ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener noreferrer" target="_blank">NCI: Tumor Markers</a><a aria-label="เปิดแหล่งอ้างอิง NCI: Marker List ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-list" rel="noopener noreferrer" target="_blank">NCI: Marker List</a></div></section><section class="slide" data-group="cancer" data-menu-title="Tumor marker ที่พบบ่อย" data-section="CANCER" data-transition="fade" id="tumor-marker-table">
 <div class="slide-kicker">CANCER • 5.3</div>
 <h2>Marker ที่พบบ่อย <small>หนึ่ง marker ไม่ได้ผูกกับมะเร็งหนึ่งชนิดแบบ 1:1</small></h2>
 <div class="marker-table-wrap panel">
@@ -687,12 +625,10 @@
 </tbody>
 </table>
 </div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener" target="_blank">NCI Tumor Markers</a><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-list" rel="noopener" target="_blank">NCI Marker List</a></div>
-<aside class="notes">ตารางนี้เป็น educational overview ไม่แทน indication และ cutoff เฉพาะ marker/ห้องปฏิบัติการ</aside>
-</section><section class="slide" data-group="cancer" data-menu-title="False Positive" data-section="CANCER" data-transition="fade" id="tumor-false-positive">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง NCI: Tumor Markers ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener noreferrer" target="_blank">NCI: Tumor Markers</a><a aria-label="เปิดแหล่งอ้างอิง NCI: Marker List ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-list" rel="noopener noreferrer" target="_blank">NCI: Marker List</a></div></section><section class="slide" data-group="cancer" data-menu-title="False Positive" data-section="CANCER" data-transition="fade" id="tumor-false-positive">
 <div class="slide-kicker">CANCER • 5.4</div>
 <h2>ทำไมผลบวกจึงไม่เท่ากับมะเร็ง <small>pre-test probability เปลี่ยนความหมายของผล</small></h2>
-<p class="lead">ตัวอย่างเชิงสอน: ประชากร 1,000 คน โรคพบ 1% และ test sensitivity/specificity 90%</p>
+<p class="lead">ตัวอย่างนี้แสดงว่าการตรวจโรคที่พบไม่บ่อยในคนไม่มีอาการอาจให้ผลบวกหลอกมากกว่าผลบวกจริง แม้ test ดูมีความแม่นยำสูง</p>
 <div class="bayes-layout">
 <div aria-label="ตารางคน 1000 คน" class="population-grid">
 <div class="population-stat tp fragment fade-up"><b>9</b><span>True positive</span></div>
@@ -703,9 +639,7 @@
 <div class="ppv-card fragment fade-left"><span>โอกาสเป็นโรคเมื่อผลบวก</span><b>9 ÷ (9+99)</b><strong>≈ 8.3%</strong><p>แม้ test ดู “แม่น 90%” แต่เมื่อโรคพบได้น้อย false positives ครองผลบวกส่วนใหญ่</p></div>
 </div>
 <div class="bottom-banner subtle">นี่คือเหตุผลที่การสั่ง tumor markers แบบเหวี่ยงแหในคนไม่มีอาการ อาจนำไปสู่การตรวจซ้ำ ความกังวล และหัตถการที่ไม่จำเป็น</div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener" target="_blank">NCI Tumor Markers</a><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-list" rel="noopener" target="_blank">NCI Marker List</a></div>
-<aside class="notes">ตัวเลขเป็นตัวอย่างคณิตศาสตร์ ไม่ใช่ performance ของ tumor marker ตัวใดตัวหนึ่ง</aside>
-</section><section class="slide" data-group="cancer" data-menu-title="ใช้ Tumor Markers ให้ถูกจังหวะ" data-section="CANCER" data-transition="convex" id="tumor-use">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง NCI: Tumor Markers ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener noreferrer" target="_blank">NCI: Tumor Markers</a><a aria-label="เปิดแหล่งอ้างอิง NCI: Cancer Screening ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/screening/screening-tests" rel="noopener noreferrer" target="_blank">NCI: Cancer Screening</a></div></section><section class="slide" data-group="cancer" data-menu-title="ใช้ Tumor Markers ให้ถูกจังหวะ" data-section="CANCER" data-transition="convex" id="tumor-use">
 <div class="slide-kicker">CANCER • 5.5</div>
 <h2>ก่อนสั่งและหลังผลผิดปกติ <small>ต้องมีแผนต่อเสมอ</small></h2>
 <div class="tumor-use-grid">
@@ -716,27 +650,24 @@
 <article class="use-card dont fragment fade-up" data-readable-card=""><b>DON'T</b><h3>ใช้ cutoff เดียวตัดสิน</h3><p>method, lab, benign causes และ kinetics สำคัญ</p></article>
 <article class="use-card dont fragment fade-up" data-readable-card=""><b>DON'T</b><h3>สรุปว่า “ปกติ = ไม่มีมะเร็ง”</h3><p>มะเร็งบางชนิด/บางคนไม่ทำให้ marker สูง</p></article>
 </div>
-<div class="bottom-banner"><b>ผลผิดปกติ →</b> ตรวจสอบ pre-analytic/assay → ทบทวน benign causes → repeat/trend → ตรวจจำเพาะตามอวัยวะและอาการ</div>
-<div aria-label="แหล่งอ้างอิง" class="source-chips"><span>REFERENCES</span><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener" target="_blank">NCI Tumor Markers</a><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-list" rel="noopener" target="_blank">NCI Marker List</a></div>
-<aside class="notes">ปิดหมวดด้วย workflow ลด harm จาก over-testing</aside>
-</section><section class="slide chapter-slide chapter-other" data-group="other" data-menu-title="ผลตรวจสุขภาพอื่น" data-section="ผลตรวจสุขภาพอื่น" data-transition="zoom" id="other-start">
+<div class="bottom-banner"><b>ทางเลือกที่เหมาะกว่าในคนไม่มีอาการ:</b> ทบทวนการคัดกรองมะเร็งตามอายุ เพศ ประวัติครอบครัว การสูบบุหรี่ และแนวทางของประเทศ</div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง NCI: Tumor Markers ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener noreferrer" target="_blank">NCI: Tumor Markers</a><a aria-label="เปิดแหล่งอ้างอิง NCI: Cancer Screening ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/screening/screening-tests" rel="noopener noreferrer" target="_blank">NCI: Cancer Screening</a></div></section><section class="slide chapter-slide chapter-other" data-group="other" data-menu-title="ผลตรวจสุขภาพอื่น" data-section="ผลตรวจสุขภาพอื่น" data-transition="zoom" id="other-start">
 <div class="chapter-number">+</div>
 <div class="chapter-copy">
 <div class="slide-kicker">CHAPTER +</div>
 <h2>ผลตรวจสุขภาพอื่น</h2>
-<p class="lead">หัวข้อเสริมสำหรับการตรวจสุขภาพ โดยไตถูกย้ายเป็น chapter หลักเพื่อเข้าถึงง่ายขึ้น</p>
+<p class="lead">อ่านผลเลือด ความดัน การมองเห็น การได้ยิน และหลอดเลือดส่วนปลาย พร้อมขั้นตอนติดตามและสัญญาณที่ไม่ควรรอ</p>
 </div>
 <div class="chapter-outline">
 <button class="chapter-outline-card fragment fade-up" data-jump="other-thal" data-readable-card="" type="button"><b>A</b><span>เลือดและความดัน</span><small>thalassemia, anemia, hypertension</small></button>
 <button class="chapter-outline-card fragment fade-up" data-jump="other-hearing" data-readable-card="" type="button"><b>B</b><span>การมองเห็นและการได้ยิน</span><small>presbycusis, presbyopia, color vision</small></button>
 <button class="chapter-outline-card fragment fade-up" data-jump="other-pad" data-readable-card="" type="button"><b>C</b><span>หลอดเลือดส่วนปลาย</span><small>PAD, ABI, CAVI</small></button>
-<button class="chapter-outline-card fragment fade-up" data-jump="references-tests" data-readable-card="" type="button"><b>REF</b><span>แหล่งข้อมูลเพิ่มเติม</span><small>เปิด reference links</small></button>
+<button class="chapter-outline-card fragment fade-up" data-jump="references-tests" data-readable-card="" type="button"><b>REF</b><span>หลักฐานต้นทาง</span><small>เปิดแนวทางและข้อมูลสำหรับผู้ป่วย</small></button>
 </div>
-<aside class="notes">หน้าคั่นหมวด ใช้คลิกการ์ดเพื่อกระโดดไปหัวข้อย่อยได้โดยตรง</aside>
-</section><section class="slide" data-group="other" data-menu-title="หูตึงตามวัย" data-section="OTHER CHECKS" data-transition="fade" id="other-hearing">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง MedlinePlus: อ่านผลแล็บ ในแท็บใหม่" href="https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/" rel="noopener noreferrer" target="_blank">MedlinePlus: อ่านผลแล็บ</a><a aria-label="เปิดแหล่งอ้างอิง NIDCD: Hearing Loss ในแท็บใหม่" href="https://www.nidcd.nih.gov/health/age-related-hearing-loss" rel="noopener noreferrer" target="_blank">NIDCD: Hearing Loss</a><a aria-label="เปิดแหล่งอ้างอิง NEI: Presbyopia ในแท็บใหม่" href="https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/presbyopia" rel="noopener noreferrer" target="_blank">NEI: Presbyopia</a><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC PAD 2024 ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2024-guideline-for-the-management-of-lower-extremity-peripheral-artery-disease" rel="noopener noreferrer" target="_blank">AHA/ACC PAD 2024</a></div></section><section class="slide" data-group="other" data-menu-title="หูตึงตามวัย" data-section="OTHER CHECKS" data-transition="fade" id="other-hearing">
 <div class="slide-kicker">HEARING</div>
 <h2>Presbycusis <small>หูตึงตามวัย</small></h2>
-<p class="lead">มักเริ่มจากเสียงความถี่สูง จึง “ได้ยินเสียง แต่ฟังคำไม่ชัด” โดยเฉพาะในที่มีเสียงรบกวน</p>
+<p class="lead">หูตึงตามวัยมักค่อย ๆ เป็นสองข้างและเด่นที่ความถี่สูง หากได้ยินลดลงฉับพลัน โดยเฉพาะข้างเดียว ให้พบแพทย์เร่งด่วน</p>
 <div class="split-layout">
 <div class="panel mechanism-panel">
 <div class="mechanism-title">กลไกแบบ 3 จังหวะ</div>
@@ -747,7 +678,7 @@
 <div class="mechanism-arrow fragment fade-in">→</div>
 <div class="mechanism-node fragment fade-up"><b>3</b><span>พยัญชนะหาย คำพูดพร่า</span></div>
 </div>
-<div class="callout fragment fade-up"><strong>ภาพจำ:</strong> ปลายกราฟด้านขวาตกก่อน</div>
+<div class="callout fragment fade-up"><strong>ควรทำอะไร:</strong> ถ้าฟังคำไม่ชัด ต้องเร่งเสียง หรือรบกวนงาน/ชีวิตประจำวัน ควรตรวจการได้ยิน ไม่ควรรอจนสื่อสารลำบากมาก</div>
 </div>
 <div class="panel chart-panel">
 <svg aria-label="กราฟการได้ยินลดลงเด่นในความถี่สูง" class="audiogram" role="img" viewbox="0 0 620 340">
@@ -759,17 +690,15 @@
 </svg>
 </div>
 </div>
-<div class="source-line">NIDCD • Age-Related Hearing Loss</div>
-<aside class="notes">ชี้ว่าคนไข้บางรายไม่ได้บอกว่าไม่ได้ยิน แต่บอกว่าฟังคำไม่รู้เรื่อง โดยเฉพาะร้านอาหารหรือห้องประชุม</aside>
-</section><section class="slide" data-group="other" data-menu-title="สายตายาวตามวัย" data-section="OTHER CHECKS" data-transition="fade" id="other-vision">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง NIDCD: Hearing Loss ในแท็บใหม่" href="https://www.nidcd.nih.gov/health/age-related-hearing-loss" rel="noopener noreferrer" target="_blank">NIDCD: Hearing Loss</a><a aria-label="เปิดแหล่งอ้างอิง NIDCD: Sudden Hearing Loss ในแท็บใหม่" href="https://www.nidcd.nih.gov/health/sudden-deafness" rel="noopener noreferrer" target="_blank">NIDCD: Sudden Hearing Loss</a></div></section><section class="slide" data-group="other" data-menu-title="สายตายาวตามวัย" data-section="OTHER CHECKS" data-transition="fade" id="other-vision">
 <div class="slide-kicker">VISION</div>
 <h2>Presbyopia <small>สายตายาวตามวัย</small></h2>
-<p class="lead">เลนส์ตาแข็งขึ้นและปรับความโค้งได้น้อยลง จุดชัดใกล้จึงถอยออกไป</p>
+<p class="lead">Presbyopia ทำให้โฟกัสใกล้ยากขึ้นตามวัย แต่ตามัวฉับพลัน แสงแฟลช จุดดำใหม่จำนวนมาก หรือเหมือนม่านบังตาไม่ใช่อาการปกติของวัย</p>
 <div class="lens-comparison">
 <div class="lens-card fragment fade-right">
 <div class="lens-eye young-eye"><span class="lens-shape flexible"></span><span class="focus-dot near-dot"></span></div>
 <h3>อายุน้อย</h3>
-<p>เลนส์ป่องได้มาก<br>โฟกัสใกล้ชัด</br></p>
+<p>เลนส์ป่องได้มาก<br/>โฟกัสใกล้ชัด</p>
 </div>
 <div class="lens-transform-arrow fragment fade-in">เลนส์ยืดหยุ่นลดลง</div>
 <div class="lens-card fragment fade-left">
@@ -783,12 +712,10 @@
 <div class="mini-card fragment fade-up"><strong>มักเริ่ม</strong><span>ชัดขึ้นช่วงวัย 40+</span></div>
 <div class="mini-card fragment fade-up"><strong>Red flag</strong><span>ตามัวฉับพลัน แสงแฟลช จุดดำพุ่ง หรือปวดตารุนแรง</span></div>
 </div>
-<div class="source-line">National Eye Institute • Presbyopia</div>
-<aside class="notes">ย้ำว่า presbyopia ไม่ใช่สายตายาวแต่กำเนิด และไม่ได้ทำให้ระยะไกลชัดขึ้นโดยอัตโนมัติ</aside>
-</section><section class="slide" data-group="other" data-menu-title="BI-RADS" data-section="OTHER CHECKS" data-transition="convex" id="other-birads">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง NEI: Presbyopia ในแท็บใหม่" href="https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/presbyopia" rel="noopener noreferrer" target="_blank">NEI: Presbyopia</a><a aria-label="เปิดแหล่งอ้างอิง NEI: Retinal Detachment ในแท็บใหม่" href="https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/retinal-detachment" rel="noopener noreferrer" target="_blank">NEI: Retinal Detachment</a></div></section><section class="slide" data-group="other" data-menu-title="BI-RADS" data-section="OTHER CHECKS" data-transition="convex" id="other-birads">
 <div class="slide-kicker">BREAST IMAGING</div>
 <h2>BI-RADS® v2025 <small>รหัสเดียว บอกผลและขั้นถัดไป</small></h2>
-<p class="lead">BI-RADS เป็นระบบมาตรฐานของรายงานภาพเต้านม ไม่ใช่ระยะของมะเร็ง</p>
+<p class="lead">BI-RADS เป็นระบบมาตรฐานของรายงานภาพเต้านม ไม่ใช่ระยะมะเร็ง สิ่งสำคัญคือทำตามคำแนะนำของแต่ละ category ให้ตรงเวลา</p>
 <div class="birads-ladder">
 <div class="birads b0 fragment fade-up"><b>0</b><span>ยังไม่ครบ</span><small>ตรวจเพิ่ม/เทียบภาพเดิม</small></div>
 <div class="birads b1 fragment fade-up"><b>1</b><span>ปกติ</span><small>คัดกรองตามปกติ</small></div>
@@ -798,12 +725,11 @@
 <div class="birads b5 fragment fade-up"><b>5</b><span>สงสัยสูงมาก</span><small>เร่งประเมิน</small></div>
 <div class="birads b6 fragment fade-up"><b>6</b><span>ยืนยันพยาธิแล้ว</span><small>วางแผนรักษา</small></div>
 </div>
-<div class="source-line">American College of Radiology • BI-RADS v2025</div>
-<aside class="notes">BI-RADS 0 ไม่ได้แปลว่าผิดปกติร้ายแรง แต่แปลว่าข้อมูลยังไม่พอ ส่วน BI-RADS 3 ไม่ได้แปลว่าปล่อยทิ้ง ต้องติดตามตามช่วงที่กำหนด</aside>
-</section><section class="slide" data-group="other" data-menu-title="Thalassemia" data-section="OTHER CHECKS" data-transition="fade" id="other-thal">
+
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง ACR: BI-RADS ในแท็บใหม่" href="https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems/BI-RADS" rel="noopener noreferrer" target="_blank">ACR: BI-RADS</a><a aria-label="เปิดแหล่งอ้างอิง NCI: Cancer Screening ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/screening/screening-tests" rel="noopener noreferrer" target="_blank">NCI: Cancer Screening</a></div></section><section class="slide" data-group="other" data-menu-title="Thalassemia" data-section="OTHER CHECKS" data-transition="fade" id="other-thal">
 <div class="slide-kicker">HEMATOLOGY</div>
 <h2>Thalassemia <small>ยีนสร้างฮีโมโกลบินไม่ครบ</small></h2>
-<p class="lead">เม็ดเลือดแดงจึงเล็ก เปราะ และมีอายุสั้น แต่ “พาหะ” หลายคนไม่มีอาการหรือซีดเพียงเล็กน้อย</p>
+<p class="lead">เม็ดเลือดแดงเล็กไม่ได้แปลว่าขาดธาตุเหล็กเสมอ หากสงสัยพาหะควรตรวจ ferritin/iron study และการทดสอบ hemoglobin ก่อนรับธาตุเหล็กระยะยาว</p>
 <div class="domino-chain">
 <div class="domino fragment fade-right"><span>ยีนผิดปกติ</span><small>สร้างสาย globin ลดลง</small></div>
 <div class="domino-arrow fragment fade-in">→</div>
@@ -817,12 +743,10 @@
 <div class="panel fragment fade-up"><h3>Microcytosis ≠ ขาดธาตุเหล็กเสมอ</h3><p>ก่อนให้ธาตุเหล็กระยะยาว ควรดู ferritin / iron study และประวัติครอบครัว</p></div>
 <div class="inheritance panel fragment fade-up"><h3>เมื่อคู่สมรสเป็นพาหะชนิดที่เสี่ยงร่วมกัน</h3><div><b>25%</b><span>ไม่เป็นพาหะ</span><b>50%</b><span>เป็นพาหะ</span><b>25%</b><span>มีโรค</span></div></div>
 </div>
-<div class="source-line">CDC • Thalassemia</div>
-<aside class="notes">ตัวเลข 25/50/25 เป็นภาพจำของ autosomal recessive เมื่อทั้งสองฝ่ายเป็นพาหะของยีนที่สัมพันธ์กัน แต่รายละเอียดจริงขึ้นกับชนิด thalassemia</aside>
-</section><section class="slide" data-group="other" data-menu-title="Anemia" data-section="OTHER CHECKS" data-transition="fade" id="other-anemia">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง CDC: Thalassemia ในแท็บใหม่" href="https://www.cdc.gov/thalassemia/about/index.html" rel="noopener noreferrer" target="_blank">CDC: Thalassemia</a><a aria-label="เปิดแหล่งอ้างอิง WHO: Anemia 2024 ในแท็บใหม่" href="https://www.who.int/publications/i/item/9789240088542" rel="noopener noreferrer" target="_blank">WHO: Anemia 2024</a></div></section><section class="slide" data-group="other" data-menu-title="Anemia" data-section="OTHER CHECKS" data-transition="fade" id="other-anemia">
 <div class="slide-kicker">HEMATOLOGY</div>
 <h2>Anemia <small>เลือดพาออกซิเจนได้น้อยลง</small></h2>
-<p class="lead">คำว่า “ซีด” เป็นผลปลายทาง ต้องถามต่อว่าเสียเลือด สร้างไม่พอ หรือถูกทำลายเร็ว</p>
+<p class="lead">โลหิตจางเป็นผลปลายทาง ต้องหาสาเหตุว่าเสียเลือด สร้างไม่พอ หรือเม็ดเลือดแดงถูกทำลายเร็ว โดยดูอาการ แนวโน้ม CBC และผลตรวจประกอบ</p>
 <div class="anemia-layout">
 <div class="oxygen-track panel">
 <div class="rbc-row"><i>O₂</i><i>O₂</i><i>O₂</i><i>O₂</i><i class="dim">O₂</i><i class="dim">O₂</i><i class="dim">O₂</i></div>
@@ -836,13 +760,11 @@
 <div class="cause-card fragment fade-left"><b>3</b><h3>ทำลายเร็ว</h3><p>Hemolysis จากภูมิคุ้มกัน ยา การติดเชื้อ หรือโรคพันธุกรรม</p></div>
 </div>
 </div>
-<div class="bottom-banner subtle">ค่าตัด Hb แตกต่างตามอายุ เพศ การตั้งครรภ์ ระดับความสูง และห้องปฏิบัติการ จึงไม่ควรใช้ตัวเลขเดียวกับทุกคน</div>
-<div class="source-line">WHO 2024 Haemoglobin Cutoffs</div>
-<aside class="notes">ความรุนแรงของอาการขึ้นกับระดับ Hb ความเร็วที่ลดลง และโรคร่วม เช่น หัวใจหรือปอด</aside>
-</section><section class="slide" data-group="other" data-menu-title="ความดันโลหิตสูง" data-section="OTHER CHECKS" data-transition="convex" id="other-bp">
+<div class="bottom-banner subtle"><b>ควรประเมินเร็ว:</b> เหนื่อยมาก เจ็บหน้าอก หน้ามืดเป็นลม หัวใจเต้นเร็ว เลือดออก หรือ Hb ลดลงรวดเร็ว โดยเฉพาะผู้สูงอายุหรือผู้มีโรคหัวใจ/ปอด</div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง WHO: Anemia 2024 ในแท็บใหม่" href="https://www.who.int/publications/i/item/9789240088542" rel="noopener noreferrer" target="_blank">WHO: Anemia 2024</a><a aria-label="เปิดแหล่งอ้างอิง MedlinePlus: อ่านผลแล็บ ในแท็บใหม่" href="https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/" rel="noopener noreferrer" target="_blank">MedlinePlus: อ่านผลแล็บ</a></div></section><section class="slide" data-group="other" data-menu-title="ความดันโลหิตสูง" data-section="OTHER CHECKS" data-transition="convex" id="other-bp">
 <div class="slide-kicker">BLOOD PRESSURE</div>
 <h2>Hypertension <small>หนึ่งครั้งยังไม่ใช่เรื่องทั้งหมด</small></h2>
-<p class="lead">วัดให้ถูก ยืนยันด้วยหลายครั้งหรือการวัดนอกคลินิก แล้วจึงตีความร่วมกับความเสี่ยงและอวัยวะเป้าหมาย</p>
+<p class="lead">วัดให้ถูกและดูค่าเฉลี่ยหลายครั้ง หากสูงในคลินิกให้พิจารณาวัดที่บ้านหรือ ABPM เพื่อแยก white-coat และ masked hypertension</p>
 <div class="bp-layout">
 <div class="bp-gauge panel">
 <div class="gauge-ring"><div class="gauge-needle"></div><div class="gauge-center">BP</div></div>
@@ -852,7 +774,7 @@
 <li class="fragment fade-up">วัดซ้ำและดูค่าเฉลี่ย</li>
 <li class="fragment fade-up">พิจารณา HBPM / ABPM เมื่อเหมาะสม</li>
 </ol>
-</div>
+<div class="red-flag"><b>กรณีฉุกเฉิน:</b> หากความดัน &gt;180/120 mmHg ร่วมกับเจ็บหน้าอก หอบ อ่อนแรง ชา พูดไม่ชัด สับสน หรือการมองเห็นผิดปกติ ให้ขอความช่วยเหลือฉุกเฉิน</div></div>
 <div class="bp-table panel">
 <div class="bp-row optimal"><b>Optimal</b><span>&lt;120 / &lt;80</span></div>
 <div class="bp-row normal"><b>Normal</b><span>120–129 / &lt;80</span></div>
@@ -860,15 +782,14 @@
 <div class="bp-row grade1"><b>Grade 1</b><span>140–159 / 90–99</span></div>
 <div class="bp-row grade2"><b>Grade 2</b><span>160–179 / 100–109</span></div>
 <div class="bp-row grade3"><b>Grade 3</b><span>≥180 / ≥110</span></div>
-<small>ใช้ค่าที่สูงกว่าเมื่อ SBP และ DBP อยู่คนละระดับ</small>
+
 </div>
 </div>
-<div class="source-line">Thai Hypertension Society 2024</div>
-<aside class="notes">แยก white-coat hypertension และ masked hypertension ด้วยการวัดที่บ้านหรือ ABPM ตามบริบท</aside>
-</section><section class="slide" data-group="other" data-menu-title="การมองเห็นสี" data-section="OTHER CHECKS" data-transition="fade" id="other-color">
+
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง Thai HTN 2024 ในแท็บใหม่" href="https://thaihypertension.org/files/Guideline2024.pdf" rel="noopener noreferrer" target="_blank">Thai HTN 2024</a><a aria-label="เปิดแหล่งอ้างอิง AHA: BP Emergency ในแท็บใหม่" href="https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/when-to-call-911-for-high-blood-pressure" rel="noopener noreferrer" target="_blank">AHA: BP Emergency</a></div></section><section class="slide" data-group="other" data-menu-title="การมองเห็นสี" data-section="OTHER CHECKS" data-transition="fade" id="other-color">
 <div class="slide-kicker">OCCUPATIONAL VISION</div>
 <h2>Color Vision &amp; CIE <small>คัดกรองก่อน แล้วทดสอบตามงาน</small></h2>
-<p class="lead">การมองสีเป็นความสามารถหลายมิติ ผล Ishihara อย่างเดียวไม่บอกทุกอย่าง และไม่ควรแปลว่า “ทำงานไม่ได้” โดยอัตโนมัติ</p>
+<p class="lead">ผลคัดกรองการมองสีควรตีความตามหน้าที่งานและมาตรฐานเฉพาะตำแหน่ง ไม่ควรสรุปว่า “ทำงานไม่ได้” จาก Ishihara อย่างเดียว</p>
 <div class="work-flow">
 <article class="workflow-card fragment fade-up"><span>1</span><h3>วิเคราะห์งาน</h3><p>ต้องแยกสีอะไร ภายใต้แสงและระยะใด ความผิดพลาดร้ายแรงแค่ไหน</p></article>
 <article class="workflow-card fragment fade-up"><span>2</span><h3>Screening</h3><p>Ishihara เหมาะกับ red-green deficiency แต่ไม่ได้วัดทุกมิติ</p></article>
@@ -879,12 +800,10 @@
 <div class="color-disc disc-a">12</div><div class="color-disc disc-b">8</div><div class="color-disc disc-c">29</div>
 <div class="callout fragment fade-left"><b>ทำไม Ishihara “ตก” แต่ยังอาจทำงานได้?</b><br/>งานจริงอาจมีความสว่าง ตำแหน่ง รูปร่าง ป้ายข้อความ หรือสัญญาณสำรองร่วมด้วย</div>
 </div>
-<div class="source-line">CIE transport recommendations • Occupational practice</div>
-<aside class="notes">ความผิดปกติการมองสีที่เกิดใหม่ โดยเฉพาะข้างเดียว อาจสัมพันธ์กับโรคตา เส้นประสาทตา หรือยา ควรประเมินทางการแพทย์</aside>
-</section><section class="slide" data-group="other" data-menu-title="Peripheral Artery Disease" data-section="OTHER CHECKS" data-transition="zoom" id="other-pad">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง CIE: Colour Vision ในแท็บใหม่" href="https://www.cie.co.at/publications/international-recommendations-colour-vision-requirements-transport" rel="noopener noreferrer" target="_blank">CIE: Colour Vision</a></div></section><section class="slide" data-group="other" data-menu-title="Peripheral Artery Disease" data-section="OTHER CHECKS" data-transition="zoom" id="other-pad">
 <div class="slide-kicker">VASCULAR</div>
 <h2>Peripheral Artery Disease <small>เลือดไปขาไม่พอเวลาใช้งาน</small></h2>
-<p class="lead">คราบไขมันทำให้หลอดเลือดตีบ เมื่อกล้ามเนื้อต้องการออกซิเจนเพิ่มตอนเดิน จึงเกิดอาการปวดล้าแบบ claudication</p>
+<p class="lead">ถ้าเดินแล้วปวดน่องหรือต้นขาซ้ำที่ระยะใกล้เคียงกันและดีขึ้นเมื่อพัก ควรประเมิน PAD เพราะเป็นสัญญาณ atherosclerosis ทั้งระบบ</p>
 <div class="scene-explainer">
 <div class="three-stage pad-stage panel" data-three-host="">
 <canvas aria-label="ภาพสามมิติของหลอดเลือดแดงที่มี plaque ทำให้ช่องทางตีบ" data-three-scene="pad"></canvas>
@@ -899,12 +818,10 @@
 </div>
 </div>
 <div class="bottom-banner subtle">PAD เป็นสัญญาณของ atherosclerosis ทั้งระบบ จึงเพิ่มความเสี่ยงหัวใจขาดเลือดและ stroke ไม่ได้เป็นโรคเฉพาะขา</div>
-<div class="source-line">2024 AHA/ACC Lower Extremity PAD Guideline</div>
-<aside class="notes">หลายคนไม่มีอาการแบบตำรา แต่อาจเดินช้าลง ขาเย็น แผลหายช้า ชีพจรเท้าลด หรือมีการเปลี่ยนแปลงของเล็บและขน</aside>
-</section><section class="slide" data-group="other" data-menu-title="ABI" data-section="OTHER CHECKS" data-transition="fade" id="other-abi">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC PAD 2024 ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2024-guideline-for-the-management-of-lower-extremity-peripheral-artery-disease" rel="noopener noreferrer" target="_blank">AHA/ACC PAD 2024</a><a aria-label="เปิดแหล่งอ้างอิง AHA: ABI ในแท็บใหม่" href="https://www.heart.org/en/health-topics/peripheral-artery-disease/diagnosing-pad" rel="noopener noreferrer" target="_blank">AHA: ABI</a></div></section><section class="slide" data-group="other" data-menu-title="ABI" data-section="OTHER CHECKS" data-transition="fade" id="other-abi">
 <div class="slide-kicker">VASCULAR TEST</div>
 <h2>ABI <small>เปรียบแรงดันข้อเท้ากับแขน</small></h2>
-<p class="lead">Ankle–Brachial Index เป็นการคัดกรองการอุดตันของหลอดเลือดแดงขาที่ง่าย แต่ต้องระวังหลอดเลือดแข็งกดไม่ลง</p>
+<p class="lead">ABI ช่วยประเมินหลอดเลือดแดงขาตีบ แต่ค่าอาจสูงหลอกเมื่อหลอดเลือดกดไม่ลง โดยเฉพาะในเบาหวานและโรคไต</p>
 <div class="abi-equation">
 <div class="equation-label">ABI</div><div class="equals">=</div>
 <div class="fraction"><span>ความดัน systolic ที่ข้อเท้า</span><i></i><span>ความดัน systolic ที่แขน</span></div>
@@ -916,12 +833,10 @@
 <div class="abi-card abnormal fragment fade-up"><b>≤0.90</b><span>ผิดปกติ</span><small>สนับสนุน PAD</small></div>
 </div>
 <div class="bottom-banner subtle">วัดทั้งสองข้าง • ใช้ค่าข้อเท้าสูงกว่า • คำนวณแยกขาซ้าย–ขวา</div>
-<div class="source-line">AHA/ACC PAD guidance • ABI interpretation</div>
-<aside class="notes">ในผู้ป่วยเบาหวานหรือไตเรื้อรัง อาจพบหลอดเลือดกดไม่ลง ทำให้ ABI สูงหลอก จึงต้องใช้ toe-brachial index หรือวิธีอื่น</aside>
-</section><section class="slide" data-group="other" data-menu-title="CAVI" data-section="OTHER CHECKS" data-transition="zoom" id="other-cavi">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง AHA: ABI ในแท็บใหม่" href="https://www.heart.org/en/health-topics/peripheral-artery-disease/diagnosing-pad" rel="noopener noreferrer" target="_blank">AHA: ABI</a><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC PAD 2024 ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2024-guideline-for-the-management-of-lower-extremity-peripheral-artery-disease" rel="noopener noreferrer" target="_blank">AHA/ACC PAD 2024</a></div></section><section class="slide" data-group="other" data-menu-title="CAVI" data-section="OTHER CHECKS" data-transition="zoom" id="other-cavi">
 <div class="slide-kicker">ARTERIAL STIFFNESS</div>
 <h2>CAVI <small>วัด “ความแข็ง” ไม่ใช่ “การตัน”</small></h2>
-<p class="lead">Cardio-Ankle Vascular Index ประเมินความแข็งของหลอดเลือดแดงจากหัวใจถึงข้อเท้า และได้รับผลจากความดันขณะวัดน้อยกว่า pulse wave velocity บางชนิด</p>
+<p class="lead">CAVI เป็นตัวชี้วัดเสริมเรื่อง arterial stiffness ยังไม่ใช่การตรวจแทน risk score, LDL-C, ความดัน หรือ ABI และไม่ควรใช้ค่าเดียวตัดสินการรักษา</p>
 <div class="cavi-layout">
 <div class="three-stage cavi-stage panel" data-three-host="">
 <canvas aria-label="เปรียบเทียบคลื่นชีพจรในหลอดเลือดยืดหยุ่นและแข็ง" data-three-scene="cavi"></canvas>
@@ -935,72 +850,67 @@
 <div class="comparison-card fragment fade-up"><div><b>CAVI</b><span>หลอดเลือด “แข็ง” แค่ไหน</span></div><i>≠</i><div><b>ABI</b><span>หลอดเลือดขา “ตีบ/ตัน” หรือไม่</span></div></div>
 </div>
 </div>
-<div class="bottom-banner subtle">Cutoff เป็นแนวทางทั่วไป ต้องอ่านร่วมกับอายุ ปัจจัยเสี่ยง เครื่องมือ และค่ามาตรฐานของสถานพยาบาล</div>
-<div class="source-line">CAVI Expert Consensus • 2022</div>
-<aside class="notes">อย่าใช้ CAVI แทน ABI เพราะตอบคนละคำถาม และไม่ควรใช้ค่าเดียวตัดสินความเสี่ยงทั้งระบบ</aside>
-</section><section class="slide" data-group="summary" data-menu-title="สรุป" data-section="TAKE-HOME" data-transition="convex" id="take-home">
+<div class="bottom-banner subtle"><b>อ่านอย่างระวัง:</b> cutoff แตกต่างตามอายุ เครื่องมือ และประชากร ค่าผิดปกติควรนำไปทบทวนปัจจัยเสี่ยงมาตรฐาน ไม่ใช่สรุปว่า “หลอดเลือดตัน”</div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง CAVI Consensus ในแท็บใหม่" href="https://pubmed.ncbi.nlm.nih.gov/34791038/" rel="noopener noreferrer" target="_blank">CAVI Consensus</a><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC PAD 2024 ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2024-guideline-for-the-management-of-lower-extremity-peripheral-artery-disease" rel="noopener noreferrer" target="_blank">AHA/ACC PAD 2024</a></div></section><section class="slide" data-group="summary" data-menu-title="สรุป" data-section="TAKE-HOME" data-transition="convex" id="take-home">
 <div class="slide-kicker">TAKE-HOME</div>
-<h2>อ่านผลตรวจให้ครบวงจร <small>ใน 4 คำถาม</small></h2>
+<h2>อ่านผลตรวจให้ครบวงจร <small>ใน 4 คำถามที่นำไปใช้ได้จริง</small></h2>
 <div class="takehome-grid">
-<article class="takehome-card fragment fade-up"><b>01</b><h3>วัดอะไร?</h3><p>ค่าเฉลี่ย, cargo, particle count, plaque, ischemia, structure หรือ screening signal?</p></article>
-<article class="takehome-card fragment fade-up"><b>02</b><h3>กลไกคืออะไร?</h3><p>เข้าใจเหตุและผลก่อนจำ cutoff จะช่วยไม่สลับความหมายของตัวเลข</p></article>
-<article class="takehome-card fragment fade-up"><b>03</b><h3>บริบทเปลี่ยนไหม?</h3><p>อายุ เพศ ยา อาการ โรคเดิม อาหาร เวลา และวิธีวัด</p></article>
-<article class="takehome-card fragment fade-up"><b>04</b><h3>ผลนี้จะเปลี่ยนอะไร?</h3><p>ดูแนวโน้ม ตรวจซ้ำ ยืนยัน ลดความเสี่ยง หรือส่งต่อเมื่อมี red flag</p></article>
+<article class="takehome-card fragment fade-up"><b>01</b><h3>ค่าที่ตรวจตอบคำถามอะไร?</h3><p>เป็นค่าเฉลี่ย การทำงานของอวัยวะ ความเสี่ยง หรือสัญญาณที่ต้องยืนยัน?</p></article>
+<article class="takehome-card fragment fade-up"><b>02</b><h3>ผิดปกติครั้งเดียวหรือเป็นแนวโน้ม?</h3><p>ดูผลเดิม วิธีเตรียมตัว หน่วย และ reference range ของห้องปฏิบัติการเดียวกัน</p></article>
+<article class="takehome-card fragment fade-up"><b>03</b><h3>มีบริบทหรืออาการที่เปลี่ยนความหมายไหม?</h3><p>ยา โรคเดิม อายุ การตั้งครรภ์ การอดอาหาร และอาการสำคัญล้วนเปลี่ยนการตีความ</p></article>
+<article class="takehome-card fragment fade-up"><b>04</b><h3>ควรทำอะไรต่อและเมื่อไร?</h3><p>ปรับพฤติกรรม ตรวจซ้ำ นัดพบแพทย์ หรือขอความช่วยเหลือเร่งด่วนเมื่อมี red flag</p></article>
 </div>
-<div class="takehome-formula fragment fade-up"><span>Question</span><i>›</i><span>Mechanism</span><i>›</i><span>Context</span><i>›</i><span>Action</span></div>
-<aside class="notes">ปิดด้วย framework ที่นำไปใช้กับผลตรวจชนิดอื่นได้</aside>
-</section><section class="slide references-slide" data-group="summary" data-menu-title="References: Diabetes Lipids Kidney" data-section="REFERENCES" data-transition="fade" id="references-core">
+<div class="takehome-formula fragment fade-up"><span>ผลตรวจ</span><i>›</i><span>แนวโน้ม</span><i>›</i><span>บริบท</span><i>›</i><span>ขั้นถัดไป</span></div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง MedlinePlus: อ่านผลแล็บ ในแท็บใหม่" href="https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/" rel="noopener noreferrer" target="_blank">MedlinePlus: อ่านผลแล็บ</a><a aria-label="เปิดแหล่งอ้างอิง NCI: Cancer Screening ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/screening/screening-tests" rel="noopener noreferrer" target="_blank">NCI: Cancer Screening</a></div></section><section class="slide references-slide" data-group="summary" data-menu-title="References: Diabetes Lipids Kidney" data-section="REFERENCES" data-transition="fade" id="references-core">
 <div class="slide-kicker">REFERENCES • 1/2</div>
 <h2>แหล่งข้อมูลหลัก <small>เบาหวาน • ไขมัน • ไต</small></h2>
-<p class="lead">ทุกชื่อด้านล่างเป็นลิงก์ คลิกเพื่อเปิดหน้าต้นทางในแท็บใหม่</p>
+<p class="lead">ทุกชื่อเป็นลิงก์ไปยังแนวทางหรือหน่วยงานต้นทาง ใช้ตรวจสอบรายละเอียดและวันที่อัปเดตได้โดยตรง</p>
 <div class="refs-layout refs-three">
 <div class="refs-column panel"><h3>Diabetes &amp; GI</h3><ul>
-<li><a href="https://diabetesjournals.org/care/issue/49/Supplement_1" rel="noopener" target="_blank">ADA Standards of Care 2026</a></li>
-<li><a href="https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test" rel="noopener" target="_blank">NIDDK: A1C Test</a></li>
-<li><a href="https://glycemicindex.com/" rel="noopener" target="_blank">University of Sydney GI Research Service</a></li>
+<li><a href="https://diabetesjournals.org/care/issue/49/Supplement_1" rel="noopener noreferrer" target="_blank">ADA Standards of Care 2026</a></li>
+<li><a href="https://www.niddk.nih.gov/health-information/diagnostic-tests/a1c-test" rel="noopener noreferrer" target="_blank">NIDDK: A1C Test</a></li>
+<li><a href="https://glycemicindex.com/" rel="noopener noreferrer" target="_blank">University of Sydney GI Research Service</a></li>
 </ul></div>
 <div class="refs-column panel"><h3>Lipids</h3><ul>
-<li><a href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia" rel="noopener" target="_blank">ACC/AHA 2026 Dyslipidemia Guideline</a></li>
-<li><a href="https://www.heart.org/en/health-topics/cholesterol/hdl-good-ldl-bad-cholesterol-and-triglycerides" rel="noopener" target="_blank">AHA: HDL, LDL &amp; Triglycerides</a></li>
-<li><a href="https://www.nhlbi.nih.gov/health/blood-cholesterol/causes" rel="noopener" target="_blank">NHLBI: Causes &amp; Risk Factors</a></li>
-<li><a href="https://www.nhlbi.nih.gov/health/blood-cholesterol/treatment" rel="noopener" target="_blank">NHLBI: Treatment</a></li>
-<li><a href="https://www.ncbi.nlm.nih.gov/books/NBK305896/" rel="noopener" target="_blank">Endotext: Lipids &amp; Lipoproteins</a></li>
+<li><a href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia" rel="noopener noreferrer" target="_blank">ACC/AHA 2026 Dyslipidemia Guideline</a></li>
+<li><a href="https://www.heart.org/en/health-topics/cholesterol/hdl-good-ldl-bad-cholesterol-and-triglycerides" rel="noopener noreferrer" target="_blank">AHA: HDL, LDL &amp; Triglycerides</a></li>
+<li><a href="https://www.nhlbi.nih.gov/health/blood-cholesterol/causes" rel="noopener noreferrer" target="_blank">NHLBI: Causes &amp; Risk Factors</a></li>
+<li><a href="https://www.nhlbi.nih.gov/health/blood-cholesterol/treatment" rel="noopener noreferrer" target="_blank">NHLBI: Treatment</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/books/NBK305896/" rel="noopener noreferrer" target="_blank">Endotext: Lipids &amp; Lipoproteins</a></li>
 </ul></div>
 <div class="refs-column panel"><h3>Kidney</h3><ul>
-<li><a href="https://kdigo.org/guidelines/ckd-evaluation-and-management/" rel="noopener" target="_blank">KDIGO 2024 CKD Guideline</a></li>
-<li><a href="https://www.kidney.org/professionals/ckd-epi-creatinine-equation-2021" rel="noopener" target="_blank">NKF: CKD-EPI 2021 Equation</a></li>
-<li><a href="https://www.kidney.org/professionals/gfr_calculator" rel="noopener" target="_blank">NKF: eGFR Calculator</a></li>
-<li><a href="https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/eating-diet-nutrition" rel="noopener" target="_blank">NIDDK: Kidney Stone Prevention</a></li>
+<li><a href="https://kdigo.org/guidelines/ckd-evaluation-and-management/" rel="noopener noreferrer" target="_blank">KDIGO 2024 CKD Guideline</a></li>
+<li><a href="https://www.kidney.org/professionals/ckd-epi-creatinine-equation-2021" rel="noopener noreferrer" target="_blank">NKF: CKD-EPI 2021 Equation</a></li>
+<li><a href="https://www.kidney.org/professionals/gfr_calculator" rel="noopener noreferrer" target="_blank">NKF: eGFR Calculator</a></li>
+<li><a href="https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/eating-diet-nutrition" rel="noopener noreferrer" target="_blank">NIDDK: Kidney Stone Prevention</a></li>
 </ul></div>
 </div>
 <div class="reference-nav"><button data-jump="references-tests" type="button">หน้าถัดไป: CVD, Cancer &amp; Other →</button></div>
-<aside class="notes">Updated through August 2026</aside>
-</section><section class="slide references-slide" data-group="summary" data-menu-title="References: CVD Cancer Other" data-section="REFERENCES" data-transition="fade" id="references-tests">
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง MedlinePlus: อ่านผลแล็บ ในแท็บใหม่" href="https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/" rel="noopener noreferrer" target="_blank">MedlinePlus: อ่านผลแล็บ</a><a aria-label="เปิดแหล่งอ้างอิง ADA 2026 ในแท็บใหม่" href="https://diabetesjournals.org/care/article/49/Supplement_1/S27/163926/2-Diagnosis-and-Classification-of-Diabetes" rel="noopener noreferrer" target="_blank">ADA 2026</a><a aria-label="เปิดแหล่งอ้างอิง AHA/ACC 2026 Lipids ในแท็บใหม่" href="https://professional.heart.org/en/science-news/2026-guideline-on-the-management-of-dyslipidemia" rel="noopener noreferrer" target="_blank">AHA/ACC 2026 Lipids</a><a aria-label="เปิดแหล่งอ้างอิง KDIGO 2024 ในแท็บใหม่" href="https://kdigo.org/guidelines/ckd-evaluation-and-management/" rel="noopener noreferrer" target="_blank">KDIGO 2024</a></div></section><section class="slide references-slide" data-group="summary" data-menu-title="References: CVD Cancer Other" data-section="REFERENCES" data-transition="fade" id="references-tests">
 <div class="slide-kicker">REFERENCES • 2/2</div>
 <h2>แหล่งข้อมูลหลัก <small>หัวใจ • มะเร็ง • ผลตรวจอื่น</small></h2>
-<p class="lead">คลิกแต่ละรายการเพื่อเปิดหน้าต้นทางโดยตรง</p>
+<p class="lead">ลิงก์ด้านล่างเปิดข้อมูลต้นทางโดยตรง ควรยึดแนวทางที่เหมาะกับประเทศ สถานพยาบาล และบริบทของแต่ละคน</p>
 <div class="refs-layout refs-three">
 <div class="refs-column panel"><h3>Cardiovascular</h3><ul>
-<li><a href="https://professional.heart.org/en/guidelines-and-statements/prevent-calculator" rel="noopener" target="_blank">AHA PREVENT Calculator</a></li>
-<li><a href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/cac-test" rel="noopener" target="_blank">AHA: Coronary Calcium Scan</a></li>
-<li><a href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/exercise-stress-test" rel="noopener" target="_blank">AHA: Exercise Stress Test</a></li>
-<li><a href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/echocardiogram" rel="noopener" target="_blank">AHA: Echocardiogram</a></li>
+<li><a href="https://professional.heart.org/en/guidelines-and-statements/prevent-calculator" rel="noopener noreferrer" target="_blank">AHA PREVENT Calculator</a></li>
+<li><a href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/cac-test" rel="noopener noreferrer" target="_blank">AHA: Coronary Calcium Scan</a></li>
+<li><a href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/exercise-stress-test" rel="noopener noreferrer" target="_blank">AHA: Exercise Stress Test</a></li>
+<li><a href="https://www.heart.org/en/health-topics/heart-attack/diagnosing-a-heart-attack/echocardiogram" rel="noopener noreferrer" target="_blank">AHA: Echocardiogram</a></li>
 </ul></div>
 <div class="refs-column panel"><h3>Cancer</h3><ul>
-<li><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener" target="_blank">NCI: Tumor Markers Fact Sheet</a></li>
-<li><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-list" rel="noopener" target="_blank">NCI: Marker Tests in Common Use</a></li>
+<li><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-fact-sheet" rel="noopener noreferrer" target="_blank">NCI: Tumor Markers Fact Sheet</a></li>
+<li><a href="https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis/tumor-markers-list" rel="noopener noreferrer" target="_blank">NCI: Marker Tests in Common Use</a></li>
 </ul></div>
 <div class="refs-column panel"><h3>Other checks</h3><ul>
-<li><a href="https://www.nidcd.nih.gov/health/age-related-hearing-loss" rel="noopener" target="_blank">NIDCD: Age-related Hearing Loss</a></li>
-<li><a href="https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/presbyopia" rel="noopener" target="_blank">NEI: Presbyopia</a></li>
-<li><a href="https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems/BI-RADS" rel="noopener" target="_blank">ACR: BI-RADS</a></li>
-<li><a href="https://www.cdc.gov/thalassemia/about/index.html" rel="noopener" target="_blank">CDC: Thalassemia</a></li>
+<li><a href="https://www.nidcd.nih.gov/health/age-related-hearing-loss" rel="noopener noreferrer" target="_blank">NIDCD: Age-related Hearing Loss</a></li>
+<li><a href="https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/presbyopia" rel="noopener noreferrer" target="_blank">NEI: Presbyopia</a></li>
+<li><a href="https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems/BI-RADS" rel="noopener noreferrer" target="_blank">ACR: BI-RADS</a></li>
+<li><a href="https://www.cdc.gov/thalassemia/about/index.html" rel="noopener noreferrer" target="_blank">CDC: Thalassemia</a></li>
 </ul></div>
 </div>
 <div class="reference-nav"><button data-jump="home" type="button">↺ กลับหน้าแรก</button><button data-jump="references-core" type="button">← References หน้าแรก</button></div>
-<div class="final-line">จัดทำโดย Suttisak Denduangchai • Medical education deck • ไม่ใช้แทนคำแนะนำเฉพาะบุคคล</div>
-<aside class="notes">Updated through August 2026</aside>
-</section></div></div><div id="deck-credit">Suttisak Denduangchai</div>
+<div class="final-line">จัดทำโดย Suttisak Denduangchai • คู่มือประกอบการอ่านผลตรวจสุขภาพ • ไม่ใช้แทนคำแนะนำเฉพาะบุคคล</div>
+<div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips"><span>อ้างอิง</span><a aria-label="เปิดแหล่งอ้างอิง MedlinePlus: อ่านผลแล็บ ในแท็บใหม่" href="https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/" rel="noopener noreferrer" target="_blank">MedlinePlus: อ่านผลแล็บ</a><a aria-label="เปิดแหล่งอ้างอิง AHA PREVENT ในแท็บใหม่" href="https://professional.heart.org/en/guidelines-and-statements/about-prevent-calculator" rel="noopener noreferrer" target="_blank">AHA PREVENT</a><a aria-label="เปิดแหล่งอ้างอิง NCI: Cancer Screening ในแท็บใหม่" href="https://www.cancer.gov/about-cancer/screening/screening-tests" rel="noopener noreferrer" target="_blank">NCI: Cancer Screening</a></div></section></div></div><div id="deck-credit">Suttisak Denduangchai</div>
 <noscript><div class="noscript">ต้องเปิด JavaScript เพื่อใช้งานสไลด์นี้</div></noscript>
 <script src="loader.js"></script>
 </body>
