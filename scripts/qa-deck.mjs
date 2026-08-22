@@ -22,17 +22,48 @@ const screenshotIds = ['map', 'bp-start', 'body-bmi', 'body-waist', 'other-start
 const report = { baseUrl, runs: [], failures: [] };
 const browser = await chromium.launch({ headless: true });
 
+async function captureBootDiagnostics(page, viewport, consoleErrors, error) {
+  const diagnostics = await page.evaluate(() => ({
+    title: document.title,
+    bodyClasses: document.body.className,
+    bootText: document.getElementById('boot-screen')?.textContent?.replace(/\s+/g, ' ').trim() || '',
+    revealType: typeof window.Reveal,
+    revealMethods: window.Reveal ? Object.keys(window.Reveal).filter((key) => typeof window.Reveal[key] === 'function').slice(0, 30) : [],
+    patientAppReady: typeof window.PatientAppReady,
+    structureReady: Boolean(window.HealthDeckStructure),
+    slidesInDom: document.querySelectorAll('.reveal .slides > section').length,
+    scripts: [...document.scripts].map((script) => script.src || 'inline').slice(-15)
+  }));
+  const item = {
+    viewport,
+    initializationError: error?.message || String(error),
+    consoleErrors,
+    diagnostics
+  };
+  report.runs.push(item);
+  report.failures.push({ viewport: viewport.name, errors: [`deck initialization failed: ${item.initializationError}`, ...consoleErrors] });
+  await page.screenshot({ path: path.join(outDir, `${viewport.name}-boot-failure.png`), fullPage: false });
+  await fs.writeFile(path.join(outDir, 'qa-report.json'), JSON.stringify(report, null, 2));
+  console.error(JSON.stringify(item, null, 2));
+}
+
 try {
   for (const viewport of viewports) {
     const page = await browser.newPage({ viewport });
     const consoleErrors = [];
     page.on('console', (message) => {
-      if (message.type() === 'error') consoleErrors.push(message.text());
+      if (['error', 'warning'].includes(message.type())) consoleErrors.push(`${message.type()}: ${message.text()}`);
     });
-    page.on('pageerror', (error) => consoleErrors.push(error.message));
+    page.on('pageerror', (error) => consoleErrors.push(`pageerror: ${error.message}`));
 
     await page.goto(baseUrl, { waitUntil: 'networkidle', timeout: 90_000 });
-    await page.waitForFunction(() => window.Reveal && typeof window.Reveal.getSlides === 'function' && window.Reveal.getSlides().length > 0, null, { timeout: 30_000 });
+    try {
+      await page.waitForFunction(() => window.Reveal && typeof window.Reveal.getSlides === 'function' && window.Reveal.getSlides().length > 0, null, { timeout: 20_000 });
+    } catch (error) {
+      await captureBootDiagnostics(page, viewport, consoleErrors, error);
+      await page.close();
+      continue;
+    }
 
     const audit = await page.evaluate((ids) => {
       const allIds = [...document.querySelectorAll('[id]')].map((node) => node.id);
@@ -62,7 +93,7 @@ try {
     if (audit.missingReferences.length) errors.push(`slides without clickable reference: ${audit.missingReferences.join(', ')}`);
     if (audit.groupCounts.thyroid !== 4) errors.push(`expected 4 thyroid slides, found ${audit.groupCounts.thyroid || 0}`);
     if (audit.groupCounts.other !== 4) errors.push(`expected 4 urine/stool slides, found ${audit.groupCounts.other || 0}`);
-    if (consoleErrors.length) errors.push(`console errors: ${consoleErrors.join(' | ')}`);
+    if (consoleErrors.length) errors.push(`console warnings/errors: ${consoleErrors.join(' | ')}`);
 
     for (const id of screenshotIds) {
       const exists = await page.$(`#${id}`);
@@ -73,7 +104,7 @@ try {
         const index = slides.indexOf(target);
         if (index >= 0) window.Reveal.slide(index, 0, 0);
       }, id);
-      await page.waitForTimeout(120);
+      await page.waitForTimeout(150);
       await page.screenshot({ path: path.join(outDir, `${viewport.name}-${id}.png`), fullPage: false });
     }
 
