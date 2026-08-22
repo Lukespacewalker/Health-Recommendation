@@ -5,7 +5,7 @@ set "URL=http://127.0.0.1:8765"
 
 where node >nul 2>nul
 if %errorlevel%==0 (
-  start "Health Check Slides Server" /min cmd /c "node server.mjs"
+  start "Health Check Slides Server" /min cmd /c "node serve.mjs"
   timeout /t 2 /nobreak >nul
   start "" "%URL%"
   exit /b 0
@@ -28,5 +28,5 @@ if %errorlevel%==0 (
 )
 
 echo Node.js or Python was not found. Opening index.html directly.
-start "" "%~dp0index.html"
+start "" "%~dp0..\public\index.html"
 pause

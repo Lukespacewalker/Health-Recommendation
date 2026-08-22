@@ -106,7 +106,7 @@
     console.error(error);
     const bootScreen = document.getElementById('boot-screen');
     if (bootScreen) {
-      bootScreen.innerHTML = '<strong>เปิดสไลด์ไม่สำเร็จ</strong><span>กรุณาเปิดผ่าน start_windows.bat / start_mac.command หรือดู README</span>';
+      bootScreen.innerHTML = '<strong>เปิดสไลด์ไม่สำเร็จ</strong><span>กรุณารัน npm start หรือดู README</span>';
     }
   });
 })();

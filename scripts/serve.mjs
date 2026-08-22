@@ -3,7 +3,8 @@ import { createReadStream, existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const root = path.dirname(fileURLToPath(import.meta.url));
+const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(scriptDirectory, '..', 'public');
 const port = Number(process.env.PORT || 8765);
 const host = '127.0.0.1';
 const mime = {
@@ -24,7 +25,8 @@ const server = http.createServer((req, res) => {
   const relative = rawPath === '/' ? 'index.html' : rawPath.replace(/^\/+/, '');
   const filePath = path.resolve(root, relative);
 
-  if (!filePath.startsWith(root) || !existsSync(filePath) || statSync(filePath).isDirectory()) {
+  const isInsideRoot = filePath === root || filePath.startsWith(`${root}${path.sep}`);
+  if (!isInsideRoot || !existsSync(filePath) || statSync(filePath).isDirectory()) {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end('Not found');
     return;

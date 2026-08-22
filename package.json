@@ -1,10 +1,16 @@
 {
-  "name": "health-check-clinical-modules",
+  "name": "health-recommendation",
   "version": "2.0.0",
   "private": true,
-  "description": "Interactive Thai health-check education deck by Suttisak Denduangchai using reveal.js and selective Three.js scenes",
+  "description": "Interactive Thai health-check education deck, deployed as Cloudflare Workers Static Assets",
   "type": "module",
   "scripts": {
-    "start": "node server.mjs"
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "start": "node scripts/serve.mjs",
+    "offline:setup": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-offline.ps1"
+  },
+  "devDependencies": {
+    "wrangler": "4.125.0"
   }
 }
