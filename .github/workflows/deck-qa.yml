@@ -1,0 +1,54 @@
+name: Deck QA
+
+on:
+  pull_request:
+    paths:
+      - 'public/**'
+      - 'scripts/qa-deck.mjs'
+      - '.github/workflows/deck-qa.yml'
+  workflow_dispatch:
+
+jobs:
+  browser-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Install Playwright for QA
+        run: npm install --no-save playwright@1.55.0
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Start local deck server
+        run: |
+          npm start > /tmp/health-deck-server.log 2>&1 &
+          echo $! > /tmp/health-deck-server.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:8765/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/health-deck-server.log
+          exit 1
+
+      - name: Run browser smoke test
+        run: node scripts/qa-deck.mjs
+
+      - name: Upload screenshots and report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-deck-qa
+          path: qa-artifacts
+          if-no-files-found: warn
