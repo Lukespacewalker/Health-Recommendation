@@ -526,7 +526,10 @@ html.print-pdf .deck-chrome { display:none!important; }
 #topic-subnav:not([hidden]) ~ .reveal .slides > section { padding-top:84px; }
 
 .module-map.module-map-ten { grid-template-columns:repeat(5,1fr); grid-template-rows:repeat(2,170px); grid-auto-rows:170px; gap:12px; margin-top:14px; }
-.module-card.bp { --card-color:#74d9ff; }.module-card.blood { --card-color:#e88fbd; }.module-card.liver { --card-color:#b8cf63; }.module-card.vaccines { --card-color:#ba9cff; }
+.module-map.module-map-twelve{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,135px);grid-auto-rows:135px;gap:10px;margin-top:12px}.module-map-twelve .module-card{padding:14px 16px;gap:5px}.module-map-twelve .module-card h3{font-size:.60em}.module-map-twelve .module-card p{font-size:.31em;line-height:1.32}.module-map-twelve .module-card>span{font-size:.26em}.module-map-twelve .module-card.other{grid-column:auto}
+.module-card.bp { --card-color:#74d9ff; }.module-card.blood { --card-color:#e88fbd; }.module-card.liver { --card-color:#b8cf63; }.module-card.vaccines { --card-color:#ba9cff; }.module-card.eyes{--card-color:#66c8ff}.module-card.hearing{--card-color:#ff9f6e}
+.vaccine-combined-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.vaccine-combined-grid .mini-card{min-height:185px;padding:18px}.vaccine-combined-grid .mini-card strong{font-size:.45em}.vaccine-combined-grid .mini-card span{font-size:.38em;line-height:1.42}
+.hearing-noise-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:16px;align-items:stretch}.noise-protection-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}.noise-protection-list article{min-height:155px;padding:15px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035)}.noise-protection-list b{display:block;margin-bottom:8px;color:var(--orange);font-size:.42em}.noise-protection-list span{display:block;color:var(--muted);font-size:.35em;line-height:1.42}.audiogram-watch{min-height:390px;padding:12px 15px}.hearing-watch-chart{width:100%;height:245px}.watch-grid path{fill:none;stroke:rgba(168,186,209,.22);stroke-width:1}.watch-baseline{fill:none;stroke:#72e0ff;stroke-width:5;stroke-dasharray:10 8}.watch-noise-curve{fill:none;stroke:#ff83c7;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.watch-axis text,.watch-legend text{fill:var(--muted);font:700 14px var(--font)}.watch-legend text{font-size:13px}.hearing-pattern-tags{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.hearing-pattern-tags span{padding:8px 9px;border:1px solid var(--line-soft);border-radius:12px;color:var(--muted);font-size:.31em;line-height:1.32}.hearing-pattern-tags b{display:block;color:var(--ink);font-size:1.07em;margin-bottom:3px}
 .bp-category-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:28px; }
 .bp-category { min-height:210px; display:grid; align-content:center; gap:13px; padding:17px; border:1px solid var(--line); border-radius:20px; background:rgba(255,255,255,.035); text-align:center; }
 .bp-category b { font-size:.46em; color:#dceafa; }.bp-category strong { color:#fff; font-size:.46em; line-height:1.35; }.bp-category.normal{border-color:rgba(93,228,199,.4)}.bp-category.elevated{border-color:rgba(255,209,102,.45)}.bp-category.stage1{border-color:rgba(255,172,112,.5)}.bp-category.stage2,.bp-category.severe{border-color:rgba(255,113,133,.54)}
@@ -569,6 +572,12 @@ html.print-pdf .deck-chrome { display:none!important; }
 .drawer-group[data-group="lipids"] .drawer-dot{background:var(--gold)}
 .drawer-group[data-group="cvd"] .drawer-dot{background:var(--orange)}
 .drawer-group[data-group="cancer"] .drawer-dot{background:var(--pink)}
+.drawer-group[data-group="bp"] .drawer-dot{background:#74d9ff}
+.drawer-group[data-group="blood"] .drawer-dot{background:#e88fbd}
+.drawer-group[data-group="liver"] .drawer-dot{background:#b8cf63}
+.drawer-group[data-group="vaccines"] .drawer-dot{background:#ba9cff}
+.drawer-group[data-group="eyes"] .drawer-dot{background:#66c8ff}
+.drawer-group[data-group="hearing"] .drawer-dot{background:#ff9f6e}
 .drawer-group[data-group="other"] .drawer-dot{background:var(--violet)}
 .drawer-group-title b { font-size:13px; }.drawer-group-title small{font-size:10px;color:var(--muted-2)}
 .drawer-slide-list { display:grid; gap:3px; padding:2px 0 7px 22px; }
@@ -601,7 +610,7 @@ html[data-group="other"] { --chapter-color:var(--violet); }
 /* Chapter title slides */
 .chapter-slide { display:grid!important; grid-template-columns:.58fr 1.42fr; grid-template-rows:1fr auto; gap:24px 34px; align-items:center; background:radial-gradient(circle at 22% 48%,color-mix(in srgb,var(--chapter-accent) 17%,transparent),transparent 34%),linear-gradient(145deg,rgba(12,29,50,.96),rgba(5,13,24,.94))!important; }
 .chapter-diabetes{--chapter-accent:var(--teal)}.chapter-lipids{--chapter-accent:var(--gold)}.chapter-cvd{--chapter-accent:var(--orange)}.chapter-cancer{--chapter-accent:var(--pink)}.chapter-other{--chapter-accent:var(--violet)}
-.chapter-slide[data-group="bp"]{--chapter-accent:#74d9ff}.chapter-slide[data-group="blood"]{--chapter-accent:#e88fbd}.chapter-slide[data-group="liver"]{--chapter-accent:#b8cf63}.chapter-slide[data-group="vaccines"]{--chapter-accent:#ba9cff}
+.chapter-slide[data-group="bp"]{--chapter-accent:#74d9ff}.chapter-slide[data-group="blood"]{--chapter-accent:#e88fbd}.chapter-slide[data-group="liver"]{--chapter-accent:#b8cf63}.chapter-slide[data-group="vaccines"]{--chapter-accent:#ba9cff}.chapter-slide[data-group="eyes"]{--chapter-accent:#66c8ff}.chapter-slide[data-group="hearing"]{--chapter-accent:#ff9f6e}
 .chapter-number { grid-row:1/3; display:grid; place-items:center; width:310px;height:310px;border-radius:50%; font-size:3.2em;font-weight:900;line-height:1;color:transparent;-webkit-text-stroke:2px color-mix(in srgb,var(--chapter-accent) 80%,white); background:radial-gradient(circle,color-mix(in srgb,var(--chapter-accent) 17%,transparent),transparent 65%); box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--chapter-accent) 28%,transparent),0 0 80px color-mix(in srgb,var(--chapter-accent) 16%,transparent); }
 .chapter-copy { align-self:end; }.chapter-copy .slide-kicker{color:var(--chapter-accent)}.chapter-copy h2{font-size:2.05em;margin:8px 0 10px}.chapter-copy .lead{margin:0;color:#cad8e9}
 .chapter-outline { display:grid; grid-template-columns:1fr 1fr; gap:13px; align-self:start; }
@@ -1012,6 +1021,7 @@ html[data-group="kidney"] { --chapter-color:#55d7ff; }
   #chapter-tabs button{padding:7px 9px;font-size:10.5px}
   #author-chip{display:none}
   .module-map.module-map-ten{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,170px)}
+  .module-map.module-map-twelve{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,125px);grid-auto-rows:125px}
 }
 @media (max-width:760px){
   .deck-chrome{grid-template-columns:106px minmax(0,1fr) auto}
@@ -1019,6 +1029,7 @@ html[data-group="kidney"] { --chapter-color:#55d7ff; }
   #author-chip,.chrome-right #section-chip,.chrome-right #effects-toggle{display:none}
   #chapter-tabs button:nth-child(n){display:block}
   .module-map.module-map-ten{grid-template-columns:repeat(2,1fr);grid-template-rows:none;grid-auto-rows:170px}
+  .module-map.module-map-twelve{grid-template-columns:repeat(2,1fr);grid-template-rows:none;grid-auto-rows:140px}
   #topic-subnav{left:10px;right:10px;top:57px}
   #map{overflow-y:auto}
 }
@@ -1178,6 +1189,8 @@ html[data-theme="light"] .chapter-slide[data-group="liver"]{--chapter-accent:#65
 html[data-theme="light"] .chapter-slide[data-group="cvd"]{--chapter-accent:#b4561c}
 html[data-theme="light"] .chapter-slide[data-group="cancer"]{--chapter-accent:#b93678}
 html[data-theme="light"] .chapter-slide[data-group="vaccines"]{--chapter-accent:#6654bc}
+html[data-theme="light"] .chapter-slide[data-group="eyes"]{--chapter-accent:#087b9c}
+html[data-theme="light"] .chapter-slide[data-group="hearing"]{--chapter-accent:#a94d1e}
 html[data-theme="light"] .chapter-slide[data-group="other"]{--chapter-accent:#6654bc}
 html[data-theme="light"] .chapter-copy .lead { color:var(--muted); }
 html[data-theme="light"] .reveal .panel,
@@ -1195,6 +1208,29 @@ html[data-theme="light"] .marker-map-btn {
   background:rgba(255,255,255,.66);
   box-shadow:0 12px 30px rgba(38,67,84,.08);
 }
+html[data-theme="light"] .module-card.bp,
+html[data-theme="light"] .module-card.kidney,
+html[data-theme="light"] .module-card.eyes{--card-color:#087b9c}
+html[data-theme="light"] .module-card.liver{--card-color:#657d0a}
+html[data-theme="light"] .module-card.hearing{--card-color:#a94d1e}
+html[data-theme="light"] .vaccine-combined-grid .mini-card,
+html[data-theme="light"] .noise-protection-list article,
+html[data-theme="light"] .audiogram-watch { background:rgba(255,255,255,.74); }
+html[data-theme="light"] .watch-grid path { stroke:rgba(8,31,49,.15); }
+html[data-theme="light"] .reveal :is(.callout,.bottom-banner) { color:var(--ink); }
+html[data-theme="light"] .reveal .red-flag { color:#8f2035; }
+html[data-theme="light"] .risk-note { color:#785000; }
+html[data-theme="light"] .risk-rule { color:#785000; }
+html[data-theme="light"] .reveal :is(
+  .panel,.lipid-vs-card,.cargo-card,.factor-card,.cause-column,.control-column,
+  .tg-cause-wheel,.action-card,.ratio-results article,.kidney-measure,
+  .ckd-logic-grid article,.risk-tool,.cac-point,.est-question,.echo-card,
+  .use-card,.pipeline-card,.formula-card,.ratio-reference
+) :is(p,li,span,small) { color:var(--muted); }
+html[data-theme="light"] .reveal :is(.metric-scale,.tg-scale,.category-pills,.equation-vars) span { color:var(--ink); }
+html[data-theme="light"] .reveal :is(.tg-scale,.ratio-reference,.equation-vars) b,
+html[data-theme="light"] .egfr-result-card>b { color:var(--ink-strong); }
+html[data-theme="light"] .reference-nav button { color:var(--ink-strong); background:rgba(255,255,255,.7); }
 html[data-theme="light"] .reveal h1,
 html[data-theme="light"] .reveal h2,
 html[data-theme="light"] .reveal h3,

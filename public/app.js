@@ -19,22 +19,27 @@
 
   const GROUPS = {
     home:     { label: 'หน้าแรก', short: 'HOME', color: '#72e0ff' },
-    diabetes: { label: '1 เบาหวาน', short: 'DIABETES', color: '#5de4c7' },
-    lipids:   { label: '2 ไขมันในเลือด', short: 'LIPIDS', color: '#ffd166' },
-    bp:       { label: 'ความดันโลหิต', short: 'BLOOD PRESSURE', color: '#74d9ff' },
-    blood:    { label: 'เลือดและ CBC', short: 'BLOOD / CBC', color: '#e88fbd' },
-    kidney:   { label: '3 ไต', short: 'KIDNEY', color: '#55d7ff' },
-    liver:    { label: 'ตับ', short: 'LIVER', color: '#b8cf63' },
-    cvd:      { label: '4 หลอดเลือดหัวใจ', short: 'CVD RISK', color: '#ff8b72' },
-    cancer:   { label: '5 มะเร็ง', short: 'CANCER', color: '#ff83c7' },
-    vaccines: { label: 'วัคซีนผู้ใหญ่', short: 'VACCINES', color: '#ba9cff' },
-    other:    { label: 'ผลตรวจอื่น', short: 'OTHER', color: '#9d8dff' },
+    diabetes: { label: '01 เบาหวาน', short: 'DIABETES', color: '#5de4c7' },
+    lipids:   { label: '02 ไขมันในเลือด', short: 'LIPIDS', color: '#ffd166' },
+    bp:       { label: '03 ความดันโลหิต', short: 'BLOOD PRESSURE', color: '#74d9ff' },
+    blood:    { label: '04 เลือดและ CBC', short: 'BLOOD / CBC', color: '#e88fbd' },
+    kidney:   { label: '05 ไต', short: 'KIDNEY', color: '#55d7ff' },
+    liver:    { label: '06 ตับ', short: 'LIVER', color: '#b8cf63' },
+    cvd:      { label: '07 หัวใจและหลอดเลือด', short: 'CVD RISK', color: '#ff8b72' },
+    cancer:   { label: '08 มะเร็ง', short: 'CANCER', color: '#ff83c7' },
+    vaccines: { label: '09 วัคซีนผู้ใหญ่', short: 'VACCINES', color: '#ba9cff' },
+    eyes:     { label: '10 ตา', short: 'EYE HEALTH', color: '#66c8ff' },
+    hearing:  { label: '11 หู', short: 'HEARING', color: '#ff9f6e' },
+    other:    { label: '12 ผลตรวจอื่น', short: 'OTHER', color: '#9d8dff' },
     summary:  { label: 'สรุปและอ้างอิง', short: 'SUMMARY', color: '#72e0ff' }
   };
-  const GROUP_ORDER = ['home', 'diabetes', 'lipids', 'bp', 'blood', 'kidney', 'liver', 'cvd', 'cancer', 'vaccines', 'other', 'summary'];
+  const GROUP_ORDER = ['home', 'diabetes', 'lipids', 'bp', 'blood', 'kidney', 'liver', 'cvd', 'cancer', 'vaccines', 'eyes', 'hearing', 'other', 'summary'];
   const SLIDE_ORDER = {
     bp: ['bp-start', 'bp-measurement', 'bp-categories', 'bp-confirm', 'bp-action'],
-    blood: ['blood-start', 'blood-cbc-map', 'other-anemia', 'blood-iron', 'other-thal', 'blood-eosinophil']
+    blood: ['blood-start', 'blood-cbc-map', 'other-anemia', 'blood-iron', 'other-thal', 'blood-eosinophil'],
+    vaccines: ['vaccines-start', 'vaccines-core', 'vaccines-age-special', 'vaccines-catchup'],
+    eyes: ['eyes-start', 'other-vision', 'other-color'],
+    hearing: ['hearing-start', 'other-hearing', 'hearing-noise']
   };
   const params = new URLSearchParams(location.search);
   const resumeRequested = params.get('resume') === '1';
@@ -75,7 +80,14 @@
   function normalizeGroups() {
     const slideContainer = document.querySelector('.reveal .slides');
     document.querySelectorAll('body > section.slide').forEach((slide) => slideContainer?.appendChild(slide));
-    [['other-thal', 'blood'], ['other-anemia', 'blood'], ['bp-measurement', 'bp']].forEach(([id, group]) => {
+    [
+      ['other-thal', 'blood'],
+      ['other-anemia', 'blood'],
+      ['bp-measurement', 'bp'],
+      ['other-vision', 'eyes'],
+      ['other-color', 'eyes'],
+      ['other-hearing', 'hearing']
+    ].forEach(([id, group]) => {
       const slide = document.getElementById(id);
       if (slide) {
         slide.dataset.group = group;
