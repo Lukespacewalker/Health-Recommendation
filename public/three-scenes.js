@@ -813,6 +813,155 @@
     return ctx;
   }
 
+  function createThalassemia(canvas) {
+    const ctx = common(canvas, 9.4);
+    const { root } = ctx;
+    root.position.x = -0.25;
+
+    const helix = new THREE.Group();
+    helix.position.x = -1.25;
+    root.add(helix);
+
+    const alphaMaterial = standardMaterial(0x72e0ff, {
+      emissive: 0x168db5,
+      emissiveIntensity: 0.28,
+      roughness: 0.24
+    });
+    const betaMaterial = standardMaterial(0xff83c7, {
+      emissive: 0xb22a75,
+      emissiveIntensity: 0.25,
+      roughness: 0.26
+    });
+    const rungMaterials = [0xffd166, 0x9d8dff, 0x5de4c7, 0xffac70].map((color) => standardMaterial(color, {
+      transparent: true,
+      opacity: 0.8,
+      emissive: color,
+      emissiveIntensity: 0.1,
+      roughness: 0.34
+    }));
+
+    function cylinderBetween(start, end, radius, material) {
+      const direction = end.clone().sub(start);
+      const mesh = new THREE.Mesh(
+        new THREE.CylinderGeometry(radius, radius, direction.length(), 10),
+        material
+      );
+      mesh.position.copy(start).add(end).multiplyScalar(0.5);
+      mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize());
+      return mesh;
+    }
+
+    const strandNodes = [];
+    const mutationNodes = [];
+    const pairs = 34;
+    for (let i = 0; i < pairs; i += 1) {
+      const t = i / (pairs - 1);
+      const y = -3.15 + t * 6.3;
+      const angle = t * Math.PI * 6.2;
+      const radius = 0.82;
+      const leftPosition = new THREE.Vector3(Math.cos(angle) * radius, y, Math.sin(angle) * radius);
+      const rightPosition = new THREE.Vector3(Math.cos(angle + Math.PI) * radius, y, Math.sin(angle + Math.PI) * radius);
+
+      const leftNode = new THREE.Mesh(new THREE.SphereGeometry(0.13, 16, 12), alphaMaterial.clone());
+      const rightNode = new THREE.Mesh(new THREE.SphereGeometry(0.13, 16, 12), betaMaterial.clone());
+      leftNode.position.copy(leftPosition);
+      rightNode.position.copy(rightPosition);
+      helix.add(leftNode, rightNode);
+      strandNodes.push(leftNode, rightNode);
+
+      if (i % 2 === 0) {
+        const rung = cylinderBetween(leftPosition, rightPosition, 0.035, rungMaterials[i % rungMaterials.length].clone());
+        helix.add(rung);
+      }
+
+      if (i === 9 || i === 24) {
+        const mutation = new THREE.Mesh(
+          new THREE.IcosahedronGeometry(0.24, 1),
+          standardMaterial(0xff5f78, { emissive: 0xff244d, emissiveIntensity: 0.55, roughness: 0.18 })
+        );
+        mutation.position.copy(i === 9 ? leftPosition : rightPosition);
+        mutation.userData.phase = i;
+        mutation.scale.setScalar(0.15);
+        helix.add(mutation);
+        mutationNodes.push(mutation);
+      }
+    }
+
+    const geneBands = [
+      { y: 1.45, color: 0xffd166, phase: 0 },
+      { y: -1.35, color: 0x9d8dff, phase: Math.PI }
+    ].map(({ y, color, phase }) => {
+      const band = new THREE.Mesh(
+        new THREE.TorusGeometry(1.18, 0.055, 12, 72),
+        standardMaterial(color, { transparent: true, opacity: 0.78, emissive: color, emissiveIntensity: 0.5, roughness: 0.16 })
+      );
+      band.rotation.x = Math.PI / 2;
+      band.position.y = y;
+      band.userData.phase = phase;
+      helix.add(band);
+      return band;
+    });
+
+    const globin = new THREE.Group();
+    globin.position.x = 2.15;
+    root.add(globin);
+    const globinNodes = [];
+    const globinColors = [0x72e0ff, 0x72e0ff, 0xff83c7, 0xff83c7];
+    const globinPositions = [[-0.45,0.75,0],[0.5,0.75,0.1],[-0.45,-0.35,-0.05],[0.5,-0.35,0.05]];
+    globinPositions.forEach((position, index) => {
+      const bead = new THREE.Mesh(
+        new THREE.TorusKnotGeometry(0.32, 0.095, 72, 10, 2, 3),
+        standardMaterial(globinColors[index], { emissive: globinColors[index], emissiveIntensity: 0.2, roughness: 0.28 })
+      );
+      bead.position.set(...position);
+      bead.userData.phase = index * 1.4;
+      bead.userData.baseY = position[1];
+      globin.add(bead);
+      globinNodes.push(bead);
+    });
+
+    const rbc = new THREE.Mesh(
+      new THREE.TorusGeometry(0.9, 0.32, 20, 58),
+      standardMaterial(0xd9345b, { emissive: 0x7c0929, emissiveIntensity: 0.14, roughness: 0.48 })
+    );
+    rbc.position.set(2.2, -2.1, 0);
+    rbc.scale.set(1.18, 0.9, 0.38);
+    root.add(rbc);
+
+    ctx.update = (time, delta) => {
+      root.rotation.x = pointer.y * 0.045;
+      root.rotation.y = pointer.x * 0.055;
+      helix.rotation.y += delta * 0.32;
+      helix.rotation.z = Math.sin(time * 0.00045) * 0.045;
+      strandNodes.forEach((node, index) => {
+        node.scale.setScalar(1 + Math.sin(time * 0.002 + index * 0.35) * 0.045);
+      });
+      geneBands.forEach((band) => {
+        const pulse = 1 + Math.sin(time * 0.002 + band.userData.phase) * 0.07;
+        band.scale.setScalar(pulse);
+        band.material.emissiveIntensity = 0.34 + ctx.progress * 0.5;
+      });
+      mutationNodes.forEach((mutation) => {
+        const reveal = THREE.MathUtils.smoothstep(ctx.progress, 0.15, 0.62);
+        const pulse = 0.86 + Math.sin(time * 0.004 + mutation.userData.phase) * 0.16;
+        mutation.scale.setScalar(Math.max(0.12, reveal * pulse));
+        mutation.rotation.x += delta * 0.7;
+        mutation.rotation.y -= delta * 0.62;
+      });
+      globinNodes.forEach((node, index) => {
+        node.rotation.x += delta * (0.22 + index * 0.03);
+        node.rotation.y -= delta * (0.18 + index * 0.025);
+        node.position.y = node.userData.baseY + Math.sin(time * 0.0018 + node.userData.phase) * 0.07;
+      });
+      const imbalance = THREE.MathUtils.smoothstep(ctx.progress, 0.35, 0.9);
+      globinNodes[2].scale.setScalar(1 - imbalance * 0.28);
+      globinNodes[3].scale.setScalar(1 - imbalance * 0.28);
+      rbc.rotation.z += delta * 0.08;
+      rbc.scale.set(1.18 + imbalance * 0.12, 0.9 - imbalance * 0.1, 0.38);
+    };
+    return ctx;
+  }
+
   const factories = {
     cover: createCover,
     hba1c: createHba1c,
@@ -822,7 +971,8 @@
     apob: createApoB,
     lpa: createLpa,
     pad: createPad,
-    cavi: createCavi
+    cavi: createCavi,
+    thalassemia: createThalassemia
   };
 
   function progressForSlide(slide) {
