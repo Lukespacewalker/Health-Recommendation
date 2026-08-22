@@ -1,0 +1,243 @@
+/* Patient-counseling content layer
+   Emphasizes one key message, an action, and a follow-up without adding a separate sharing workflow. */
+
+.patient-guide-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid color-mix(in srgb, var(--chapter-color, #72e0ff) 36%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--panel, #10213a) 90%, var(--chapter-color, #72e0ff) 5%);
+}
+
+.patient-guide-strip article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  align-items: start;
+  min-height: 60px;
+  padding: 9px 11px;
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--panel, #10213a) 88%, white 3%);
+}
+
+.patient-guide-strip b {
+  color: var(--chapter-color, #72e0ff);
+  font-size: clamp(13px, .84vw, 16px);
+  white-space: nowrap;
+}
+
+.patient-guide-strip span {
+  color: var(--text, #eef4ff);
+  font-size: clamp(13px, .86vw, 16px);
+  line-height: 1.32;
+}
+
+.patient-guide-strip.warning {
+  border-color: color-mix(in srgb, #ff9b72 48%, transparent);
+  background: color-mix(in srgb, #ff8b72 8%, var(--panel, #10213a));
+}
+
+.patient-inline-note,
+.calculator-safety-note,
+.calculator-privacy-note,
+.marker-map-warning,
+.patient-prep-checklist,
+.alcohol-definition-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 10px 0;
+  padding: 10px 13px;
+  border: 1px solid color-mix(in srgb, var(--chapter-color, #72e0ff) 38%, transparent);
+  border-radius: 14px;
+  color: var(--text, #eef4ff);
+  background: color-mix(in srgb, var(--chapter-color, #72e0ff) 8%, var(--panel, #10213a));
+  font-size: clamp(13px, .88vw, 16px);
+  line-height: 1.35;
+}
+
+.patient-inline-note b,
+.calculator-safety-note b,
+.calculator-privacy-note b,
+.marker-map-warning b,
+.patient-prep-checklist b {
+  color: var(--chapter-color, #72e0ff);
+  white-space: nowrap;
+}
+
+.patient-inline-note.warning,
+.marker-map-warning {
+  border-color: color-mix(in srgb, #ff9d75 50%, transparent);
+  background: color-mix(in srgb, #ff8b72 9%, var(--panel, #10213a));
+}
+
+.patient-inline-note.warning b,
+.marker-map-warning b {
+  color: #ffb18f;
+}
+
+.thai-bp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.thai-bp-grid article {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-height: 112px;
+  padding: 16px 17px;
+  border: 1px solid var(--line, rgba(255,255,255,.14));
+  border-radius: 18px;
+  background: var(--panel, #10213a);
+}
+
+.thai-bp-grid b {
+  color: var(--text, #eef4ff);
+  font-size: clamp(15px, 1vw, 19px);
+}
+
+.thai-bp-grid strong {
+  color: var(--cyan, #72e0ff);
+  font-size: clamp(20px, 1.55vw, 28px);
+}
+
+.thai-bp-grid .atrisk { border-color: color-mix(in srgb, #ffd166 50%, transparent); }
+.thai-bp-grid .grade1 { border-color: color-mix(in srgb, #ffad66 55%, transparent); }
+.thai-bp-grid .grade2,
+.thai-bp-grid .grade3 { border-color: color-mix(in srgb, #ff7f87 58%, transparent); }
+
+.bp-patient-logic {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.bp-patient-logic article {
+  padding: 10px 12px;
+  border-left: 4px solid var(--chapter-color, #72e0ff);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--panel, #10213a) 93%, white 2%);
+}
+
+.bp-patient-logic b,
+.bp-patient-logic span {
+  display: block;
+}
+
+.bp-patient-logic b { color: var(--text, #eef4ff); font-size: clamp(14px, .94vw, 17px); }
+.bp-patient-logic span { margin-top: 4px; color: var(--muted, #a7b7d2); font-size: clamp(12px, .78vw, 15px); line-height: 1.32; }
+
+.thal-inheritance-note {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted, #a7b7d2);
+  font-size: clamp(12px, .78vw, 15px);
+  line-height: 1.35;
+}
+
+.patient-outline-six,
+.patient-outline-five {
+  gap: 12px;
+}
+
+.patient-outline-five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.marker-map-warning {
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.patient-prep-checklist {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.patient-prep-checklist span {
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: var(--text, #eef4ff);
+  background: color-mix(in srgb, var(--chapter-color, #72e0ff) 11%, transparent);
+}
+
+.cavi-threshold-label {
+  margin-bottom: 8px;
+  color: var(--muted, #a7b7d2);
+  font-size: clamp(12px, .78vw, 15px);
+  font-weight: 720;
+}
+
+#alcohol-limit-status.patient-under-limit {
+  border-color: color-mix(in srgb, #72e0ff 45%, transparent) !important;
+  background: color-mix(in srgb, #72e0ff 8%, var(--panel, #10213a)) !important;
+}
+
+#alcohol-limit-status.patient-over-limit {
+  border-color: color-mix(in srgb, #ff7a8a 58%, transparent) !important;
+  background: color-mix(in srgb, #ff7a8a 10%, var(--panel, #10213a)) !important;
+}
+
+.calculator-privacy-note {
+  justify-content: center;
+  border-style: dashed;
+}
+
+@media (max-width: 1100px), (max-height: 760px) {
+  .patient-guide-strip,
+  .bp-patient-logic {
+    gap: 7px;
+    margin-top: 8px;
+    padding: 7px;
+  }
+
+  .patient-guide-strip article,
+  .thai-bp-grid article {
+    min-height: auto;
+    padding: 8px 9px;
+  }
+
+  .thai-bp-grid {
+    gap: 8px;
+  }
+
+  .patient-inline-note,
+  .calculator-safety-note,
+  .calculator-privacy-note,
+  .marker-map-warning,
+  .patient-prep-checklist {
+    margin: 7px 0;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 820px) {
+  .patient-guide-strip,
+  .thai-bp-grid,
+  .bp-patient-logic,
+  .patient-outline-five {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-guide-strip article {
+    min-height: auto;
+  }
+}
+
+@media print {
+  .patient-guide-strip,
+  .patient-inline-note,
+  .calculator-safety-note,
+  .marker-map-warning,
+  .patient-prep-checklist,
+  .thai-bp-grid article {
+    break-inside: avoid;
+  }
+}

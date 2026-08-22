@@ -80,6 +80,9 @@
     const guidanceCssLoaded = await loadStyle('content-guidance.css', 2500);
     if (!guidanceCssLoaded) console.warn('CVD and alcohol guidance styles did not load; base styles will be used.');
 
+    const patientCssLoaded = await loadStyle('patient-content.css', 2500);
+    if (!patientCssLoaded) console.warn('Patient-counseling styles did not load; base styles will be used.');
+
     const revealSources = forceOffline ? [local.revealJs] : [local.revealJs, CDN.revealJs];
     const revealReady = !forceFallback
       && await firstSuccessful(loadScript, revealSources)
@@ -106,6 +109,12 @@
 
     const guidanceLoaded = await loadScript('content-guidance.js', 3000);
     if (!guidanceLoaded) console.warn('CVD consolidation and alcohol guidance did not load; the original slide structure will be used.');
+
+    const patientContentLoaded = await loadScript('patient-content.js', 3000);
+    if (!patientContentLoaded) console.warn('Patient-counseling content refinements did not load.');
+
+    const patientExtendedLoaded = await loadScript('patient-content-extended.js', 3000);
+    if (!patientExtendedLoaded) console.warn('Extended patient-counseling refinements did not load.');
 
     const scenesLoaded = await loadScript('three-scenes.js', 3000);
     if (!scenesLoaded) console.warn('Three.js scene manager did not load; static diagrams will remain visible.');
