@@ -67,8 +67,23 @@ For a shorter public talk, consider these optional merges:
 
 These are not applied in this change because they would materially increase density on the remaining slides.
 
+## Thai patient-counseling recommendation audit (2026-08)
+
+The legacy Thai recommendation archive has now been reviewed separately from the educational slide deck. Detailed replacement wording is in `reference/LIPID_RECOMMENDATION_AUDIT_TH_2026-08.md`.
+
+Key operational decisions:
+
+- Keep `LDL-C <100 mg/dL` as the practical counseling reference for a **general health-check case** when no high-risk condition is supplied.
+- Switch to disease/risk-specific targets when DM, established ASCVD, CKD, LDL-C `>=190 mg/dL`, or another high-risk condition is explicitly present.
+- Treat HDL-C as a **risk marker, not a treatment target**; do not counsel patients to chase HDL `>60 mg/dL`.
+- Do not blacklist whole fruit for elevated triglycerides. Prioritize reduction of sugar-sweetened beverages, added sugars, refined carbohydrates, excess alcohol, and excess weight.
+- Replace saturated fat with unsaturated fat rather than simply advising patients to “eat less fat.” Do not imply olive oil is the only acceptable cooking oil.
+- LDL-C `>=190 mg/dL` warrants prompt clinical assessment for severe hypercholesterolemia/FH and should not wait for a 3-4 month lifestyle-only trial before medical review.
+- EST is not a routine screening test for isolated dyslipidemia; CAC is selective when risk/treatment decisions remain uncertain.
+
 ## Primary references
 
 - [2026 ACC/AHA Multisociety Guideline on the Management of Dyslipidemia](https://www.jacc.org/doi/10.1016/j.jacc.2025.11.016)
 - [2026 Dyslipidemia Guideline-at-a-Glance](https://www.jacc.org/doi/10.1016/j.jacc.2026.02.4872)
 - [AHA: What Your Cholesterol Levels Mean](https://www.heart.org/en/health-topics/cholesterol/about-cholesterol/what-your-cholesterol-levels-mean)
+- [AHA 2026 Dietary Guidance to Improve Cardiovascular Health](https://professional.heart.org/en/science-news/2026-dietary-guidance-to-improve-cardiovascular-health/top-things-to-know)
