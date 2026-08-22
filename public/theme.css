@@ -496,7 +496,8 @@ html.print-pdf .deck-chrome { display:none!important; }
 }
 #menu-toggle span { color:var(--chapter-color); font-size:18px; }
 #menu-toggle:hover { border-color:color-mix(in srgb, var(--chapter-color) 55%, transparent); background:rgba(255,255,255,.08); }
-#chapter-tabs { display:flex; align-items:center; justify-content:center; gap:4px; padding:4px; overflow:hidden; }
+#chapter-tabs { display:flex; align-items:center; justify-content:center; gap:4px; padding:4px; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:none; }
+#chapter-tabs::-webkit-scrollbar { display:none; }
 #chapter-tabs button {
   position:relative; border:0; border-radius:11px; background:transparent; color:var(--muted);
   cursor:pointer; padding:8px 13px; font-size:12px; font-weight:760; white-space:nowrap;
@@ -505,15 +506,33 @@ html.print-pdf .deck-chrome { display:none!important; }
 #chapter-tabs button:hover { color:#fff; background:rgba(255,255,255,.06); }
 #chapter-tabs button.is-active { color:#07111f; background:var(--chapter-color); transform:translateY(-1px); }
 .chrome-right { display:flex; align-items:center; gap:7px; padding:4px; }
-#section-chip, #effects-toggle { min-height:30px; border:0; box-shadow:none; background:transparent; }
+#section-chip, #theme-toggle, #effects-toggle { min-height:30px; border:0; box-shadow:none; background:transparent; }
 #section-chip { min-width:118px; display:grid; place-items:center; color:var(--chapter-color); font-size:11px; }
-#effects-toggle { color:var(--muted); padding:6px 10px; font-size:11px; }
-#effects-toggle:hover { background:rgba(255,255,255,.06); }
+#theme-toggle, #effects-toggle { color:var(--muted); padding:6px 10px; border-radius:10px; cursor:pointer; font-size:11px; }
+#theme-toggle:hover, #effects-toggle:hover { background:rgba(255,255,255,.06); }
 #chapter-progress {
   position:fixed; z-index:79; left:18px; right:18px; top:57px; height:4px;
   background:rgba(255,255,255,.045); border-radius:999px; overflow:hidden; pointer-events:none;
 }
 #chapter-progress i { display:block; width:0; height:100%; border-radius:inherit; background:var(--chapter-color); box-shadow:0 0 14px color-mix(in srgb,var(--chapter-color) 60%,transparent); transition:width .55s cubic-bezier(.2,.8,.2,1),background .35s ease; }
+
+/* Contextual second-row navigation, built from current group slide metadata. */
+#topic-subnav { position:fixed; z-index:79; top:61px; left:18px; right:18px; display:flex; gap:6px; padding:5px; overflow-x:auto; overscroll-behavior-x:contain; border:1px solid var(--line-soft); border-radius:13px; background:rgba(5,12,23,.64); box-shadow:0 10px 24px rgba(0,0,0,.16); backdrop-filter:blur(14px); scrollbar-width:none; }
+#topic-subnav[hidden] { display:none; }
+#topic-subnav::-webkit-scrollbar { display:none; }
+.topic-subnav-item { flex:0 0 auto; min-height:28px; padding:5px 10px; border:1px solid transparent; border-radius:9px; background:transparent; color:var(--muted); cursor:pointer; font-size:10.5px; font-weight:760; white-space:nowrap; }
+.topic-subnav-item:hover { color:#fff; background:rgba(255,255,255,.06); }
+.topic-subnav-item.is-active { color:#06111f; background:var(--chapter-color); border-color:color-mix(in srgb,var(--chapter-color) 80%,white); }
+#topic-subnav:not([hidden]) ~ .reveal .slides > section { padding-top:84px; }
+
+.module-map.module-map-ten { grid-template-columns:repeat(5,1fr); grid-template-rows:repeat(2,170px); grid-auto-rows:170px; gap:12px; margin-top:14px; }
+.module-card.bp { --card-color:#74d9ff; }.module-card.blood { --card-color:#e88fbd; }.module-card.liver { --card-color:#b8cf63; }.module-card.vaccines { --card-color:#ba9cff; }
+.bp-category-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:28px; }
+.bp-category { min-height:210px; display:grid; align-content:center; gap:13px; padding:17px; border:1px solid var(--line); border-radius:20px; background:rgba(255,255,255,.035); text-align:center; }
+.bp-category b { font-size:.46em; color:#dceafa; }.bp-category strong { color:#fff; font-size:.46em; line-height:1.35; }.bp-category.normal{border-color:rgba(93,228,199,.4)}.bp-category.elevated{border-color:rgba(255,209,102,.45)}.bp-category.stage1{border-color:rgba(255,172,112,.5)}.bp-category.stage2,.bp-category.severe{border-color:rgba(255,113,133,.54)}
+.iron-flow,.thal-types { display:flex; align-items:center; justify-content:center; gap:20px; min-height:235px; margin:24px 0 18px; }.iron-node,.thal-type { min-width:220px; min-height:130px; display:grid; align-content:center; gap:8px; padding:18px; border:1px solid rgba(232,143,189,.38); border-radius:22px; background:linear-gradient(145deg,rgba(232,143,189,.16),rgba(255,255,255,.025)); text-align:center; }.iron-node b,.thal-type b{font-size:.52em;color:#ffe7f4}.iron-node span,.thal-type p{font-size:.35em;color:var(--muted);line-height:1.4}.iron-flow>i,.thal-types>i{font-style:normal;font-size:1.1em;color:var(--pink)}.thal-type.severity{border-color:rgba(157,141,255,.48);background:linear-gradient(145deg,rgba(157,141,255,.16),rgba(255,255,255,.025));}
+.kdigo-matrix { display:grid; grid-template-columns:1.2fr repeat(3,1fr); gap:2px; padding:12px; margin-top:17px; background:rgba(255,255,255,.025); }.matrix-head,.matrix-label,.risk-cell { min-height:65px; display:grid; place-items:center; align-content:center; gap:3px; padding:8px; text-align:center; }.matrix-head,.matrix-label{background:rgba(255,255,255,.07);font-size:.36em;font-weight:800}.matrix-head small,.matrix-label small{font-size:.76em;color:var(--muted);font-weight:500}.risk-cell{font-size:.38em;font-weight:850}.risk-cell.low{background:rgba(93,228,199,.22);color:#d9fff3}.risk-cell.moderate{background:rgba(255,209,102,.22);color:#fff0ba}.risk-cell.high{background:rgba(255,172,112,.23);color:#ffdbbd}.risk-cell.very-high{background:rgba(255,113,133,.24);color:#ffd4dc}.matrix-notes{display:flex;gap:10px;margin-top:11px}.matrix-notes span{flex:1;padding:10px 13px;border:1px solid var(--line-soft);border-radius:13px;color:var(--muted);font-size:.31em;line-height:1.35}.matrix-notes b{color:#fff}
+.verification-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:28px}.verify-step{min-height:250px;padding:17px;border:1px solid var(--line);border-radius:19px;background:rgba(255,255,255,.035)}.verify-step b{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--pink);color:#290a20;font-size:.35em}.verify-step h3{margin-top:18px;font-size:.48em}.verify-step p{font-size:.35em;color:var(--muted);line-height:1.45}.other-followup-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:28px}.followup-card{min-height:205px;padding:17px;border:1px solid var(--line);border-radius:19px;background:rgba(255,255,255,.035)}.followup-card b{font-size:.48em;color:var(--chapter-color)}.followup-card p{margin-top:13px;color:var(--muted);font-size:.36em;line-height:1.45}
 
 /* Navigation drawer */
 #nav-backdrop {
@@ -580,6 +599,7 @@ html[data-group="other"] { --chapter-color:var(--violet); }
 /* Chapter title slides */
 .chapter-slide { display:grid!important; grid-template-columns:.58fr 1.42fr; grid-template-rows:1fr auto; gap:24px 34px; align-items:center; background:radial-gradient(circle at 22% 48%,color-mix(in srgb,var(--chapter-accent) 17%,transparent),transparent 34%),linear-gradient(145deg,rgba(12,29,50,.96),rgba(5,13,24,.94))!important; }
 .chapter-diabetes{--chapter-accent:var(--teal)}.chapter-lipids{--chapter-accent:var(--gold)}.chapter-cvd{--chapter-accent:var(--orange)}.chapter-cancer{--chapter-accent:var(--pink)}.chapter-other{--chapter-accent:var(--violet)}
+.chapter-slide[data-group="bp"]{--chapter-accent:#74d9ff}.chapter-slide[data-group="blood"]{--chapter-accent:#e88fbd}.chapter-slide[data-group="liver"]{--chapter-accent:#b8cf63}.chapter-slide[data-group="vaccines"]{--chapter-accent:#ba9cff}
 .chapter-number { grid-row:1/3; display:grid; place-items:center; width:310px;height:310px;border-radius:50%; font-size:3.2em;font-weight:900;line-height:1;color:transparent;-webkit-text-stroke:2px color-mix(in srgb,var(--chapter-accent) 80%,white); background:radial-gradient(circle,color-mix(in srgb,var(--chapter-accent) 17%,transparent),transparent 65%); box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--chapter-accent) 28%,transparent),0 0 80px color-mix(in srgb,var(--chapter-accent) 16%,transparent); }
 .chapter-copy { align-self:end; }.chapter-copy .slide-kicker{color:var(--chapter-accent)}.chapter-copy h2{font-size:2.05em;margin:8px 0 10px}.chapter-copy .lead{margin:0;color:#cad8e9}
 .chapter-outline { display:grid; grid-template-columns:1fr 1fr; gap:13px; align-self:start; }
@@ -989,11 +1009,16 @@ html[data-group="kidney"] { --chapter-color:#55d7ff; }
   #chapter-tabs{justify-content:flex-start}
   #chapter-tabs button{padding:7px 9px;font-size:10.5px}
   #author-chip{display:none}
+  .module-map.module-map-ten{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,170px)}
 }
 @media (max-width:760px){
-  .deck-chrome{grid-template-columns:106px minmax(0,1fr)}
-  .chrome-right{display:none}
+  .deck-chrome{grid-template-columns:106px minmax(0,1fr) auto}
+  .chrome-right{display:flex}
+  #author-chip,.chrome-right #section-chip,.chrome-right #effects-toggle{display:none}
   #chapter-tabs button:nth-child(n){display:block}
+  .module-map.module-map-ten{grid-template-columns:repeat(2,1fr);grid-template-rows:none;grid-auto-rows:170px}
+  #topic-subnav{left:10px;right:10px;top:57px}
+  #map{overflow-y:auto}
 }
 
 @media print {
@@ -1081,3 +1106,133 @@ html[data-group="kidney"] { --chapter-color:#55d7ff; }
 .stone-prevention-grid span { font-size:.31em; }
 .marker-detail p { font-size:.37em; }
 .marker-detail small { font-size:.32em; }
+
+/* Daylight theme: cool paper, ink-blue type, and the same clinical accents. */
+html[data-theme="light"] {
+  --ink:#213449;
+  --ink-strong:#081929;
+  --muted:#5c6f83;
+  --muted-2:#788a9b;
+  --bg:#eaf1f5;
+  --bg-2:#dce8ee;
+  --panel:rgba(255,255,255,.78);
+  --panel-strong:rgba(255,255,255,.94);
+  --line:rgba(8,31,49,.15);
+  --line-soft:rgba(8,31,49,.09);
+  --cyan:#087b9c;
+  --teal:#087f6c;
+  --violet:#6654bc;
+  --pink:#b93678;
+  --gold:#9a6800;
+  --orange:#b4561c;
+  --red:#b62f48;
+  --green:#168548;
+  --shadow:0 24px 70px rgba(35,62,79,.18);
+}
+html[data-theme="light"],
+html[data-theme="light"] body { background:#eaf1f5; }
+html[data-theme="light"] body {
+  background:
+    radial-gradient(circle at 12% 12%,rgba(34,145,190,.14),transparent 32%),
+    radial-gradient(circle at 86% 18%,rgba(24,155,127,.10),transparent 30%),
+    radial-gradient(circle at 68% 92%,rgba(102,84,188,.09),transparent 30%),
+    linear-gradient(145deg,#f5f9fb,#e8f0f4 58%,#edf4f7);
+}
+html[data-theme="light"] body::before {
+  opacity:.48;
+  background-image:linear-gradient(rgba(9,45,68,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(9,45,68,.035) 1px,transparent 1px);
+}
+html[data-theme="light"] #boot-screen { background:#edf4f7; }
+html[data-theme="light"] #menu-toggle,
+html[data-theme="light"] #chapter-tabs,
+html[data-theme="light"] .chrome-right,
+html[data-theme="light"] #topic-subnav {
+  background:rgba(249,252,253,.86);
+  box-shadow:0 12px 30px rgba(38,67,84,.13);
+}
+html[data-theme="light"] #chapter-progress { background:rgba(8,31,49,.08); }
+html[data-theme="light"] #chapter-tabs button:hover,
+html[data-theme="light"] .topic-subnav-item:hover,
+html[data-theme="light"] #theme-toggle:hover,
+html[data-theme="light"] #effects-toggle:hover,
+html[data-theme="light"] #menu-toggle:hover { color:var(--ink-strong); background:rgba(8,31,49,.055); }
+html[data-theme="light"] .reveal .slides > section {
+  background:linear-gradient(150deg,rgba(255,255,255,.97),rgba(244,249,251,.94) 58%,rgba(239,247,250,.96));
+  border-color:rgba(8,31,49,.12);
+}
+html[data-theme="light"] .slide-cover {
+  background:radial-gradient(circle at 72% 42%,rgba(45,129,205,.14),transparent 30%),linear-gradient(145deg,rgba(255,255,255,.98),rgba(235,245,249,.96))!important;
+}
+html[data-theme="light"] .chapter-slide {
+  background:radial-gradient(circle at 22% 48%,color-mix(in srgb,var(--chapter-accent) 15%,transparent),transparent 34%),linear-gradient(145deg,#fbfdfe,#e9f2f6)!important;
+}
+html[data-theme="light"] .chapter-slide[data-group="diabetes"]{--chapter-accent:#087f6c}
+html[data-theme="light"] .chapter-slide[data-group="lipids"]{--chapter-accent:#9a6800}
+html[data-theme="light"] .chapter-slide[data-group="bp"]{--chapter-accent:#087b9c}
+html[data-theme="light"] .chapter-slide[data-group="blood"]{--chapter-accent:#a93270}
+html[data-theme="light"] .chapter-slide[data-group="kidney"]{--chapter-accent:#087b9c}
+html[data-theme="light"] .chapter-slide[data-group="liver"]{--chapter-accent:#657d0a}
+html[data-theme="light"] .chapter-slide[data-group="cvd"]{--chapter-accent:#b4561c}
+html[data-theme="light"] .chapter-slide[data-group="cancer"]{--chapter-accent:#b93678}
+html[data-theme="light"] .chapter-slide[data-group="vaccines"]{--chapter-accent:#6654bc}
+html[data-theme="light"] .chapter-slide[data-group="other"]{--chapter-accent:#6654bc}
+html[data-theme="light"] .chapter-copy .lead { color:var(--muted); }
+html[data-theme="light"] .reveal .panel,
+html[data-theme="light"] .module-card,
+html[data-theme="light"] .chapter-outline-card,
+html[data-theme="light"] .followup-card,
+html[data-theme="light"] .verify-step,
+html[data-theme="light"] .bp-category,
+html[data-theme="light"] .mini-card,
+html[data-theme="light"] .cause-card,
+html[data-theme="light"] .use-card,
+html[data-theme="light"] .pipeline-card,
+html[data-theme="light"] .action-card,
+html[data-theme="light"] .marker-map-btn {
+  background:rgba(255,255,255,.66);
+  box-shadow:0 12px 30px rgba(38,67,84,.08);
+}
+html[data-theme="light"] .reveal h1,
+html[data-theme="light"] .reveal h2,
+html[data-theme="light"] .reveal h3,
+html[data-theme="light"] .reveal strong,
+html[data-theme="light"] .bp-category b,
+html[data-theme="light"] .bp-category strong,
+html[data-theme="light"] .matrix-notes b,
+html[data-theme="light"] .ratio-reference b,
+html[data-theme="light"] .equation-vars b,
+html[data-theme="light"] .stone-prevention-grid b,
+html[data-theme="light"] .cause-column article b,
+html[data-theme="light"] .control-column article b { color:var(--ink-strong); }
+html[data-theme="light"] .equation-panel code { color:#18344a; }
+html[data-theme="light"] .iron-node b,
+html[data-theme="light"] .thal-type b { color:#9f2d68; }
+html[data-theme="light"] .marker-detail p { color:var(--ink); }
+html[data-theme="light"] .marker-detail small { color:var(--muted); }
+html[data-theme="light"] .reveal kbd,
+html[data-theme="light"] .deck-chrome kbd,
+html[data-theme="light"] .drawer-help kbd { color:var(--ink-strong); background:rgba(8,31,49,.055); border-color:rgba(8,31,49,.18); }
+html[data-theme="light"] .source-chips > span { color:var(--cyan); }
+html[data-theme="light"] .source-chips a { color:#405c73; background:rgba(255,255,255,.58); }
+html[data-theme="light"] .source-chips a:hover,
+html[data-theme="light"] .refs-column a:hover { color:var(--ink-strong); }
+html[data-theme="light"] #nav-backdrop { background:rgba(25,44,58,.36); }
+html[data-theme="light"] #nav-drawer {
+  border-color:rgba(8,31,49,.14);
+  background:linear-gradient(180deg,rgba(255,255,255,.99),rgba(234,243,247,.99));
+  box-shadow:35px 0 100px rgba(38,67,84,.22);
+}
+html[data-theme="light"] #menu-close { color:var(--ink-strong); background:rgba(8,31,49,.045); }
+html[data-theme="light"] .drawer-group-title:hover,
+html[data-theme="light"] .drawer-group.is-current .drawer-group-title,
+html[data-theme="light"] .drawer-slide-link:hover { color:var(--ink-strong); background:rgba(8,31,49,.045); }
+html[data-theme="light"] .drawer-slide-link.is-active { color:var(--ink-strong); }
+html[data-theme="light"] .ratio-inputs input,
+html[data-theme="light"] .egfr-input-panel input,
+html[data-theme="light"] .egfr-input-panel select {
+  background:rgba(255,255,255,.82);
+  color:var(--ink-strong);
+}
+html[data-theme="light"] .matrix-head,
+html[data-theme="light"] .matrix-label { background:rgba(8,31,49,.06); }
+html[data-theme="light"] .risk-cell.low{color:#075d4d}html[data-theme="light"] .risk-cell.moderate{color:#785000}html[data-theme="light"] .risk-cell.high{color:#8b3e12}html[data-theme="light"] .risk-cell.very-high{color:#8f2035}

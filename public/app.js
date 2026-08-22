@@ -5,6 +5,7 @@
   const plugins = [window.RevealNotes, window.RevealZoom].filter(Boolean);
   const sectionChip = document.getElementById('section-chip');
   const effectsButton = document.getElementById('effects-toggle');
+  const themeButton = document.getElementById('theme-toggle');
   const bootScreen = document.getElementById('boot-screen');
   const menuToggle = document.getElementById('menu-toggle');
   const menuClose = document.getElementById('menu-close');
@@ -13,19 +14,28 @@
   const drawerList = document.getElementById('drawer-list');
   const drawerCurrent = document.getElementById('drawer-current');
   const chapterTabs = document.getElementById('chapter-tabs');
+  const topicSubnav = document.getElementById('topic-subnav');
   const chapterProgress = document.querySelector('#chapter-progress i');
 
   const GROUPS = {
     home:     { label: 'หน้าแรก', short: 'HOME', color: '#72e0ff' },
     diabetes: { label: '1 เบาหวาน', short: 'DIABETES', color: '#5de4c7' },
     lipids:   { label: '2 ไขมันในเลือด', short: 'LIPIDS', color: '#ffd166' },
+    bp:       { label: 'ความดันโลหิต', short: 'BLOOD PRESSURE', color: '#74d9ff' },
+    blood:    { label: 'เลือดและ CBC', short: 'BLOOD / CBC', color: '#e88fbd' },
     kidney:   { label: '3 ไต', short: 'KIDNEY', color: '#55d7ff' },
+    liver:    { label: 'ตับ', short: 'LIVER', color: '#b8cf63' },
     cvd:      { label: '4 หลอดเลือดหัวใจ', short: 'CVD RISK', color: '#ff8b72' },
     cancer:   { label: '5 มะเร็ง', short: 'CANCER', color: '#ff83c7' },
+    vaccines: { label: 'วัคซีนผู้ใหญ่', short: 'VACCINES', color: '#ba9cff' },
     other:    { label: 'ผลตรวจอื่น', short: 'OTHER', color: '#9d8dff' },
     summary:  { label: 'สรุปและอ้างอิง', short: 'SUMMARY', color: '#72e0ff' }
   };
-  const GROUP_ORDER = ['home', 'diabetes', 'lipids', 'kidney', 'cvd', 'cancer', 'other', 'summary'];
+  const GROUP_ORDER = ['home', 'diabetes', 'lipids', 'bp', 'blood', 'kidney', 'liver', 'cvd', 'cancer', 'vaccines', 'other', 'summary'];
+  const SLIDE_ORDER = {
+    bp: ['bp-start', 'bp-measurement', 'bp-categories', 'bp-confirm', 'bp-action'],
+    blood: ['blood-start', 'blood-cbc-map', 'other-anemia', 'blood-iron', 'other-thal', 'blood-eosinophil']
+  };
   const params = new URLSearchParams(location.search);
   const resumeRequested = params.get('resume') === '1';
 
@@ -34,6 +44,67 @@
   let slideIndexById = new Map();
   let slidesByGroup = new Map();
   let menuOpen = false;
+
+  function preferredTheme() {
+    try {
+      const saved = localStorage.getItem('health-deck-theme');
+      if (saved === 'light' || saved === 'dark') return saved;
+    } catch (_) {}
+    return window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+
+  function applyTheme(theme, persist = false) {
+    const next = theme === 'light' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    document.documentElement.style.colorScheme = next;
+    if (themeButton) {
+      const light = next === 'light';
+      themeButton.textContent = light ? 'Dark' : 'Light';
+      themeButton.setAttribute('aria-pressed', String(light));
+      themeButton.title = light ? 'เปลี่ยนเป็น Dark theme' : 'เปลี่ยนเป็น Light theme';
+    }
+    if (persist) {
+      try { localStorage.setItem('health-deck-theme', next); } catch (_) {}
+    }
+  }
+
+  function toggleTheme() {
+    applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light', true);
+  }
+
+  function normalizeGroups() {
+    const slideContainer = document.querySelector('.reveal .slides');
+    document.querySelectorAll('body > section.slide').forEach((slide) => slideContainer?.appendChild(slide));
+    [['other-thal', 'blood'], ['other-anemia', 'blood'], ['bp-measurement', 'bp']].forEach(([id, group]) => {
+      const slide = document.getElementById(id);
+      if (slide) {
+        slide.dataset.group = group;
+        slide.dataset.section = GROUPS[group].short;
+      }
+    });
+
+    const originalPosition = new Map([...slideContainer.children].map((slide, index) => [slide, index]));
+    [...slideContainer.children]
+      .sort((a, b) => {
+        const groupA = a.dataset.group || 'other';
+        const groupB = b.dataset.group || 'other';
+        const groupDifference = GROUP_ORDER.indexOf(groupA) - GROUP_ORDER.indexOf(groupB);
+        if (groupDifference) return groupDifference;
+        const preferred = SLIDE_ORDER[groupA];
+        if (preferred) {
+          const orderA = preferred.indexOf(a.id);
+          const orderB = preferred.indexOf(b.id);
+          if (orderA !== -1 || orderB !== -1) {
+            return (orderA === -1 ? Number.MAX_SAFE_INTEGER : orderA)
+              - (orderB === -1 ? Number.MAX_SAFE_INTEGER : orderB);
+          }
+        }
+        if (a.id === `${groupA}-start`) return -1;
+        if (b.id === `${groupB}-start`) return 1;
+        return originalPosition.get(a) - originalPosition.get(b);
+      })
+      .forEach((slide) => slideContainer.appendChild(slide));
+  }
 
   function collectSlides() {
     slides = [...document.querySelectorAll('.reveal .slides > section')];
@@ -44,6 +115,10 @@
       const group = slide.dataset.group || 'other';
       if (!slidesByGroup.has(group)) slidesByGroup.set(group, []);
       slidesByGroup.get(group).push(slide);
+    });
+    slidesByGroup.forEach((groupSlides, group) => {
+      const startIndex = groupSlides.findIndex((slide) => slide.id === `${group}-start`);
+      if (startIndex > 0) groupSlides.unshift(groupSlides.splice(startIndex, 1)[0]);
     });
   }
 
@@ -70,7 +145,7 @@
   }
 
   function jumpToGroup(group) {
-    const first = (slidesByGroup.get(group) || [])[0];
+    const first = document.getElementById(`${group}-start`) || (slidesByGroup.get(group) || [])[0];
     if (first?.id) jumpTo(first.id);
   }
 
@@ -104,6 +179,28 @@
       });
       section.appendChild(list);
       drawerList.appendChild(section);
+    });
+  }
+
+  function buildTopicSubnav(group, activeSlide) {
+    if (!topicSubnav) return;
+    const groupSlides = slidesByGroup.get(group) || [];
+    const show = group !== 'home' && group !== 'summary' && groupSlides.length > 1;
+    topicSubnav.hidden = !show;
+    topicSubnav.replaceChildren();
+    if (!show) return;
+    groupSlides.forEach((slide, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'topic-subnav-item';
+      button.textContent = `${index + 1}. ${titleFor(slide)}`;
+      button.dataset.slideId = slide.id;
+      const active = slide === activeSlide;
+      button.classList.toggle('is-active', active);
+      if (active) button.setAttribute('aria-current', 'page');
+      button.addEventListener('click', () => jumpTo(slide.id));
+      topicSubnav.appendChild(button);
+      if (active) requestAnimationFrame(() => button.scrollIntoView({ block: 'nearest', inline: 'center' }));
     });
   }
 
@@ -169,6 +266,7 @@
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', String(active));
     });
+    buildTopicSubnav(group, slide);
 
     if (chapterProgress) {
       const percent = position.total ? ((position.index + 1) / position.total) * 100 : 0;
@@ -450,6 +548,12 @@
         caution: 'ประจำเดือน การตั้งครรภ์ endometriosis และการอักเสบในช่องท้องอาจทำให้สูง',
         organs: ['ovary']
       },
+      CA153: {
+        title: 'สัมพันธ์กับ breast cancer',
+        use: 'ใช้ประเมินการตอบสนองต่อการรักษาหรือการกลับเป็นซ้ำในผู้ที่วินิจฉัยแล้ว ไม่ใช้ยืนยันโรคจากค่าเดียว',
+        caution: 'หากผลผิดปกติ ให้ดูแนวโน้ม บริบท และทำ targeted evaluation ตามคำแนะนำของแพทย์',
+        organs: ['breast']
+      },
       CA199: {
         title: 'สัมพันธ์กับ pancreas และ biliary tract',
         use: 'ใช้ติดตาม pancreatic หรือ biliary cancer หลังมี clinical question ชัด ไม่ใช่ population screening',
@@ -475,7 +579,7 @@
       if (!item) return;
       buttons.forEach((button) => button.classList.toggle('is-active', button.dataset.marker === marker));
       organs.forEach((organ) => organ.classList.toggle('is-active', item.organs.includes(organ.dataset.organ)));
-      if (name) name.textContent = marker === 'CA125' ? 'CA-125' : marker === 'CA199' ? 'CA 19-9' : marker === 'BHCG' ? 'β-hCG' : marker;
+      if (name) name.textContent = marker === 'CA125' ? 'CA-125' : marker === 'CA153' ? 'CA 15-3' : marker === 'CA199' ? 'CA 19-9' : marker === 'BHCG' ? 'β-hCG' : marker;
       if (title) title.textContent = item.title;
       if (use) use.textContent = item.use;
       if (caution) caution.textContent = item.caution;
@@ -561,6 +665,7 @@
     plugins
   };
 
+  normalizeGroups();
   collectSlides();
   updateModuleCounts();
   buildDrawer();
@@ -571,6 +676,8 @@
   setupTumorMap();
   setupKeyboard();
   setupCardDepth();
+  applyTheme(preferredTheme());
+  themeButton?.addEventListener('click', toggleTheme);
   effectsButton?.addEventListener('click', toggleEffects);
 
   // A normal launch always begins at the cover. Add ?resume=1 to preserve an explicit hash.

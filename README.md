@@ -48,5 +48,8 @@ Then use `?offline=1` to prevent CDN requests. Use `?fallback=1` to bypass Revea
 - `S`: speaker view
 - `F`: fullscreen
 - `E`: enable or disable animation / Three.js
+- `Light` / `Dark`: switch the presentation theme; the selected theme is remembered locally
+
+The top navigation has two levels: chapter tabs on the first row and a contextual, horizontally scrollable topic row for jumping within the active chapter.
 
 The eGFR calculator applies the adult CKD-EPI creatinine equation (2021), while lipid ratios are provided for education only and do not replace clinical assessment or treatment targets.
