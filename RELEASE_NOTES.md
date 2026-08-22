@@ -28,14 +28,38 @@
 - Moved PAD, ABI, and CAVI into the cardiovascular chapter
 - Moved BI-RADS into the cancer and screening chapter
 - Consolidated the redundant tumor-marker preparation slide into the abnormal-result follow-up slide
-- Simplified the remaining “Other” chapter
+- Replaced the remaining catch-all “Other” chapter with a focused urine-and-stool chapter
+- Expanded Chapter 03 to **Weight, Waist and Blood Pressure** with BMI and waist-circumference guidance
+- Added a dedicated **Thyroid** chapter covering TSH, FT4, result patterns, biotin interference and follow-up
+- Renumbered later chapters so the deck now has 15 clinical chapters plus Home and Summary
+
+### New chapter map
+
+1. Diabetes and glucose
+2. Blood lipids
+3. Weight, waist and blood pressure
+4. Blood and CBC
+5. Kidney
+6. Urine and stool tests
+7. Liver, gallbladder and alcohol
+8. Thyroid
+9. Cardiovascular health
+10. Cancer and screening
+11. Adult vaccines
+12. Vitamins
+13. Bone density
+14. Eye health
+15. Hearing health
 
 ### Validation
 
 - `patient-content.js` passes JavaScript syntax checking
 - `patient-content-extended.js` passes JavaScript syntax checking
-- Loader order applies content refinements before navigation initialization
-- Full visual regression against the complete deployed deck remains required before production release
+- `patient-structure.js` passes JavaScript syntax checking
+- Loader order applies content and chapter refinements before navigation initialization
+- Added a Chromium workflow covering desktop, laptop and mobile viewports
+- The workflow checks required slide IDs, chapter counts, duplicate IDs, references and browser errors
+- Full visual regression still requires review of the uploaded workflow screenshots before production release
 
 See `CONTENT_REVIEW_PATIENT_COUNSELING.md` for the detailed rationale and deferred scope.
 
