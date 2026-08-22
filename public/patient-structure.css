@@ -1,0 +1,326 @@
+/* Chapter structure refinement: body measurements, urine/stool, thyroid */
+
+.module-map-fifteen {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.module-map-fifteen .module-card {
+  min-height: 136px;
+  padding: 14px 15px 12px;
+}
+
+.module-map-fifteen .module-card h3 {
+  margin: 4px 0 5px;
+  font-size: clamp(17px, 1.15vw, 21px);
+  line-height: 1.16;
+}
+
+.module-map-fifteen .module-card p {
+  margin: 0;
+  font-size: clamp(13px, .84vw, 15px);
+  line-height: 1.32;
+}
+
+.module-map-fifteen .module-card > span {
+  margin-top: auto;
+  font-size: clamp(12px, .76vw, 14px);
+}
+
+.module-card.thyroid { --card-color: #d39cff; }
+.module-card.other { --card-color: #8ad5c2; }
+.chapter-thyroid { --chapter-accent: #d39cff; }
+
+.body-metrics-layout,
+.waist-layout,
+.sample-collection-grid,
+.thyroid-feedback-layout,
+.stool-test-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.bmi-formula,
+.bmi-bands,
+.waist-how,
+.waist-thresholds,
+.thyroid-axis,
+.thyroid-copy {
+  padding: 20px 22px;
+}
+
+.bmi-formula {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  min-height: 330px;
+}
+
+.bmi-formula > span {
+  color: var(--chapter-color, #74d9ff);
+  font-size: clamp(18px, 1.35vw, 24px);
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.bmi-formula > strong {
+  margin: 22px 0;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--chapter-color, #74d9ff) 13%, transparent);
+  color: var(--text);
+  font-size: clamp(24px, 2vw, 34px);
+}
+
+.bmi-formula > p,
+.waist-thresholds > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(14px, .95vw, 17px);
+  line-height: 1.42;
+}
+
+.bmi-bands {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.bmi-bands article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 145px;
+  padding: 16px;
+  border: 1px solid color-mix(in srgb, var(--chapter-color, #74d9ff) 30%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--panel) 90%, var(--chapter-color, #74d9ff) 5%);
+}
+
+.bmi-bands b,
+.waist-thresholds article b {
+  color: var(--chapter-color, #74d9ff);
+  font-size: clamp(26px, 2vw, 34px);
+  line-height: 1;
+}
+
+.bmi-bands span,
+.waist-thresholds article span {
+  margin-top: 10px;
+  color: var(--text);
+  font-size: clamp(15px, 1vw, 18px);
+  line-height: 1.3;
+}
+
+.waist-how h3,
+.waist-thresholds h3,
+.sample-collection-grid h3 {
+  margin: 0 0 14px;
+  color: var(--text);
+  font-size: clamp(20px, 1.5vw, 27px);
+}
+
+.waist-how ol,
+.sample-collection-grid ol {
+  margin: 0;
+  padding-left: 1.35em;
+  color: var(--text);
+  font-size: clamp(15px, 1vw, 18px);
+  line-height: 1.58;
+}
+
+.waist-thresholds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.waist-thresholds h3,
+.waist-thresholds p { grid-column: 1 / -1; }
+
+.waist-thresholds article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 145px;
+  padding: 18px;
+  border-radius: 18px;
+  text-align: center;
+  background: color-mix(in srgb, var(--panel) 90%, var(--chapter-color, #74d9ff) 6%);
+  border: 1px solid color-mix(in srgb, var(--chapter-color, #74d9ff) 30%, transparent);
+}
+
+.sample-collection-grid article {
+  min-height: 360px;
+  padding: 20px 22px;
+}
+
+.urine-result-grid,
+.thyroid-pattern-grid,
+.thyroid-followup-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.urine-result-grid article,
+.thyroid-pattern-grid article,
+.thyroid-followup-grid article {
+  min-height: 150px;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--chapter-color, #8ad5c2) 28%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--panel) 92%, var(--chapter-color, #8ad5c2) 4%);
+}
+
+.urine-result-grid b,
+.thyroid-pattern-grid b,
+.thyroid-followup-grid b {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--chapter-color, #8ad5c2);
+  font-size: clamp(18px, 1.25vw, 22px);
+}
+
+.urine-result-grid span,
+.thyroid-pattern-grid span,
+.thyroid-followup-grid span {
+  color: var(--text);
+  font-size: clamp(14px, .94vw, 17px);
+  line-height: 1.4;
+}
+
+.stool-test-grid article {
+  min-height: 365px;
+  padding: 22px;
+}
+
+.stool-test-grid h3 {
+  margin: 0 0 12px;
+  color: var(--chapter-color, #8ad5c2);
+  font-size: clamp(23px, 1.8vw, 31px);
+}
+
+.stool-test-grid p,
+.stool-test-grid strong {
+  display: block;
+  color: var(--text);
+  font-size: clamp(15px, 1vw, 18px);
+  line-height: 1.48;
+}
+
+.stool-test-grid strong {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--chapter-color, #8ad5c2) 11%, transparent);
+}
+
+.thyroid-feedback-layout { grid-template-columns: .9fr 1.1fr; }
+
+.thyroid-axis {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.thyroid-axis > div {
+  display: grid;
+  place-items: center;
+  min-height: 190px;
+  padding: 20px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, #d39cff 40%, transparent);
+  background: radial-gradient(circle at 35% 30%, color-mix(in srgb, #d39cff 24%, transparent), color-mix(in srgb, var(--panel) 94%, #d39cff 6%));
+  color: var(--text);
+  font-size: clamp(17px, 1.25vw, 22px);
+  line-height: 1.25;
+}
+
+.thyroid-axis > div b {
+  display: block;
+  color: #d39cff;
+  font-size: clamp(24px, 2vw, 34px);
+}
+
+.thyroid-axis > i {
+  color: var(--muted);
+  font-size: clamp(14px, .95vw, 17px);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.thyroid-axis > i:last-child {
+  grid-column: 1 / -1;
+}
+
+.thyroid-copy {
+  display: grid;
+  gap: 12px;
+}
+
+.thyroid-copy article {
+  padding: 16px;
+  border-radius: 16px;
+  background: color-mix(in srgb, #d39cff 8%, transparent);
+  border: 1px solid color-mix(in srgb, #d39cff 26%, transparent);
+}
+
+.thyroid-copy b {
+  display: block;
+  margin-bottom: 6px;
+  color: #d39cff;
+  font-size: clamp(18px, 1.2vw, 22px);
+}
+
+.thyroid-copy span {
+  color: var(--text);
+  font-size: clamp(14px, .96vw, 17px);
+  line-height: 1.4;
+}
+
+.thyroid-pattern-grid article.complex { grid-column: 1 / -1; min-height: 120px; }
+.thyroid-pattern-grid article.low { border-color: color-mix(in srgb, #76b8ff 45%, transparent); }
+.thyroid-pattern-grid article.high { border-color: color-mix(in srgb, #ff907d 45%, transparent); }
+
+@media (max-width: 1180px), (max-height: 770px) {
+  .module-map-fifteen { gap: 8px; }
+  .module-map-fifteen .module-card { min-height: 112px; padding: 10px 11px 9px; }
+  .module-map-fifteen .module-card h3 { font-size: 15px; }
+  .module-map-fifteen .module-card p { font-size: 12px; }
+  .module-map-fifteen .module-card > span { font-size: 11px; }
+  .bmi-formula,
+  .bmi-bands,
+  .waist-how,
+  .waist-thresholds,
+  .thyroid-axis,
+  .thyroid-copy { padding: 14px 16px; }
+  .bmi-formula { min-height: 285px; }
+  .bmi-bands article { min-height: 118px; padding: 12px; }
+  .sample-collection-grid article,
+  .stool-test-grid article { min-height: 310px; padding: 15px 16px; }
+  .urine-result-grid article,
+  .thyroid-pattern-grid article,
+  .thyroid-followup-grid article { min-height: 125px; padding: 12px 14px; }
+}
+
+@media (max-width: 860px) {
+  .module-map-fifteen { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; }
+  .body-metrics-layout,
+  .waist-layout,
+  .sample-collection-grid,
+  .thyroid-feedback-layout,
+  .stool-test-grid,
+  .urine-result-grid,
+  .thyroid-pattern-grid,
+  .thyroid-followup-grid { grid-template-columns: 1fr; }
+  .thyroid-pattern-grid article.complex { grid-column: auto; }
+}
