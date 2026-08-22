@@ -44,13 +44,14 @@ async function captureBootDiagnostics(page, viewport, consoleErrors, consoleWarn
   report.runs.push(item);
   report.failures.push({ viewport: viewport.name, errors: [`deck initialization failed: ${item.initializationError}`, ...consoleErrors] });
   await page.screenshot({ path: path.join(outDir, `${viewport.name}-boot-failure.png`), fullPage: false });
-  await fs.writeFile(path.join(outDir, 'qa-report.json'), JSON.stringify(report, null, 2));
+  await fs.writeFile(path.join(outDir, 'qa-report.json'), JSON.stringify(report, null,2));
   console.error(JSON.stringify(item, null, 2));
 }
 
 try {
   for (const viewport of viewports) {
     const page = await browser.newPage({ viewport });
+    await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'light' });
     const consoleErrors = [];
     const consoleWarnings = [];
     page.on('console', (message) => {
@@ -115,7 +116,7 @@ try {
         const index = slides.indexOf(target);
         if (index >= 0) window.Reveal.slide(index, 0, 0);
       }, id);
-      await page.waitForTimeout(150);
+      await page.waitForTimeout(850);
       await page.screenshot({ path: path.join(outDir, `${viewport.name}-${id}.png`), fullPage: false });
     }
 
