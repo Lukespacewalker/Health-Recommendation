@@ -83,6 +83,9 @@
     const patientCssLoaded = await loadStyle('patient-content.css', 2500);
     if (!patientCssLoaded) console.warn('Patient-counseling styles did not load; base styles will be used.');
 
+    const structureCssLoaded = await loadStyle('patient-structure.css', 2500);
+    if (!structureCssLoaded) console.warn('Chapter-structure styles did not load; base styles will be used.');
+
     const revealSources = forceOffline ? [local.revealJs] : [local.revealJs, CDN.revealJs];
     const revealReady = !forceFallback
       && await firstSuccessful(loadScript, revealSources)
@@ -116,11 +119,17 @@
     const patientExtendedLoaded = await loadScript('patient-content-extended.js', 3000);
     if (!patientExtendedLoaded) console.warn('Extended patient-counseling refinements did not load.');
 
+    const structureLoaded = await loadScript('patient-structure.js', 3000);
+    if (!structureLoaded) console.warn('Chapter restructuring did not load; the previous chapter layout will be used.');
+
     const scenesLoaded = await loadScript('three-scenes.js', 3000);
     if (!scenesLoaded) console.warn('Three.js scene manager did not load; static diagrams will remain visible.');
 
-    const appLoaded = await loadScript('app.js', 3000);
-    if (!appLoaded) throw new Error('Application script did not load.');
+    const appBootstrapLoaded = await loadScript('app-patient.js', 3000);
+    if (!appBootstrapLoaded) throw new Error('Application bootstrap did not load.');
+    if (window.PatientAppReady && typeof window.PatientAppReady.then === 'function') {
+      await window.PatientAppReady;
+    }
   }
 
   boot().catch((error) => {
