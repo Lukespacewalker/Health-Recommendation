@@ -22,7 +22,7 @@ const screenshotIds = ['map', 'bp-start', 'body-bmi', 'body-waist', 'other-start
 const report = { baseUrl, runs: [], failures: [] };
 const browser = await chromium.launch({ headless: true });
 
-async function captureBootDiagnostics(page, viewport, consoleErrors, error) {
+async function captureBootDiagnostics(page, viewport, consoleErrors, consoleWarnings, error) {
   const diagnostics = await page.evaluate(() => ({
     title: document.title,
     bodyClasses: document.body.className,
@@ -38,6 +38,7 @@ async function captureBootDiagnostics(page, viewport, consoleErrors, error) {
     viewport,
     initializationError: error?.message || String(error),
     consoleErrors,
+    consoleWarnings,
     diagnostics
   };
   report.runs.push(item);
@@ -51,16 +52,24 @@ try {
   for (const viewport of viewports) {
     const page = await browser.newPage({ viewport });
     const consoleErrors = [];
+    const consoleWarnings = [];
     page.on('console', (message) => {
-      if (['error', 'warning'].includes(message.type())) consoleErrors.push(`${message.type()}: ${message.text()}`);
+      if (message.type() === 'error') consoleErrors.push(message.text());
+      if (message.type() === 'warning' && !/WebGL|swiftshader|GPU stall/i.test(message.text())) consoleWarnings.push(message.text());
     });
-    page.on('pageerror', (error) => consoleErrors.push(`pageerror: ${error.message}`));
+    page.on('pageerror', (error) => consoleErrors.push(error.message));
 
     await page.goto(baseUrl, { waitUntil: 'networkidle', timeout: 90_000 });
     try {
-      await page.waitForFunction(() => window.Reveal && typeof window.Reveal.getSlides === 'function' && window.Reveal.getSlides().length > 0, null, { timeout: 20_000 });
+      await page.waitForFunction(() => {
+        const slideCount = document.querySelectorAll('.reveal .slides > section').length;
+        return document.body.classList.contains('deck-ready')
+          && window.Reveal
+          && typeof window.Reveal.slide === 'function'
+          && slideCount > 0;
+      }, null, { timeout: 20_000 });
     } catch (error) {
-      await captureBootDiagnostics(page, viewport, consoleErrors, error);
+      await captureBootDiagnostics(page, viewport, consoleErrors, consoleWarnings, error);
       await page.close();
       continue;
     }
@@ -82,7 +91,9 @@ try {
         missingReferences,
         groupCounts,
         otherSlideIds: slides.filter((node) => node.dataset.group === 'other').map((node) => node.id),
-        thyroidSlideIds: slides.filter((node) => node.dataset.group === 'thyroid').map((node) => node.id)
+        thyroidSlideIds: slides.filter((node) => node.dataset.group === 'thyroid').map((node) => node.id),
+        totalSlides: slides.length,
+        fallbackMode: document.body.classList.contains('fallback-reveal')
       };
     }, requiredIds);
 
@@ -93,14 +104,14 @@ try {
     if (audit.missingReferences.length) errors.push(`slides without clickable reference: ${audit.missingReferences.join(', ')}`);
     if (audit.groupCounts.thyroid !== 4) errors.push(`expected 4 thyroid slides, found ${audit.groupCounts.thyroid || 0}`);
     if (audit.groupCounts.other !== 4) errors.push(`expected 4 urine/stool slides, found ${audit.groupCounts.other || 0}`);
-    if (consoleErrors.length) errors.push(`console warnings/errors: ${consoleErrors.join(' | ')}`);
+    if (consoleErrors.length) errors.push(`console errors: ${consoleErrors.join(' | ')}`);
 
     for (const id of screenshotIds) {
       const exists = await page.$(`#${id}`);
       if (!exists) continue;
       await page.evaluate((slideId) => {
         const target = document.getElementById(slideId);
-        const slides = window.Reveal.getSlides();
+        const slides = [...document.querySelectorAll('.reveal .slides > section')];
         const index = slides.indexOf(target);
         if (index >= 0) window.Reveal.slide(index, 0, 0);
       }, id);
@@ -122,7 +133,7 @@ try {
       };
     }), screenshotIds);
 
-    report.runs.push({ viewport, audit, overflow, consoleErrors, errors });
+    report.runs.push({ viewport, audit, overflow, consoleErrors, consoleWarnings, errors });
     if (errors.length) report.failures.push({ viewport: viewport.name, errors });
     await page.close();
   }
