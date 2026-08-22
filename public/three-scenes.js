@@ -962,17 +962,199 @@
     return ctx;
   }
 
+  function createLipidStructures(canvas) {
+    const ctx = common(canvas, 10.2);
+    const { root } = ctx;
+
+    function bondBetween(start, end, radius, material) {
+      const direction = end.clone().sub(start);
+      const bond = new THREE.Mesh(new THREE.CylinderGeometry(radius, radius, direction.length(), 10), material);
+      bond.position.copy(start).add(end).multiplyScalar(0.5);
+      bond.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize());
+      return bond;
+    }
+
+    const carbon = standardMaterial(0x72e0ff, { emissive: 0x167fa3, emissiveIntensity: 0.16, roughness: 0.28 });
+    const carbonWarm = standardMaterial(0xffd166, { emissive: 0xb87518, emissiveIntensity: 0.15, roughness: 0.3 });
+    const oxygen = standardMaterial(0xff7185, { emissive: 0xb92042, emissiveIntensity: 0.3, roughness: 0.24 });
+    const bondCool = standardMaterial(0x9cc8da, { roughness: 0.35 });
+    const bondWarm = standardMaterial(0xd8b867, { roughness: 0.36 });
+
+    const cholesterol = new THREE.Group();
+    cholesterol.position.x = -2.6;
+    cholesterol.scale.setScalar(0.84);
+    root.add(cholesterol);
+
+    const ringSpecs = [
+      { center:[-0.8,0.55,0], count:6, radius:0.85, offset:0 },
+      { center:[0.55,0.55,0], count:6, radius:0.85, offset:Math.PI/6 },
+      { center:[1.82,0.15,0], count:6, radius:0.82, offset:0 },
+      { center:[2.85,-0.42,0], count:5, radius:0.72, offset:Math.PI/5 }
+    ];
+    ringSpecs.forEach((spec, ringIndex) => {
+      const nodes = [];
+      for (let i = 0; i < spec.count; i += 1) {
+        const angle = spec.offset + (i / spec.count) * Math.PI * 2;
+        const position = new THREE.Vector3(
+          spec.center[0] + Math.cos(angle) * spec.radius,
+          spec.center[1] + Math.sin(angle) * spec.radius,
+          Math.sin(angle * 2 + ringIndex) * 0.12
+        );
+        const atom = new THREE.Mesh(new THREE.SphereGeometry(0.19, 18, 12), carbon.clone());
+        atom.position.copy(position);
+        cholesterol.add(atom);
+        nodes.push(position);
+      }
+      nodes.forEach((position, index) => cholesterol.add(bondBetween(position, nodes[(index + 1) % nodes.length], 0.055, bondCool.clone())));
+    });
+    const hydroxyl = new THREE.Mesh(new THREE.SphereGeometry(0.24, 20, 14), oxygen.clone());
+    hydroxyl.position.set(-1.72, 1.35, 0.05);
+    cholesterol.add(hydroxyl, bondBetween(new THREE.Vector3(-1.45,1.15,0), hydroxyl.position, 0.06, bondCool.clone()));
+    const steroidTail = [];
+    for (let i = 0; i < 5; i += 1) {
+      const p = new THREE.Vector3(3.35 + i * 0.45, -0.65 + Math.sin(i * 1.6) * 0.26, Math.cos(i) * 0.12);
+      const atom = new THREE.Mesh(new THREE.SphereGeometry(0.18, 16, 12), carbon.clone());
+      atom.position.copy(p);
+      cholesterol.add(atom);
+      if (i) cholesterol.add(bondBetween(steroidTail[i - 1], p, 0.05, bondCool.clone()));
+      steroidTail.push(p);
+    }
+
+    const triglyceride = new THREE.Group();
+    triglyceride.position.set(2.45, 0.1, 0);
+    triglyceride.scale.setScalar(0.72);
+    root.add(triglyceride);
+    const glycerolPositions = [new THREE.Vector3(-1.7,1.15,0),new THREE.Vector3(-1.7,0,0),new THREE.Vector3(-1.7,-1.15,0)];
+    glycerolPositions.forEach((p, index) => {
+      const backbone = new THREE.Mesh(new THREE.SphereGeometry(0.22, 18, 12), carbonWarm.clone());
+      backbone.position.copy(p);
+      triglyceride.add(backbone);
+      if (index) triglyceride.add(bondBetween(glycerolPositions[index - 1], p, 0.065, bondWarm.clone()));
+      const oxygenPosition = p.clone().add(new THREE.Vector3(0.55,0,0));
+      const oxygenAtom = new THREE.Mesh(new THREE.SphereGeometry(0.2, 18, 12), oxygen.clone());
+      oxygenAtom.position.copy(oxygenPosition);
+      triglyceride.add(oxygenAtom, bondBetween(p, oxygenPosition, 0.055, bondWarm.clone()));
+      let previous = oxygenPosition;
+      for (let j = 0; j < 10; j += 1) {
+        const chainPoint = new THREE.Vector3(
+          1.05 + j * 0.48,
+          p.y + Math.sin(j * 1.45 + index) * 0.24,
+          Math.cos(j * 1.2 + index) * 0.16
+        );
+        const chainAtom = new THREE.Mesh(new THREE.SphereGeometry(0.16, 16, 10), carbonWarm.clone());
+        chainAtom.position.copy(chainPoint);
+        triglyceride.add(chainAtom, bondBetween(previous, chainPoint, 0.045, bondWarm.clone()));
+        previous = chainPoint;
+      }
+    });
+
+    ctx.update = (time, delta) => {
+      root.rotation.x = pointer.y * 0.045;
+      root.rotation.y = pointer.x * 0.05;
+      cholesterol.rotation.y += delta * 0.15;
+      cholesterol.rotation.x = Math.sin(time * 0.00045) * 0.08;
+      triglyceride.rotation.y -= delta * 0.13;
+      triglyceride.rotation.x = Math.sin(time * 0.00042 + 1.4) * 0.07;
+      const focus = 1 + ctx.progress * 0.05;
+      cholesterol.scale.setScalar(0.84 * focus);
+      triglyceride.scale.setScalar(0.72 * focus);
+    };
+    return ctx;
+  }
+
+  function createGallstone(canvas) {
+    const ctx = common(canvas, 9.4);
+    const { root } = ctx;
+    root.position.x = -0.15;
+
+    const liver = new THREE.Mesh(
+      new THREE.SphereGeometry(1.55, 44, 28),
+      standardMaterial(0xa43e4b, { roughness: 0.55, emissive: 0x4e0918, emissiveIntensity: 0.08 })
+    );
+    liver.scale.set(1.75, 0.95, 0.72);
+    liver.position.set(-0.65, 0.75, 0);
+    liver.rotation.z = -0.12;
+    root.add(liver);
+
+    const gallbladder = new THREE.Mesh(
+      new THREE.SphereGeometry(0.62, 32, 22),
+      new THREE.MeshPhysicalMaterial({ color:0x78aa47, roughness:0.32, transparent:true, opacity:0.78, clearcoat:0.2, depthWrite:false })
+    );
+    gallbladder.scale.set(0.72, 1.5, 0.68);
+    gallbladder.position.set(0.15, -0.72, 0.58);
+    root.add(gallbladder);
+
+    const ductMaterial = standardMaterial(0x9bc66d, { emissive:0x4d7b2a, emissiveIntensity:0.12, roughness:0.34 });
+    const cysticDuct = new THREE.Mesh(new THREE.CylinderGeometry(0.075,0.075,1.8,14), ductMaterial.clone());
+    cysticDuct.rotation.z = Math.PI / 2.6;
+    cysticDuct.position.set(0.85,-0.7,0.5);
+    root.add(cysticDuct);
+    const commonDuct = new THREE.Mesh(new THREE.CylinderGeometry(0.09,0.09,3.25,16), ductMaterial.clone());
+    commonDuct.position.set(1.45,-1.7,0.42);
+    root.add(commonDuct);
+
+    const stoneMaterial = standardMaterial(0xe5bb56, { emissive:0xa86e11, emissiveIntensity:0.22, roughness:0.52 });
+    const stones = [];
+    const stoneBases = [[-0.12,-0.65,0.98],[0.25,-0.82,0.94],[0.0,-1.05,0.88],[0.35,-0.48,0.83]];
+    stoneBases.forEach((position, index) => {
+      const stone = new THREE.Mesh(new THREE.DodecahedronGeometry(0.17 + index * 0.015, 1), stoneMaterial.clone());
+      stone.position.set(...position);
+      stone.userData.base = stone.position.clone();
+      stone.userData.phase = index * 1.3;
+      root.add(stone);
+      stones.push(stone);
+    });
+    const movingStone = new THREE.Mesh(new THREE.DodecahedronGeometry(0.2, 1), stoneMaterial.clone());
+    movingStone.position.copy(stones[1].position);
+    root.add(movingStone);
+
+    const bileParticles = [];
+    for (let i = 0; i < 18; i += 1) {
+      const drop = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 8), standardMaterial(0xc7ef70, { emissive:0x70a92c, emissiveIntensity:0.35 }));
+      drop.userData.offset = Math.random();
+      drop.userData.phase = i;
+      root.add(drop);
+      bileParticles.push(drop);
+    }
+
+    ctx.update = (time, delta) => {
+      root.rotation.y = Math.sin(time * 0.00032) * 0.12 + pointer.x * 0.06;
+      root.rotation.x = pointer.y * 0.045;
+      stones.forEach((stone, index) => {
+        stone.position.y = stone.userData.base.y + Math.sin(time * 0.0018 + stone.userData.phase) * 0.035;
+        stone.rotation.x += delta * (0.18 + index * 0.02);
+        stone.rotation.y -= delta * 0.15;
+      });
+      const travel = THREE.MathUtils.smoothstep(ctx.progress, 0.25, 0.9);
+      movingStone.position.lerpVectors(new THREE.Vector3(0.25,-0.82,0.94), new THREE.Vector3(1.45,-1.05,0.48), travel);
+      movingStone.rotation.x += delta * 0.45;
+      movingStone.rotation.y += delta * 0.38;
+      movingStone.scale.setScalar(1 + Math.sin(time * 0.003) * 0.08 + travel * 0.18);
+      bileParticles.forEach((drop, index) => {
+        const t = (drop.userData.offset + time * 0.00018) % 1;
+        drop.position.set(1.45, -0.25 - t * 2.9, 0.42 + Math.sin(time * 0.001 + index) * 0.05);
+        drop.material.opacity = 0.9 - travel * Math.exp(-Math.pow(t - 0.3, 2) / 0.03) * 0.75;
+      });
+      gallbladder.material.emissive = new THREE.Color(travel > 0.55 ? 0x4d160d : 0x173d0d);
+      gallbladder.material.emissiveIntensity = 0.05 + travel * 0.22;
+    };
+    return ctx;
+  }
+
   const factories = {
     cover: createCover,
     hba1c: createHba1c,
     cac: createCac,
     stone: createStone,
     lipoprotein: createLipoprotein,
+    ldlPlaque: createLipoprotein,
     apob: createApoB,
     lpa: createLpa,
     pad: createPad,
     cavi: createCavi,
-    thalassemia: createThalassemia
+    thalassemia: createThalassemia,
+    lipidStructures: createLipidStructures,
+    gallstone: createGallstone
   };
 
   function progressForSlide(slide) {

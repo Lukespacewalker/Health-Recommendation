@@ -9,6 +9,7 @@ $files = @{
   "public/vendor/notes.js" = "https://cdn.jsdelivr.net/npm/reveal.js@6.0.1/dist/plugin/notes.js"
   "public/vendor/zoom.js" = "https://cdn.jsdelivr.net/npm/reveal.js@6.0.1/dist/plugin/zoom.js"
   "public/vendor/three.module.min.js" = "https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.module.min.js"
+  "public/vendor/three.core.min.js" = "https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.core.min.js"
 }
 
 foreach ($target in $files.Keys) {

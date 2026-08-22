@@ -28,16 +28,21 @@
     cvd:      { label: '07 หัวใจและหลอดเลือด', short: 'CVD RISK', color: '#ff8b72' },
     cancer:   { label: '08 มะเร็ง', short: 'CANCER', color: '#ff83c7' },
     vaccines: { label: '09 วัคซีนผู้ใหญ่', short: 'VACCINES', color: '#ba9cff' },
-    eyes:     { label: '10 ตา', short: 'EYE HEALTH', color: '#66c8ff' },
-    hearing:  { label: '11 หู', short: 'HEARING', color: '#ff9f6e' },
-    other:    { label: '12 ผลตรวจอื่น', short: 'OTHER', color: '#9d8dff' },
+    vitamins: { label: '10 วิตามิน', short: 'VITAMINS', color: '#e6c65d' },
+    bone:     { label: '11 มวลกระดูก', short: 'BONE DENSITY', color: '#d49a70' },
+    eyes:     { label: '12 ตา', short: 'EYE HEALTH', color: '#66c8ff' },
+    hearing:  { label: '13 หู', short: 'HEARING', color: '#ff9f6e' },
+    other:    { label: '14 ผลตรวจอื่น', short: 'OTHER', color: '#9d8dff' },
     summary:  { label: 'สรุปและอ้างอิง', short: 'SUMMARY', color: '#72e0ff' }
   };
-  const GROUP_ORDER = ['home', 'diabetes', 'lipids', 'bp', 'blood', 'kidney', 'liver', 'cvd', 'cancer', 'vaccines', 'eyes', 'hearing', 'other', 'summary'];
+  const GROUP_ORDER = ['home', 'diabetes', 'lipids', 'bp', 'blood', 'kidney', 'liver', 'cvd', 'cancer', 'vaccines', 'vitamins', 'bone', 'eyes', 'hearing', 'other', 'summary'];
   const SLIDE_ORDER = {
     bp: ['bp-start', 'bp-measurement', 'bp-categories', 'bp-confirm', 'bp-action'],
     blood: ['blood-start', 'blood-cbc-map', 'other-anemia', 'blood-iron', 'other-thal', 'blood-eosinophil'],
+    liver: ['liver-start', 'liver-panel', 'liver-followup', 'liver-masld', 'liver-hbv', 'liver-gallstone'],
     vaccines: ['vaccines-start', 'vaccines-core', 'vaccines-age-special', 'vaccines-catchup'],
+    vitamins: ['vitamins-start', 'vitamin-d-types', 'vitamin-d-sun-dose', 'vitamin-c'],
+    bone: ['bone-start', 'bone-scores', 'bone-followup'],
     eyes: ['eyes-start', 'other-vision', 'other-color'],
     hearing: ['hearing-start', 'other-hearing', 'hearing-noise']
   };

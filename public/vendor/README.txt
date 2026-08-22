@@ -5,6 +5,7 @@ Place the pinned offline libraries in this folder:
 - notes.js
 - zoom.js
 - three.module.min.js
+- three.core.min.js
 
 Run `npm run offline:setup` on Windows or `bash scripts/setup-offline.sh` on macOS/Linux once to download them.
 The deck first checks this folder, then falls back to the pinned CDN versions.
