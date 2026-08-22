@@ -79,7 +79,7 @@
 
       <div class="lipid-values-note"><b>ApoB:</b> ใช้แบบเลือกตามบริบท โดยเฉพาะ TG สูง เบาหวาน หรือเมื่อ LDL-C/non-HDL-C ถึงเป้าแล้วแต่ยังสงสัย residual risk ไม่ใช่การตรวจที่ทุกคนต้องสั่งซ้ำเป็นประจำ</div>
 
-      <div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips">
+      <div aria-label="แหล่งอ้างอิงของสไลด์นี้" class="source-chips" style="left:220px">
         <span>อ้างอิง</span>
         <a aria-label="เปิด AHA: What Your Cholesterol Levels Mean ในแท็บใหม่" href="https://www.heart.org/en/health-topics/cholesterol/about-cholesterol/what-your-cholesterol-levels-mean" rel="noopener noreferrer" target="_blank">AHA: Cholesterol levels</a>
         <a aria-label="เปิด 2026 Dyslipidemia Guideline-at-a-Glance ในแท็บใหม่" href="https://www.jacc.org/doi/10.1016/j.jacc.2026.02.4872" rel="noopener noreferrer" target="_blank">JACC: 2026 Guideline-at-a-Glance</a>
