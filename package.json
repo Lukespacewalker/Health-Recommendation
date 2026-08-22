@@ -1,0 +1,10 @@
+{
+  "name": "health-check-clinical-modules",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Interactive Thai health-check education deck by Suttisak Denduangchai using reveal.js and selective Three.js scenes",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}
