@@ -1,0 +1,286 @@
+/* 2026 lipid-content refinement layer
+   Loaded after the base theme so the new guidance remains readable in presentation mode. */
+
+.lipid-targets-slide .lead {
+  max-width: 1320px;
+  margin-bottom: 18px;
+}
+
+.lipid-values-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.lipid-screening-panel,
+.lipid-risk-targets {
+  padding: 20px 22px;
+  min-height: 355px;
+}
+
+.lipid-screening-panel > h3,
+.lipid-risk-targets > h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: var(--text, #eef4ff);
+  font-size: clamp(20px, 1.65vw, 27px);
+}
+
+.lipid-screening-panel > h3 small,
+.lipid-risk-targets > h3 small {
+  color: var(--muted, #9fb0ca);
+  font-size: 0.62em;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.lipid-screening-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.lipid-screening-grid article {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  gap: 4px 12px;
+  min-height: 132px;
+  padding: 15px 16px;
+  border: 1px solid color-mix(in srgb, var(--lipids, #ffd166) 28%, transparent);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--panel, #10213a) 86%, var(--lipids, #ffd166) 5%);
+}
+
+.lipid-screening-grid article > span {
+  align-self: center;
+  color: var(--text, #eef4ff);
+  font-size: clamp(16px, 1.12vw, 20px);
+  font-weight: 760;
+}
+
+.lipid-screening-grid article > b {
+  align-self: center;
+  color: var(--lipids, #ffd166);
+  font-size: clamp(24px, 2vw, 34px);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.lipid-screening-grid article > p {
+  grid-column: 1 / -1;
+  margin: 6px 0 0;
+  color: var(--muted, #a7b7d2);
+  font-size: clamp(14px, 0.92vw, 17px);
+  line-height: 1.35;
+}
+
+.lipid-risk-targets {
+  display: flex;
+  flex-direction: column;
+}
+
+.lipid-target-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px 170px;
+  gap: 14px;
+  align-items: center;
+  flex: 1;
+  min-height: 91px;
+  padding: 14px 16px;
+  border-top: 1px solid color-mix(in srgb, var(--line, rgba(255,255,255,.14)) 90%, transparent);
+}
+
+.lipid-target-row:first-of-type {
+  border-top: 0;
+}
+
+.lipid-target-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lipid-target-row > div b {
+  color: var(--text, #eef4ff);
+  font-size: clamp(16px, 1.15vw, 20px);
+}
+
+.lipid-target-row > div span {
+  color: var(--muted, #a7b7d2);
+  font-size: clamp(13px, 0.88vw, 16px);
+  line-height: 1.28;
+}
+
+.lipid-target-row > strong,
+.lipid-target-row > em {
+  display: grid;
+  place-items: center;
+  min-height: 58px;
+  padding: 8px 10px;
+  border-radius: 16px;
+  font-style: normal;
+  font-weight: 820;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.lipid-target-row > strong {
+  color: #152033;
+  background: linear-gradient(135deg, #ffd166, #ffb55f);
+  font-size: clamp(17px, 1.2vw, 21px);
+}
+
+.lipid-target-row > em {
+  color: var(--text, #eef4ff);
+  border: 1px solid color-mix(in srgb, var(--lipids, #ffd166) 40%, transparent);
+  background: color-mix(in srgb, var(--lipids, #ffd166) 11%, transparent);
+  font-size: clamp(15px, 1.05vw, 19px);
+}
+
+.lipid-target-row.level-two > strong {
+  background: linear-gradient(135deg, #ffbd66, #ff8f70);
+}
+
+.lipid-target-row.level-three > strong {
+  background: linear-gradient(135deg, #ff9f87, #ff7899);
+}
+
+.lipid-alert-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.lipid-alert-strip article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  min-height: 72px;
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, #ff8a8a 38%, transparent);
+  border-radius: 16px;
+  background: color-mix(in srgb, #ff6f84 9%, var(--panel, #10213a));
+}
+
+.lipid-alert-strip b {
+  color: #ffaf9f;
+  font-size: clamp(16px, 1.12vw, 20px);
+  white-space: nowrap;
+}
+
+.lipid-alert-strip span {
+  color: var(--text, #eef4ff);
+  font-size: clamp(13px, 0.88vw, 16px);
+  line-height: 1.28;
+}
+
+.lipid-values-note {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-left: 4px solid var(--lipids, #ffd166);
+  border-radius: 10px;
+  color: var(--muted, #a7b7d2);
+  background: color-mix(in srgb, var(--lipids, #ffd166) 7%, transparent);
+  font-size: clamp(13px, 0.88vw, 16px);
+  line-height: 1.35;
+}
+
+.lipid-values-note b {
+  color: var(--text, #eef4ff);
+}
+
+.lipid-targets-slide .source-chips {
+  margin-top: 10px;
+}
+
+.lipid-outline-compact .chapter-outline-card span {
+  font-size: clamp(17px, 1.2vw, 21px);
+}
+
+.lipid-outline-compact .chapter-outline-card small {
+  font-size: clamp(13px, 0.87vw, 15px);
+  line-height: 1.25;
+}
+
+.inline-jump {
+  justify-self: start;
+  margin-top: 8px;
+  padding: 9px 13px;
+  border: 1px solid color-mix(in srgb, var(--lipids, #ffd166) 45%, transparent);
+  border-radius: 999px;
+  color: var(--text, #eef4ff);
+  background: color-mix(in srgb, var(--lipids, #ffd166) 11%, transparent);
+  font: inherit;
+  font-weight: 720;
+  cursor: pointer;
+}
+
+.inline-jump:hover,
+.inline-jump:focus-visible {
+  color: #142034;
+  background: var(--lipids, #ffd166);
+  outline: none;
+}
+
+@media (max-width: 1100px), (max-height: 760px) {
+  .lipid-values-layout {
+    gap: 12px;
+  }
+
+  .lipid-screening-panel,
+  .lipid-risk-targets {
+    padding: 14px 16px;
+    min-height: 318px;
+  }
+
+  .lipid-screening-grid {
+    gap: 8px;
+  }
+
+  .lipid-screening-grid article {
+    min-height: 112px;
+    padding: 11px 12px;
+  }
+
+  .lipid-target-row {
+    grid-template-columns: minmax(0, 1fr) 126px 145px;
+    min-height: 78px;
+    padding: 10px 11px;
+  }
+
+  .lipid-alert-strip article {
+    min-height: 62px;
+    padding: 9px 10px;
+  }
+}
+
+@media (max-width: 820px) {
+  .lipid-values-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .lipid-screening-panel,
+  .lipid-risk-targets {
+    min-height: unset;
+  }
+
+  .lipid-alert-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .lipid-screening-grid article,
+  .lipid-risk-targets,
+  .lipid-screening-panel,
+  .lipid-alert-strip article {
+    break-inside: avoid;
+  }
+}
