@@ -69,7 +69,7 @@ These are not applied in this change because they would materially increase dens
 
 ## Thai patient-counseling recommendation audit (2026-08)
 
-The legacy Thai recommendation archive has now been reviewed separately from the educational slide deck. Detailed replacement wording is in `reference/LIPID_RECOMMENDATION_AUDIT_TH_2026-08.md`.
+The Thai patient-counseling recommendations are now consolidated into the canonical AI-ready source at `reference/คำแนะนำผลตรวจสุขภาพ_ภาษาไทย.md`.
 
 Key operational decisions:
 
