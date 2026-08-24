@@ -1,0 +1,39 @@
+name: Naturalize Thai health recommendations
+
+on:
+  push:
+    branches:
+      - naturalize-thai-recommendations-v2-2
+    paths:
+      - .github/workflows/naturalize-thai-recommendations.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: naturalize-thai-recommendations-v2-2
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Apply language migration
+        run: python scripts/naturalize_thai_recommendations.py
+
+      - name: Commit canonical-file update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --exit-code && { echo "Expected a file change but found none"; exit 1; } || true
+          git commit -m "Naturalize Thai counseling language and clarify vitamin D dosing [skip ci]"
+          git push origin HEAD:naturalize-thai-recommendations-v2-2
