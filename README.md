@@ -2,6 +2,16 @@
 
 Interactive Thai health-check education deck by Suttisak Denduangchai. It uses Reveal.js, selective Three.js scenes, and client-side calculators. The content is educational and is not a diagnosis, treatment plan, or personal medical advice.
 
+## Health recommendation references
+
+Thai health-check recommendation content is maintained separately from presentation rendering rules:
+
+- `reference/คำแนะนำผลตรวจสุขภาพ_ภาษาไทย.md` is the **canonical clinical/content source**.
+- `reference/PATIENT_OUTPUT_STYLE_TH.md` defines the **patient-facing output style**: concise Thai wording, minimal repetition of raw lab values, concrete food advice, specific exercise guidance, and practical follow-up wording.
+- `AGENTS.md` instructs AI/Codex agents to use both files together and to let the canonical source override the style guide if there is any clinical conflict.
+
+This separation keeps medical conditions and recommendation modules stable while allowing the final wording used in health-check reports to remain short and practical.
+
 ## Deploy to Cloudflare Workers
 
 This repository uses [Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/). `public/` is the only directory uploaded and served at Cloudflare's edge; no server-side Node runtime or legacy Workers Sites configuration is needed.
@@ -24,6 +34,10 @@ public/                 Files uploaded to and served by Cloudflare
   loader.js             Local/CDN/fallback library loader
   theme.css             Theme and responsive styles
   vendor/               Optional pinned libraries for offline use
+reference/              Canonical Thai recommendations and output-style guidance
+  คำแนะนำผลตรวจสุขภาพ_ภาษาไทย.md  Canonical clinical/content source
+  PATIENT_OUTPUT_STYLE_TH.md       Patient-facing rendering and wording rules
+AGENTS.md               Instructions for AI/Codex use of recommendation sources
 scripts/                Local development and offline helper scripts
   serve.mjs             Dependency-free local static server
   setup-offline.*       Download optional local copies of third-party libraries
