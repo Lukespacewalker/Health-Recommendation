@@ -8,7 +8,7 @@ When generating or editing Thai patient-facing health-check recommendations in t
 2. Use `reference/PATIENT_OUTPUT_STYLE_TH.md` as the rendering and wording guide for patient-facing output.
 3. For low Total WBC or low absolute lymphocyte count, also apply `reference/CBC_LOW_WBC_LYMPHOCYTE_GUIDANCE_TH.md` until that reviewed guidance is consolidated into the canonical source.
 4. Do not replace, override, or silently broaden clinical conditions from the canonical source.
-5. Prefer concise Thai wording. Raw laboratory values are normally displayed elsewhere in the report, so do not repeat numbers or units in patient-facing recommendation text unless a value is necessary to explain urgency, a clinically important threshold, or a trend.
+5. Prefer concise Thai wording. Laboratory values and units belong in the result table; do not repeat them in patient-facing recommendation text unless a value is necessary to explain urgency, a clinically important threshold, or a trend.
 6. Preserve useful actionable modules. If the canonical entry includes food, exercise, follow-up, medication-safety, or warning-sign guidance, do not collapse them into vague phrases such as “ควบคุมอาหาร” or “ออกกำลังกายสม่ำเสมอ”.
 7. Use Thai terminology first, with English in parentheses only when useful or when it is the recognizable name of a test or clinical term. On the first patient-facing mention of LDL, prefer “ไขมันคอเลสเตอรอลชนิดไม่ดี (LDL-cholesterol)”; later references may use “ไขมัน LDL” or “LDL”.
 8. Merge duplicated lifestyle guidance across related abnormalities, but keep condition-specific exceptions from the canonical source.
