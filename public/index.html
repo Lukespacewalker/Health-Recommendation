@@ -10,16 +10,45 @@
 <link href="theme.css" rel="stylesheet"/>
 </head>
 <body>
+<a class="skip-link" href="#clinic-search">ข้ามไปค้นหาหัวข้อ</a>
 <div aria-live="polite" id="boot-screen" role="status"><div class="boot-orbit"><i></i><i></i><i></i></div><strong>กำลังเตรียมสไลด์</strong><span>กำลังเปิดคู่มือและเครื่องมือคำนวณ</span></div>
+<main aria-label="เครื่องมือให้คำแนะนำระหว่างตรวจ" id="clinic-mode">
+<div class="clinic-shell">
+<header class="clinic-header">
+<div class="clinic-brand"><span aria-hidden="true">✦</span><div><b>Health Check</b><small>Clinic Mode · ใช้ประกอบคำอธิบายระหว่างตรวจ</small></div></div>
+<div class="clinic-header-actions"><button aria-label="สลับธีมสว่างและมืด" id="clinic-theme-toggle" type="button">โหมดมืด</button><button class="clinic-learn-button" id="open-learn-mode" type="button">เปิดเนื้อหาเต็ม 84 หน้า <span aria-hidden="true">→</span></button></div>
+</header>
+<section class="clinic-intro" aria-labelledby="clinic-title">
+<div><p class="clinic-eyebrow">ใช้ระหว่างคุยกับคนไข้</p><h1 id="clinic-title">เริ่มจากผลที่ต้องอธิบาย<br/><span>จบด้วยสิ่งที่ต้องทำต่อ</span></h1><p>ค้นหาชื่อผลตรวจ แล้วใช้สรุปสั้น ๆ เพื่อคุย 3 เรื่อง: ความหมาย · แผนวันนี้ · อาการที่ไม่ควรรอ</p></div>
+<div class="clinic-safety-note"><b>ไม่เก็บข้อมูลคนไข้</b><span>หน้านี้ไม่มีช่องชื่อ HN หรือข้อมูลระบุตัวบุคคล และไม่ส่งข้อมูลออกจากอุปกรณ์</span></div>
+</section>
+<section class="clinic-search-panel" aria-label="ค้นหาผลตรวจ">
+<label for="clinic-search">ค้นหาผลตรวจหรือหัวข้อ</label>
+<div class="clinic-search-box"><span aria-hidden="true">⌕</span><input autocomplete="off" id="clinic-search" name="clinic-search" placeholder="เช่น HbA1c, LDL, eGFR, ความดัน…" spellcheck="false" type="search"/><kbd>/</kbd></div>
+<div aria-label="ตัวกรองหมวด" class="clinic-filters" id="clinic-filters"></div>
+</section>
+<div class="clinic-workspace">
+<section aria-label="หัวข้อที่เลือกได้" class="clinic-topic-column"><div class="clinic-column-head"><b>หัวข้อแนะนำ</b><span id="clinic-result-count"></span></div><div class="clinic-topic-list" id="clinic-topic-list"></div><div class="clinic-empty" hidden id="clinic-empty"><b>ไม่พบหัวข้อที่ค้นหา</b><span>ลองใช้ชื่อย่อ เช่น HbA1c, LDL, CBC หรือเปิดเนื้อหาเต็ม</span></div></section>
+<article class="clinic-guidance" id="clinic-guidance"><div aria-live="polite" class="sr-only" id="clinic-announcer"></div>
+<div class="clinic-guidance-head"><div><span id="clinic-guidance-category"></span><h2 id="clinic-guidance-title"></h2><p id="clinic-guidance-summary"></p></div><span class="clinic-topic-code" id="clinic-guidance-code"></span></div>
+<div class="clinic-guidance-grid"><section><h3><span>1</span> ความหมายที่ควรบอก</h3><p id="clinic-guidance-meaning"></p></section><section><h3><span>2</span> สิ่งที่ควรคุยวันนี้</h3><ul id="clinic-guidance-actions"></ul></section></div>
+<section class="clinic-urgent" id="clinic-guidance-urgent"><span aria-hidden="true">!</span><div><b>อาการที่ไม่ควรรอ</b><p id="clinic-guidance-urgent-text"></p></div></section>
+<section class="clinic-teachback"><b>เช็กความเข้าใจ</b><p id="clinic-guidance-teachback"></p></section>
+<footer class="clinic-guidance-actions"><button id="clinic-print" type="button">พิมพ์สรุปหน้านี้</button><button class="clinic-detail-button" id="clinic-open-detail" type="button">เปิดคำอธิบายแบบละเอียด <span aria-hidden="true">→</span></button></footer>
+</article>
+</div>
+<footer class="clinic-footer"><span>คำแนะนำทั่วไปควรปรับให้เหมาะกับอายุ โรคร่วม ยา ผลเดิม และบริบทของแต่ละคน</span><b>Suttisak Denduangchai</b></footer>
+</div>
+</main>
 <header aria-label="ตัวควบคุมสไลด์" class="deck-chrome">
 <button aria-expanded="false" id="menu-toggle" title="เปิดสารบัญ (M)" type="button"><span>☰</span> สารบัญ</button>
 <nav aria-label="หมวดหลัก" id="chapter-tabs"><button data-target-group="home">หน้าแรก</button><button data-target-group="diabetes">01 เบาหวาน</button><button data-target-group="lipids">02 ไขมัน</button><button data-target-group="bp">03 ความดัน</button><button data-target-group="blood">04 เลือด</button><button data-target-group="kidney">05 ไต</button><button data-target-group="liver">06 ตับ</button><button data-target-group="cvd">07 หัวใจ</button><button data-target-group="cancer">08 มะเร็ง</button><button data-target-group="vaccines">09 วัคซีน</button><button data-target-group="vitamins">10 วิตามิน</button><button data-target-group="bone">11 มวลกระดูก</button><button data-target-group="eyes">12 ตา</button><button data-target-group="hearing">13 หู</button><button data-target-group="other">14 อื่น ๆ</button></nav>
-<div class="chrome-right"><div id="author-chip">Suttisak Denduangchai</div><div id="section-chip">หน้าแรก</div><button aria-label="สลับธีมสว่างและมืด" id="theme-toggle" title="สลับ Light / Dark theme" type="button">Light</button><button id="effects-toggle" title="เปิด/ปิดเอฟเฟกต์ (E)" type="button">เอฟเฟกต์</button></div>
+<div class="chrome-right"><button id="open-clinic-mode" type="button">โหมดตรวจ</button><div id="section-chip">หน้าแรก</div><button aria-label="สลับธีมสว่างและมืด" id="theme-toggle" title="สลับ Light / Dark theme" type="button">Light</button><button id="effects-toggle" title="เปิด/ปิดเอฟเฟกต์ (E)" type="button">เอฟเฟกต์</button></div>
 </header>
 <nav aria-label="หัวข้อย่อยในหมวดปัจจุบัน" hidden id="topic-subnav"></nav>
 <div aria-hidden="true" id="chapter-progress"><i></i></div>
 <div id="nav-backdrop"></div>
-<aside aria-hidden="true" aria-label="สารบัญสไลด์" id="nav-drawer">
+<aside aria-hidden="true" aria-label="สารบัญสไลด์" id="nav-drawer" inert>
 <div class="drawer-head"><div><strong>อ่านผลตรวจสุขภาพ</strong><span>คู่มือแบบแบ่งหมวด</span></div><button aria-label="ปิดสารบัญ" id="menu-close" type="button">×</button></div>
 <div id="drawer-current"></div>
 <div id="drawer-list"></div>
@@ -378,11 +407,13 @@
 <p class="lead">ใส่ค่าจากรายงานเพื่อดูความสัมพันธ์ของตัวเลข อัตราส่วนเหล่านี้ช่วยอธิบายภาพรวม แต่แพทย์ยังต้องใช้ LDL-C, non-HDL-C, ApoB และปัจจัยเสี่ยงอื่นในการวางแผนรักษา</p>
 <div class="ratio-calculator" data-interactive="lipid-ratios">
 <div class="ratio-inputs panel">
-<label><span>Total cholesterol</span><div><input id="ratio-tc" max="600" min="50" step="1" type="number" value="210"/><em>mg/dL</em></div></label>
-<label><span>LDL-C</span><div><input id="ratio-ldl" max="500" min="10" step="1" type="number" value="135"/><em>mg/dL</em></div></label>
-<label><span>HDL-C</span><div><input id="ratio-hdl" max="150" min="5" step="1" type="number" value="45"/><em>mg/dL</em></div></label>
-<label><span>Triglycerides</span><div><input id="ratio-tg" max="3000" min="10" step="1" type="number" value="150"/><em>mg/dL</em></div></label>
-<button id="ratio-reset" type="button">คืนค่าตัวอย่าง</button>
+<div class="calc-example-notice" id="ratio-status">กำลังแสดงข้อมูลตัวอย่าง · แก้ค่าแล้วกดคำนวณ</div>
+<label><span>Total cholesterol</span><div><input autocomplete="off" id="ratio-tc" inputmode="decimal" max="600" min="50" name="total-cholesterol" step="1" type="number" value="210"/><em>mg/dL</em></div></label>
+<label><span>LDL-C</span><div><input autocomplete="off" id="ratio-ldl" inputmode="decimal" max="500" min="10" name="ldl-c" step="1" type="number" value="135"/><em>mg/dL</em></div></label>
+<label><span>HDL-C</span><div><input autocomplete="off" id="ratio-hdl" inputmode="decimal" max="150" min="5" name="hdl-c" step="1" type="number" value="45"/><em>mg/dL</em></div></label>
+<label><span>Triglycerides</span><div><input autocomplete="off" id="ratio-tg" inputmode="decimal" max="3000" min="10" name="triglycerides" step="1" type="number" value="150"/><em>mg/dL</em></div></label>
+<p aria-live="polite" class="calc-error" id="ratio-error"></p>
+<div class="calc-button-row"><button class="calc-secondary" id="ratio-reset" type="button">คืนค่าตัวอย่าง</button><button id="ratio-calculate" type="button">คำนวณผล</button></div>
 </div>
 <div aria-live="polite" class="ratio-results">
 <article><span>TC / HDL-C</span><b id="ratio-tc-hdl">4.67</b><small>ใช้ใน risk models บางระบบ • ไม่มี universal treatment target</small></article>
@@ -453,11 +484,13 @@
 <p class="lead">ลองเปลี่ยนอายุ เพศ ครีอะตินีน และหน่วยเพื่อดูผลลัพธ์ ค่านี้เป็นค่าประมาณ จึงต้องอ่านร่วมกับ uACR ผลเดิม และข้อมูลสุขภาพอื่น</p>
 <div class="egfr-calculator" data-interactive="egfr">
 <div class="egfr-input-panel panel">
-<label><span>อายุ</span><div><input id="egfr-age" max="110" min="18" step="1" type="number" value="50"/><em>ปี</em></div></label>
-<label><span>เพศที่ใช้ในสมการ</span><select id="egfr-sex"><option value="male">ชาย</option><option value="female">หญิง</option></select></label>
-<label><span>Serum creatinine</span><div><input id="egfr-creatinine" max="20" min="0.1" step="0.01" type="number" value="1.00"/><select id="egfr-unit"><option value="mgdl">mg/dL</option><option value="umol">µmol/L</option></select></div></label>
-<label><span>uACR</span><div><input id="egfr-uacr" max="5000" min="0" step="1" type="number" value="15"/><em>mg/g</em></div></label>
-<button id="egfr-reset" type="button">คืนค่าตัวอย่าง</button>
+<div class="calc-example-notice" id="egfr-status">กำลังแสดงข้อมูลตัวอย่าง · แก้ค่าแล้วกดคำนวณ</div>
+<label><span>อายุ</span><div><input autocomplete="off" id="egfr-age" inputmode="numeric" max="110" min="18" name="age" step="1" type="number" value="50"/><em>ปี</em></div></label>
+<label><span>เพศที่ใช้ในสมการ</span><select autocomplete="off" id="egfr-sex" name="equation-sex"><option value="male">ชาย</option><option value="female">หญิง</option></select></label>
+<label><span>Serum creatinine</span><div><input autocomplete="off" id="egfr-creatinine" inputmode="decimal" max="20" min="0.1" name="serum-creatinine" step="0.01" type="number" value="1.00"/><select aria-label="หน่วย Serum creatinine" autocomplete="off" id="egfr-unit" name="creatinine-unit"><option value="mgdl">mg/dL</option><option value="umol">µmol/L</option></select></div></label>
+<label><span>uACR</span><div><input autocomplete="off" id="egfr-uacr" inputmode="decimal" max="5000" min="0" name="uacr" step="1" type="number" value="15"/><em>mg/g</em></div></label>
+<p aria-live="polite" class="calc-error" id="egfr-error"></p>
+<div class="calc-button-row"><button class="calc-secondary" id="egfr-reset" type="button">คืนค่าตัวอย่าง</button><button id="egfr-calculate" type="button">คำนวณผล</button></div>
 <p class="calc-limitation">สำหรับผู้ใหญ่ ≥18 ปี • ไม่ใช้ใน AKI หรือเพื่อปรับยาเอง • pregnancy, extreme muscle mass และยาบางชนิดทำให้ผลคลาดเคลื่อนได้</p>
 </div>
 <div class="egfr-output-panel">

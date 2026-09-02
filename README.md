@@ -56,6 +56,10 @@ Then use `?offline=1` to prevent CDN requests. Use `?fallback=1` to bypass Revea
 
 ## Navigation and calculators
 
+The default screen is **Clinic Mode**, a searchable consultation view with short patient-facing explanations, next steps, urgent warning signs, and a teach-back prompt. It does not request or store patient identifiers. Use `?clinic=kidney` (or another clinic topic key) to share a specific Clinic Mode topic.
+
+Choose **เปิดเนื้อหาเต็ม 84 หน้า** to enter Learn Mode. Direct slide URLs such as `#/kidney-calculator` now open the requested slide without being reset to the cover. Use **โหมดตรวจ** in the slide toolbar to return to Clinic Mode.
+
 - `Space`, arrow keys: navigate
 - `M`: table of contents
 - `O` or `Esc`: overview
@@ -66,4 +70,4 @@ Then use `?offline=1` to prevent CDN requests. Use `?fallback=1` to bypass Revea
 
 The top navigation has two levels: chapter tabs on the first row and a contextual, horizontally scrollable topic row for jumping within the active chapter.
 
-The eGFR calculator applies the adult CKD-EPI creatinine equation (2021), while lipid ratios are provided for education only and do not replace clinical assessment or treatment targets.
+The eGFR calculator applies the adult CKD-EPI creatinine equation (2021), while lipid ratios are provided for education only and do not replace clinical assessment or treatment targets. Both calculators require explicit calculation and reject missing or out-of-range inputs instead of silently substituting values.

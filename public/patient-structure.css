@@ -296,7 +296,7 @@
   .module-map-fifteen .module-card { min-height: 112px; padding: 10px 11px 9px; }
   .module-map-fifteen .module-card h3 { font-size: 15px; }
   .module-map-fifteen .module-card p { font-size: 12px; }
-  .module-map-fifteen .module-card > span { font-size: 11px; }
+  .module-map-fifteen .module-card > span { font-size: 12px; }
   .bmi-formula,
   .bmi-bands,
   .waist-how,

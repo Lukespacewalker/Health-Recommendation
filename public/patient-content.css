@@ -76,7 +76,7 @@
 
 .patient-inline-note.warning b,
 .marker-map-warning b {
-  color: #ffb18f;
+  color: var(--orange);
 }
 
 .thai-bp-grid {
